@@ -1,0 +1,14 @@
+{
+  "deployment": {
+    "name": "railytics_realtime_tracker_function",
+    "stack": "node20",
+    "type": "advancedio",
+    "env_variables": {
+      "NODE_ENV": "production",
+      "MOCK_MODE": "true"
+    }
+  },
+  "execution": {
+    "main": "index.js"
+  }
+}

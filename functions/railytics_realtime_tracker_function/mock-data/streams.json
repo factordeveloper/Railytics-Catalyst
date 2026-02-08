@@ -1,0 +1,98 @@
+[
+  {
+    "id": "stream-001-folkston",
+    "name": "Folkston, GA - CSX Diamond",
+    "url": "https://www.youtube.com/watch?v=v0V0OR0h1L8",
+    "description": "Folkston Funnel - CSX mainline crossing, one of the busiest rail intersections in the Southeast US.",
+    "active": true,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "Folkston Funnel LIVE - CSX Train Cam",
+      "uploader": "Virtual Railfan",
+      "view_count": 2845120,
+      "is_live": true
+    },
+    "created_at": "2025-12-01T08:00:00Z",
+    "updated_at": "2026-02-07T12:00:00Z"
+  },
+  {
+    "id": "stream-002-laplata",
+    "name": "La Plata, MO - BNSF Transcon",
+    "url": "https://www.youtube.com/watch?v=sKmFqDE7AJA",
+    "description": "BNSF Transcon mainline at La Plata, Missouri. Heavy intermodal and manifest traffic.",
+    "active": true,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "La Plata MO LIVE - BNSF Transcon",
+      "uploader": "Virtual Railfan",
+      "view_count": 1923450,
+      "is_live": true
+    },
+    "created_at": "2025-12-05T10:00:00Z",
+    "updated_at": "2026-02-07T12:00:00Z"
+  },
+  {
+    "id": "stream-003-cajon",
+    "name": "Cajon Pass, CA - BNSF/UP",
+    "url": "https://www.youtube.com/watch?v=7KMjYCfzSkg",
+    "description": "Cajon Pass summit. BNSF and UP trains climbing the steep grade into the San Bernardino Mountains.",
+    "active": true,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "Cajon Pass LIVE - Mountain Grade Railcam",
+      "uploader": "Virtual Railfan",
+      "view_count": 3102890,
+      "is_live": true
+    },
+    "created_at": "2025-12-10T14:00:00Z",
+    "updated_at": "2026-02-07T12:00:00Z"
+  },
+  {
+    "id": "stream-004-rochelle",
+    "name": "Rochelle, IL - UP/BNSF Diamond",
+    "url": "https://www.youtube.com/watch?v=iieFJU0Mxpk",
+    "description": "Rochelle Railroad Park. UP and BNSF diamond crossing with frequent train meets.",
+    "active": true,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "Rochelle IL LIVE - Railroad Park Cam",
+      "uploader": "Virtual Railfan",
+      "view_count": 1567230,
+      "is_live": true
+    },
+    "created_at": "2025-12-15T09:00:00Z",
+    "updated_at": "2026-02-07T12:00:00Z"
+  },
+  {
+    "id": "stream-005-tehachapi",
+    "name": "Tehachapi Loop, CA - UP/BNSF",
+    "url": "https://www.youtube.com/watch?v=nSBxQsFhGJE",
+    "description": "The famous Tehachapi Loop where trains spiral over themselves on the mountain grade.",
+    "active": true,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "Tehachapi Loop LIVE - Mountain Railroad",
+      "uploader": "Virtual Railfan",
+      "view_count": 4231560,
+      "is_live": true
+    },
+    "created_at": "2025-12-20T11:00:00Z",
+    "updated_at": "2026-02-07T12:00:00Z"
+  },
+  {
+    "id": "stream-006-dalton",
+    "name": "Dalton, GA - CSX/NS Junction",
+    "url": "https://www.youtube.com/watch?v=MUU-GdAIkRE",
+    "description": "Dalton, GA rail junction. CSX and Norfolk Southern trains passing through the Carpet Capital.",
+    "active": true,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "Dalton GA LIVE - CSX/NS Junction Cam",
+      "uploader": "Virtual Railfan",
+      "view_count": 987340,
+      "is_live": true
+    },
+    "created_at": "2026-01-02T08:30:00Z",
+    "updated_at": "2026-02-07T12:00:00Z"
+  }
+]

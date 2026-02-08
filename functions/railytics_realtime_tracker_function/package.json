@@ -1,0 +1,10 @@
+{
+  "name": "railytics_realtime_tracker_function",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "felipeherrerapinzon@gmail.com",
+  "dependencies": {
+    "zcatalyst-sdk-node": "latest",
+    "express": "^4.21.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "35994000000012082",
+      "name": "Railytics-realtime-tracker",
+      "domain": {
+        "id": "10118415677",
+        "name": "railytics-realtime-tracker-913941087.development"
+      },
+      "timezone": "America/Bogota",
+      "env": [
+        {
+          "idx": 1,
+          "id": "913941087",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

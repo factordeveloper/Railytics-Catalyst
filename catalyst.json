@@ -1,0 +1,18 @@
+{
+  "functions": {
+    "targets": [
+      "railytics_realtime_tracker_function"
+    ],
+    "ignore": [
+      "node_modules"
+    ],
+    "source": "functions"
+  },
+  "client": {
+    "source": "client",
+    "build": {
+      "command": "echo static",
+      "output_dir": "dist"
+    }
+  }
+}
