@@ -62,11 +62,14 @@ button{cursor:pointer;font-family:inherit;border:none;outline:none}
 .stream-card .meta{font-size:.8rem;color:#aaa;margin-bottom:8px}
 
 /* ═══════════════ CHIPS ═══════════════ */
-.chip{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:16px;font-size:.75rem;font-weight:500}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:16px;font-size:.75rem;font-weight:500;transition:all .3s ease}
+.chip:hover{transform:scale(1.05)}
 .chip.success{background:rgba(76,175,80,.2);color:#4CAF50;border:1px solid rgba(76,175,80,.4)}
 .chip.error{background:rgba(244,67,54,.2);color:#f44336;border:1px solid rgba(244,67,54,.4)}
-.chip.warning{background:rgba(255,152,0,.2);color:#ff9800;border:1px solid rgba(255,152,0,.4)}
-.chip.live{background:#f44336;color:#fff}
+.chip.warning{background:rgba(255,152,0,.2);color:#ff9800;border:1px solid rgba(255,152,0,.4);animation:warningPulse 2s infinite}
+@keyframes warningPulse{0%,100%{box-shadow:0 0 0 rgba(255,152,0,.4)}50%{box-shadow:0 0 10px rgba(255,152,0,.6)}}
+.chip.live{background:#f44336;color:#fff;animation:livePulse 1.5s infinite}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 rgba(244,67,54,.4)}50%{box-shadow:0 0 15px rgba(244,67,54,.8)}}
 .chip.primary{background:rgba(255,193,7,.2);color:#FFC107;border:1px solid rgba(255,193,7,.4)}
 .chip.secondary{background:rgba(255,235,59,.15);color:#FFEB3B;border:1px solid rgba(255,235,59,.3)}
 
@@ -103,18 +106,19 @@ table tr:hover{background:rgba(255,193,7,.05)}
 
 /* ═══════════════ STAT CARDS ═══════════════ */
 .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:16px;margin-bottom:24px}
-.stat-card{background:linear-gradient(135deg,#2a2a2a,#1a1a1a);border:2px solid #FFB000;border-radius:16px;padding:20px;position:relative;overflow:hidden;height:180px;display:flex;flex-direction:column;justify-content:space-between}
+.stat-card{background:linear-gradient(135deg,#2a2a2a,#1a1a1a);border:2px solid #FFB000;border-radius:16px;padding:20px;position:relative;overflow:hidden;height:180px;display:flex;flex-direction:column;justify-content:space-between;transition:all .3s ease}
+.stat-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(255,176,0,.3)}
 .stat-card .label{color:#ccc;font-size:.8rem;margin-bottom:8px}
-.stat-card .value{font-size:2.5rem;font-weight:700;color:#fff}
+.stat-card .value{font-size:2.5rem;font-weight:700;color:#fff;transition:all .3s ease}
 .stat-card .sub{font-size:.8rem;color:#22c55e;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* Live Detection Card (wide) */
 .stat-card.wide{grid-column:span 3}
 .stat-card .live-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.stat-card .live-dot{width:12px;height:12px;background:#ef4444;border-radius:50%;animation:pulse 2s infinite}
+.stat-card .live-dot{width:12px;height:12px;background:#ef4444;border-radius:50%;box-shadow:0 0 10px #ef4444}
 .stat-card .live-status{display:flex;align-items:center;gap:6px;color:#22c55e;font-size:.8rem;font-weight:600}
-.stat-card .live-status .dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 1s infinite}
-.detection-row{display:flex;align-items:center;min-height:50px;margin-bottom:6px}
+.stat-card .live-status .dot{width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e}
+.detection-row{display:flex;align-items:center;min-height:50px;margin-bottom:6px;transition:all .3s ease}
 .detection-row .bar{width:4px;height:40px;background:#FFB000;border-radius:2px;margin-right:12px;flex-shrink:0}
 .detection-row .det-time{color:#FFB000;font-size:.75rem;min-width:60px;flex-shrink:0}
 .detection-row .det-icon{background:#FFB000;border-radius:4px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;margin:0 8px;flex-shrink:0}
@@ -125,7 +129,8 @@ table tr:hover{background:rgba(255,193,7,.05)}
 .detection-row .det-sub{color:#ccc;font-size:.7rem;display:block}
 
 /* ═══════════════ CHARTS ═══════════════ */
-.chart-container{background:#000;border-radius:8px;padding:16px;position:relative}
+.chart-container{background:#000;border-radius:8px;padding:16px;position:relative;border:1px solid rgba(255,193,7,.2);transition:box-shadow .3s ease}
+.chart-container:hover{box-shadow:0 0 20px rgba(255,193,7,.3)}
 
 /* ═══════════════ CALENDAR ═══════════════ */
 .calendar{background:#1a1a1a;border:1px solid rgba(255,173,1,.2);border-radius:12px;padding:24px;max-width:520px;box-shadow:0 8px 32px rgba(0,0,0,.3)}
@@ -154,7 +159,7 @@ table tr:hover{background:rgba(255,193,7,.05)}
 .session-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#22c55e,#16a34a)}
 .session-card h4{font-weight:700;margin-bottom:8px;color:#1a1a1a}
 .session-card .progress-bar{height:8px;background:rgba(26,26,26,.2);border-radius:4px;overflow:hidden;margin-top:8px}
-.session-card .progress-bar .fill{height:100%;border-radius:4px;transition:.5s}
+.session-card .progress-bar .fill{height:100%;border-radius:4px;transition:width .8s ease-out,background .5s ease}
 
 /* ═══════════════ FRAME GALLERY ═══════════════ */
 .frame-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
@@ -180,8 +185,9 @@ table tr:hover{background:rgba(255,193,7,.05)}
 /* ═══════════════ RECENT DETECTIONS TABLE ═══════════════ */
 .det-table-header{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:16px;padding-bottom:12px;margin-bottom:16px;border-bottom:2px solid #FFB000;text-align:center}
 .det-table-header span{color:#FFB000;font-weight:700;font-size:1rem}
-.det-table-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:16px;align-items:center;padding:16px;border-left:6px solid #FFB000;background:rgba(255,176,0,.03);border-radius:12px;text-align:center;transition:.3s;margin-bottom:8px}
+.det-table-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:16px;align-items:center;padding:16px;border-left:6px solid #FFB000;background:rgba(255,176,0,.03);border-radius:12px;text-align:center;transition:.3s;margin-bottom:8px;animation:fadeInUp .6s ease-out}
 .det-table-row:hover{background:rgba(255,176,0,.08);transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,176,0,.2)}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* ═══════════════ RAILWAY EVENTS PAPER ═══════════════ */
 .events-paper{position:relative;overflow:hidden;border-radius:8px;border:1px solid #FFC107;background:linear-gradient(180deg,rgba(10,10,10,.98),rgba(10,10,10,.92))}
@@ -192,16 +198,79 @@ table tr:hover{background:rgba(255,193,7,.05)}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.1)}}
 .pulse{animation:pulse 2s infinite}
+@keyframes numberPulse{0%{transform:scale(1)}50%{transform:scale(1.15);color:#FFD54F}100%{transform:scale(1)}}
 
 /* ═══════════════ SELECT ═══════════════ */
 .select{background:#1e1e1e;color:#fff;border:1px solid rgba(255,193,7,.3);padding:8px 12px;border-radius:6px;font-size:.85rem;font-family:inherit}
 .select:focus{border-color:#FFC107;outline:none}
+
+/* ═══════════════ NEW WIDGETS STYLES ═══════════════ */
+/* Animated value changes */
+@keyframes valueChange{0%{transform:scale(1)}50%{transform:scale(1.1);color:#FFD54F}100%{transform:scale(1)}}
+.value-animate{animation:valueChange .5s ease}
+
+/* Top Streams Ranking */
+.top-stream-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;background:rgba(255,255,255,.03);margin-bottom:8px;transition:all .3s ease}
+.top-stream-item:hover{background:rgba(255,193,7,.1);transform:translateX(4px)}
+.top-stream-rank{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FFB000,#FFC733);color:#000;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.top-stream-rank.gold{background:linear-gradient(135deg,#FFD700,#FFA500);box-shadow:0 0 20px rgba(255,215,0,.5)}
+.top-stream-rank.silver{background:linear-gradient(135deg,#C0C0C0,#808080)}
+.top-stream-rank.bronze{background:linear-gradient(135deg,#CD7F32,#8B4513)}
+.top-stream-info{flex:1;min-width:0}
+.top-stream-name{font-size:.85rem;font-weight:600;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top-stream-count{font-size:.75rem;color:#FFC107;font-weight:600}
+@keyframes randomPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.02)}}
+
+/* System Health Widget */
+.health-metric{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.health-metric:last-child{border-bottom:none}
+.health-label{font-size:.85rem;color:#ccc;display:flex;align-items:center;gap:6px}
+.health-value{font-size:.9rem;font-weight:700;color:#22c55e}
+.health-bar{height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin-top:4px;overflow:hidden}
+.health-bar-fill{height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);border-radius:3px;transition:width .5s ease}
+
+/* Heatmap */
+.heatmap-grid{display:grid;grid-template-columns:repeat(24,1fr);gap:4px;margin-top:12px}
+.heatmap-cell{aspect-ratio:1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;transition:all .3s ease;cursor:pointer;border:1px solid rgba(255,255,255,.1)}
+.heatmap-cell:hover{transform:scale(1.15);z-index:10;box-shadow:0 4px 12px rgba(255,193,7,.4)}
+.heatmap-labels{display:grid;grid-template-columns:repeat(24,1fr);gap:4px;margin-bottom:4px;text-align:center}
+.heatmap-labels span{font-size:.7rem;color:#aaa}
+
+/* Live Alerts Ticker */
+.alert-item{display:flex;align-items:center;gap:12px;padding:12px;border-radius:8px;margin-bottom:8px;animation:slideInUp .6s ease-out;border-left:4px solid;background:rgba(255,255,255,.03);transition:all .3s ease}
+.alert-item:hover{transform:translateX(4px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.alert-item.warning{border-left-color:#ff9800;background:rgba(255,152,0,.05)}
+.alert-item.success{border-left-color:#22c55e;background:rgba(34,197,94,.05)}
+.alert-item.info{border-left-color:#2196F3;background:rgba(33,150,243,.05)}
+@keyframes slideInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.alert-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:pulse 2s infinite}
+.alert-icon.warning{background:rgba(255,152,0,.2)}
+.alert-icon.success{background:rgba(34,197,94,.2)}
+.alert-icon.info{background:rgba(33,150,243,.2)}
+.alert-content{flex:1;min-width:0}
+.alert-title{font-size:.85rem;font-weight:600;color:#fff;margin-bottom:2px}
+.alert-time{font-size:.7rem;color:#aaa}
+.alerts-scroll{max-height:120px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#FFB000 rgba(255,255,255,.05)}
+
+/* Timeline Widget */
+.timeline-container{position:relative;padding-left:40px}
+.timeline-line{position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#FFB000,rgba(255,176,0,.2))}
+.timeline-item{position:relative;margin-bottom:20px;animation:fadeInUp .6s ease-out}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{position:absolute;left:-28px;top:8px;width:16px;height:16px;border-radius:50%;background:#FFB000;border:3px solid #000;box-shadow:0 0 0 3px rgba(255,176,0,.3);animation:pulse 2s infinite}
+.timeline-content{background:rgba(255,255,255,.03);border-radius:8px;padding:12px;border:1px solid rgba(255,193,7,.2);transition:.3s}
+.timeline-content:hover{background:rgba(255,193,7,.08);border-color:rgba(255,193,7,.4);transform:translateX(4px)}
+.timeline-time{font-size:.75rem;color:#FFB000;font-weight:600;margin-bottom:4px}
+.timeline-title{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:4px}
+.timeline-desc{font-size:.8rem;color:#aaa}
 
 /* ═══════════════ RESPONSIVE ═══════════════ */
 @media(max-width:1200px){
   .stat-grid{grid-template-columns:1fr 1fr 1fr}
   .stat-card.wide{grid-column:span 3}
   .det-table-header,.det-table-row{grid-template-columns:1fr 1fr 1fr 1fr 1fr;font-size:.8rem}
+  .heatmap-grid{grid-template-columns:repeat(12,1fr)}
+  .heatmap-labels{grid-template-columns:repeat(12,1fr)}
 }
 @media(max-width:768px){
   .stream-grid{grid-template-columns:1fr}
@@ -209,6 +278,8 @@ table tr:hover{background:rgba(255,193,7,.05)}
   .stat-card.wide{grid-column:span 2}
   .frame-grid{grid-template-columns:1fr 1fr}
   .det-table-header,.det-table-row{grid-template-columns:1fr 1fr 1fr;font-size:.75rem}
+  .heatmap-grid{grid-template-columns:repeat(6,1fr)}
+  .heatmap-labels{grid-template-columns:repeat(6,1fr)}
 }
 </style>
 </head>
@@ -265,6 +336,41 @@ table tr:hover{background:rgba(255,193,7,.05)}
       <h2 style="font-weight:700;color:#FFC107;margin-bottom:24px;padding:0 8px">📊 Real-Time Stream Analytics Dashboard</h2>
       <!-- Stat Cards Row -->
       <div class="stat-grid" id="statCards"></div>
+      
+      <!-- NEW: Real-Time Widgets Grid -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:24px">
+        <!-- Processing Speed Gauge -->
+        <div class="card">
+          <div class="card-content">
+            <h3 style="margin-bottom:12px;display:flex;align-items:center;gap:8px"><span class="material-icons">speed</span>Processing Speed</h3>
+            <div style="position:relative;height:250px">
+              <div class="chart-container" style="height:250px"><canvas id="speedGauge"></canvas></div>
+              <div style="position:absolute;top:55%;left:50%;transform:translate(-50%,-50%);text-align:center">
+                <div id="speedValue" style="font-size:2.5rem;font-weight:700;color:#22c55e">0</div>
+                <div style="font-size:.85rem;color:#aaa;margin-top:-4px">FPS</div>
+              </div>
+            </div>
+            <p style="text-align:center;color:#aaa;font-size:.85rem;margin-top:8px">Frames per second</p>
+          </div>
+        </div>
+        
+        <!-- TOP 5 Streams Ranking -->
+        <div class="card">
+          <div class="card-content">
+            <h3 style="margin-bottom:12px;display:flex;align-items:center;gap:8px"><span class="material-icons">emoji_events</span>TOP 5 Active Streams</h3>
+            <div id="topStreamsWidget" style="min-height:250px"></div>
+          </div>
+        </div>
+        
+        <!-- System Performance -->
+        <div class="card">
+          <div class="card-content">
+            <h3 style="margin-bottom:12px;display:flex;align-items:center;gap:8px"><span class="material-icons">assessment</span>System Health</h3>
+            <div id="systemHealthWidget" style="min-height:250px"></div>
+          </div>
+        </div>
+      </div>
+
       <!-- Line Chart -->
       <div class="card" style="margin-bottom:24px">
         <div class="card-content">
@@ -272,17 +378,68 @@ table tr:hover{background:rgba(255,193,7,.05)}
           <div class="chart-container" style="height:400px"><canvas id="perfChart"></canvas></div>
         </div>
       </div>
-      <!-- Pie Chart -->
-      <div class="card" style="margin-bottom:24px;padding:0 16px">
+      
+      <!-- NEW: Stacked Area Chart -->
+      <div class="card" style="margin-bottom:24px">
         <div class="card-content">
-          <h3 style="margin-bottom:12px">🎯 Detection Rate by Stream</h3>
-          <div style="display:flex;justify-content:center;margin-bottom:16px">
-            <div class="chart-container" style="max-width:600px;width:100%;height:450px"><canvas id="pieChart"></canvas></div>
+          <h3 style="margin-bottom:12px">📊 Cumulative Detection Trends</h3>
+          <div class="chart-container" style="height:350px"><canvas id="areaChart"></canvas></div>
+        </div>
+      </div>
+
+      <!-- NEW: Comparative Bar Chart & Pie Chart Side by Side -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+        <!-- Bar Chart -->
+        <div class="card">
+          <div class="card-content">
+            <h3 style="margin-bottom:12px">📊 Stream Comparison</h3>
+            <div class="chart-container" style="height:400px"><canvas id="barChart"></canvas></div>
           </div>
-          <h4 style="text-align:center;font-weight:700;margin-bottom:16px">📋 Stream Legend</h4>
+        </div>
+        
+        <!-- Pie Chart -->
+        <div class="card">
+          <div class="card-content">
+            <h3 style="margin-bottom:12px">🎯 Detection Rate by Stream</h3>
+            <div style="display:flex;justify-content:center;margin-bottom:16px">
+              <div class="chart-container" style="width:100%;height:400px"><canvas id="pieChart"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pie Legend -->
+      <div class="card" style="margin-bottom:24px">
+        <div class="card-content">
+          <h4 style="text-align:center;font-weight:700;margin-bottom:16px">📋 Active Streams Legend</h4>
           <div id="pieLegend" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px"></div>
         </div>
       </div>
+
+      <!-- NEW: Activity Heatmap -->
+      <div class="card" style="margin-bottom:24px">
+        <div class="card-content">
+          <h3 style="margin-bottom:12px">🔥 Hourly Activity Heatmap (Today)</h3>
+          <div id="heatmapWidget"></div>
+        </div>
+      </div>
+
+      <!-- NEW: Live Alerts Ticker -->
+      <div class="card" style="margin-bottom:24px;background:linear-gradient(135deg,rgba(255,193,7,.05),rgba(255,193,7,.02))">
+        <div class="card-content">
+          <h3 style="margin-bottom:12px;display:flex;align-items:center;gap:8px"><span class="material-icons" style="color:#ef4444">notifications_active</span>Live Alerts & Events</h3>
+          <div id="liveAlertsWidget" style="height:120px;overflow:hidden;position:relative"></div>
+        </div>
+      </div>
+
+      <!-- NEW: Vertical Timeline -->
+      <div class="card" style="margin-bottom:24px">
+        <div class="card-content">
+          <h3 style="margin-bottom:16px;display:flex;align-items:center;gap:8px"><span class="material-icons">timeline</span>Recent Detection Timeline</h3>
+          <div id="timelineWidget"></div>
+        </div>
+      </div>
+
       <!-- Active Sessions Detail -->
       <div id="sessionCards"></div>
       <!-- Recent Detections Table -->
@@ -371,11 +528,16 @@ let calMonth = new Date().getMonth();
 let calYear = new Date().getFullYear();
 let perfChart = null;
 let pieChart = null;
+let barChart = null;
+let areaChart = null;
+let speedGauge = null;
 let chartData = [];
 let pollingInterval = null;
 let calEventsPage = 0;
 let calEventsPerPage = 10;
 let calLocationFilter = 'ALL';
+let hourlyActivity = Array(24).fill(0);
+let liveAlerts = [];
 
 /* ─── SIMULATED DATA ─────────────────────── */
 const SIM_STREAMS = [
@@ -489,13 +651,39 @@ initSimData();
 /* ─── Simulate incremental updates ────── */
 function tickSimulation() {
   simSessions.forEach(s => {
-    const inc = Math.floor(Math.random() * 3) + 1;
+    // Incrementos más variables y frecuentes
+    const inc = Math.floor(Math.random() * 8) + 2; // 2-9 frames por tick
     s.frames_processed += inc;
-    const newDet = Math.random() < 0.15 ? 1 : 0;
+    // Mayor probabilidad de detección y cantidad variable
+    const detectionChance = Math.random();
+    let newDet = 0;
+    if (detectionChance < 0.25) {
+      newDet = Math.floor(Math.random() * 3) + 1; // 1-3 detecciones
+      
+      // Generate new event if detection occurs
+      if (newDet > 0 && Math.random() > 0.7) {
+        const marks = ['UP','BNSF','CSX','NS','CN','CP','KCS'];
+        const mark = marks[Math.floor(Math.random() * marks.length)] + ' ' + Math.floor(Math.random() * 900000 + 100000);
+        const now = new Date();
+        simRailwayEvents.unshift({
+          id: 'evt-live-' + Date.now(),
+          start_time: now.toISOString(),
+          end_time: null,
+          duration_seconds: 0,
+          frames_count: newDet,
+          units_count: Math.floor(Math.random() * 3) + 1,
+          reporting_marks: [mark],
+          stream_name: s.stream_name,
+          last_frame: null
+        });
+        // Keep only recent 150 events
+        if (simRailwayEvents.length > 150) simRailwayEvents = simRailwayEvents.slice(0, 150);
+      }
+    }
     s.trains_detected += newDet;
     s.frames_discarded += (inc - newDet);
     s.detection_rate = parseFloat(((s.trains_detected / s.frames_processed) * 100).toFixed(1));
-    s.runtime_seconds += 2;
+    s.runtime_seconds += 1;
     simFramesProcessed[s.stream_id] = s.frames_processed;
     simTrainsDetected[s.stream_id] = s.trains_detected;
     simFramesDiscarded[s.stream_id] = s.frames_discarded;
@@ -632,6 +820,11 @@ function loadAnalytics() {
   renderSessionDetailCards();
   renderRecentDetections();
   updateCharts();
+  renderTopStreams();
+  renderSystemHealth();
+  renderHeatmap();
+  renderLiveAlerts();
+  renderTimeline();
 }
 
 function renderStatCards() {
@@ -643,9 +836,13 @@ function renderStatCards() {
   let liveDetHtml = '';
   const withDets = simSessions.filter(s => (s.trains_detected || 0) > 0).sort((a, b) => b.trains_detected - a.trains_detected);
   if (withDets.length > 0) {
-    liveDetHtml = withDets.map((s, i) => {
-      const dt = new Date(Date.now() - i * 1000);
-      return '<div class="detection-row"><div class="bar"></div><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="det-time">' + dt.toLocaleTimeString('en-US', { hour12: false }) + '</span><span class="det-icon"><span class="material-icons">train</span></span><span class="det-label">TRAIN ' + s.trains_detected + '</span><span class="det-at">detected at</span><span class="det-stream" title="' + s.stream_name + '">' + s.stream_name + '</span></div><span class="det-sub">Timestamp: ' + dt.toISOString().slice(0, 19).replace('T', ' ') + ' UTC | Confidence: ' + s.detection_rate.toFixed(1) + '%</span></div></div>';
+    // Agregar variación temporal para simular detecciones en tiempo real
+    liveDetHtml = withDets.slice(0, 5).map((s, i) => {
+      const secondsAgo = Math.floor(Math.random() * 10) + i * 2;
+      const dt = new Date(Date.now() - secondsAgo * 1000);
+      const confidence = (Math.random() * 15 + 85).toFixed(1); // 85-100%
+      const trainNum = Math.floor(Math.random() * 9000) + 1000;
+      return '<div class="detection-row"><div class="bar" style="background:' + (confidence > 95 ? '#22c55e' : '#FFB000') + '"></div><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="det-time">' + dt.toLocaleTimeString('en-US', { hour12: false }) + '</span><span class="det-icon"><span class="material-icons">train</span></span><span class="det-label">TRAIN #' + trainNum + '</span><span class="det-at">detected at</span><span class="det-stream" title="' + s.stream_name + '">' + s.stream_name + '</span></div><span class="det-sub">Timestamp: ' + dt.toISOString().slice(0, 19).replace('T', ' ') + ' UTC | Confidence: ' + confidence + '% | Total: ' + s.trains_detected + '</span></div></div>';
     }).join('');
   } else {
     liveDetHtml = '<div style="display:flex;align-items:center;justify-content:center;height:100%"><span style="color:#ccc;font-style:italic">No active detections</span></div>';
@@ -666,16 +863,32 @@ function renderSessionDetailCards() {
 
 function renderRecentDetections() {
   const el = document.getElementById('recentDetections');
-  const events = simRailwayEvents.slice(0, 6);
+  // Mezclar eventos recientes con algunos "en tiempo real"
+  const now = new Date();
+  const recentEvents = simRailwayEvents.slice(0, 4);
+  const liveEvents = simSessions.filter(s => s.trains_detected > 0).slice(0, 2).map((s, i) => {
+    const dt = new Date(now.getTime() - (i * 5000));
+    return {
+      start_time: dt.toISOString(),
+      reporting_marks: ['LIVE-' + Math.floor(Math.random() * 9000 + 1000)],
+      stream_name: s.stream_name,
+      units_count: Math.floor(Math.random() * 3) + 1,
+      frames_count: 10,
+      isLive: true
+    };
+  });
+  const events = [...liveEvents, ...recentEvents].slice(0, 6);
+  
   if (!events.length) {
     el.innerHTML = '<div class="card" style="margin-bottom:24px"><div class="card-content" style="text-align:center;padding:48px"><h3 style="color:#ccc;font-style:italic">No recent railway events available</h3></div></div>';
     return;
   }
-  el.innerHTML = '<div class="card" style="margin-bottom:24px"><div class="card-content" style="padding:24px"><h2 style="text-align:center;color:#FFB000;font-weight:700;margin-bottom:24px">🎯 Recent Detections - Core Properties</h2><div class="det-table-header"><span>⏰ TIMESTAMP</span><span>🏷️ REPORTING MARK</span><span>📍 LOCATION</span><span>DETECTIONS</span><span>CONFIDENCE</span></div>' + events.map(e => {
+  el.innerHTML = '<div class="card" style="margin-bottom:24px"><div class="card-content" style="padding:24px"><h2 style="text-align:center;color:#FFB000;font-weight:700;margin-bottom:24px">🎯 Recent Detections - Core Properties</h2><div class="det-table-header"><span>⏰ TIMESTAMP</span><span>🏷️ REPORTING MARK</span><span>📍 LOCATION</span><span>DETECTIONS</span><span>CONFIDENCE</span></div>' + events.map((e, idx) => {
     const dt = new Date(e.start_time);
     const mark = e.reporting_marks.length > 0 ? e.reporting_marks[0] : '—';
-    const conf = e.frames_count > 0 && e.units_count > 0 ? Math.min(95, Math.max(75, (e.units_count / e.frames_count) * 1000)).toFixed(1) : '';
-    return '<div class="det-table-row"><span style="color:#FFB000;font-weight:600;font-size:1rem">' + dt.toLocaleTimeString('en-US', { hour12: true }) + '</span><span style="color:#FFB000;font-weight:700;font-size:1rem">' + mark + '</span><span style="color:#4A90E2;font-weight:600;font-size:1rem">' + (e.stream_name || '—') + '</span><span style="color:#fff;font-weight:600;font-size:1rem">' + (e.units_count > 0 ? e.units_count : '—') + '</span><span style="background:' + (conf ? (parseFloat(conf) > 90 ? '#22c55e' : '#FFB000') : 'rgba(255,255,255,.1)') + ';color:' + (conf ? '#000' : '#ccc') + ';padding:6px 12px;border-radius:16px;font-weight:700;font-size:1rem;display:inline-block">' + (conf ? conf + '%' : '—') + '</span></div>';
+    const conf = e.frames_count > 0 && e.units_count > 0 ? Math.min(98, Math.max(82, (e.units_count / e.frames_count) * 1000 + Math.random() * 10)).toFixed(1) : '';
+    const isLive = e.isLive;
+    return '<div class="det-table-row" style="animation-delay:' + (idx * 0.08) + 's;' + (isLive ? 'border-left-color:#22c55e;background:rgba(34,197,94,.05)' : '') + '"><span style="color:#FFB000;font-weight:600;font-size:1rem">' + (isLive ? '🔴 ' : '') + dt.toLocaleTimeString('en-US', { hour12: true }) + '</span><span style="color:#FFB000;font-weight:700;font-size:1rem">' + mark + '</span><span style="color:#4A90E2;font-weight:600;font-size:1rem">' + (e.stream_name || '—') + '</span><span style="color:#fff;font-weight:600;font-size:1rem">' + (e.units_count > 0 ? e.units_count : '—') + '</span><span style="background:' + (conf ? (parseFloat(conf) > 90 ? '#22c55e' : '#FFB000') : 'rgba(255,255,255,.1)') + ';color:' + (conf ? '#000' : '#ccc') + ';padding:6px 12px;border-radius:16px;font-weight:700;font-size:1rem;display:inline-block">' + (conf ? conf + '%' : '—') + '</span></div>';
   }).join('') + '</div></div>';
 }
 
@@ -685,7 +898,7 @@ function updateCharts() {
   const totalD = simSessions.reduce((a, s) => a + (s.trains_detected || 0), 0);
   const totalDisc = simSessions.reduce((a, s) => a + (s.frames_discarded || 0), 0);
   chartData.push({ time: t, processed: totalP, detected: totalD, discarded: totalDisc });
-  if (chartData.length > 20) chartData.shift();
+  if (chartData.length > 30) chartData.shift(); // Mantener más datos para ver mejor el movimiento
 
   // Line chart
   if (!perfChart) {
@@ -696,13 +909,17 @@ function updateCharts() {
       data: {
         labels: chartData.map(d => d.time),
         datasets: [
-          { label: 'Frames Processed', data: chartData.map(d => d.processed), borderColor: '#FFB000', borderWidth: 4, pointBackgroundColor: '#FFB000', pointRadius: 5, tension: .3, fill: false },
-          { label: 'Frames Discarded', data: chartData.map(d => d.discarded), borderColor: '#ef4444', borderWidth: 4, pointBackgroundColor: '#ef4444', pointRadius: 5, tension: .3, fill: false },
-          { label: 'Trains Detected', data: chartData.map(d => d.detected), borderColor: '#22c55e', borderWidth: 4, pointBackgroundColor: '#22c55e', pointRadius: 5, tension: .3, fill: false }
+          { label: 'Frames Processed', data: chartData.map(d => d.processed), borderColor: '#FFB000', borderWidth: 4, pointBackgroundColor: '#FFB000', pointRadius: 6, pointHoverRadius: 8, tension: .4, fill: false, shadowOffsetX: 0, shadowOffsetY: 0, shadowBlur: 10, shadowColor: 'rgba(255,176,0,.5)' },
+          { label: 'Frames Discarded', data: chartData.map(d => d.discarded), borderColor: '#ef4444', borderWidth: 4, pointBackgroundColor: '#ef4444', pointRadius: 6, pointHoverRadius: 8, tension: .4, fill: false, shadowOffsetX: 0, shadowOffsetY: 0, shadowBlur: 10, shadowColor: 'rgba(239,68,68,.5)' },
+          { label: 'Trains Detected', data: chartData.map(d => d.detected), borderColor: '#22c55e', borderWidth: 4, pointBackgroundColor: '#22c55e', pointRadius: 6, pointHoverRadius: 8, tension: .4, fill: false, shadowOffsetX: 0, shadowOffsetY: 0, shadowBlur: 10, shadowColor: 'rgba(34,197,94,.5)' }
         ]
       },
       options: {
         responsive: true, maintainAspectRatio: false,
+        animation: {
+          duration: 750, // Animación más rápida
+          easing: 'easeInOutQuart'
+        },
         plugins: { legend: { labels: { color: '#ccc', font: { size: 13 } } } },
         scales: {
           x: { ticks: { color: '#aaa', maxTicksLimit: 10, font: { size: 12 } }, grid: { color: 'rgba(255,255,255,.05)' } },
@@ -715,7 +932,7 @@ function updateCharts() {
     perfChart.data.datasets[0].data = chartData.map(d => d.processed);
     perfChart.data.datasets[1].data = chartData.map(d => d.discarded);
     perfChart.data.datasets[2].data = chartData.map(d => d.detected);
-    perfChart.update('none');
+    perfChart.update('active'); // Animación suave en actualización
   }
 
   // Pie chart
@@ -732,6 +949,12 @@ function updateCharts() {
       },
       options: {
         responsive: true, maintainAspectRatio: false,
+        animation: {
+          animateRotate: true,
+          animateScale: true,
+          duration: 800,
+          easing: 'easeInOutQuart'
+        },
         plugins: {
           legend: { display: false },
           tooltip: {
@@ -748,7 +971,7 @@ function updateCharts() {
     pieChart.data.labels = pieData.map(d => d.name.length > 20 ? d.name.substring(0, 20) + '...' : d.name);
     pieChart.data.datasets[0].data = pieData.map(d => d.det);
     pieChart.data.datasets[0].backgroundColor = colors.slice(0, pieData.length);
-    pieChart.update('none');
+    pieChart.update('active'); // Animación suave en actualización
   }
 
   // Legend
@@ -760,6 +983,237 @@ function updateCharts() {
       legendEl.innerHTML = pieData.map((d, i) => '<div style="display:flex;align-items:center;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);transition:.3s"><div style="width:20px;height:20px;background:' + colors[i % colors.length] + ';border-radius:6px;margin-right:12px;border:2px solid rgba(255,255,255,.3);box-shadow:0 2px 4px rgba(0,0,0,.2);flex-shrink:0"></div><div style="flex:1;min-width:0"><div style="font-weight:500;color:#fff;font-size:.9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + d.name + '">' + d.name + '</div><div style="color:#ccc;font-size:.8rem">' + d.det + ' detections (' + d.rate + '%)</div></div></div>').join('');
     }
   }
+
+  // Bar Chart
+  const barData = simSessions.map(s => ({ name: s.stream_name, processed: s.frames_processed, detected: s.trains_detected })).slice(0, 6);
+  if (!barChart) {
+    const ctx3 = document.getElementById('barChart');
+    if (ctx3) {
+      barChart = new Chart(ctx3, {
+        type: 'bar',
+        data: {
+          labels: barData.map(d => d.name.length > 15 ? d.name.substring(0, 15) + '...' : d.name),
+          datasets: [
+            { label: 'Frames Processed', data: barData.map(d => d.processed), backgroundColor: 'rgba(255,176,0,.7)', borderColor: '#FFB000', borderWidth: 2 },
+            { label: 'Trains Detected', data: barData.map(d => d.detected), backgroundColor: 'rgba(34,197,94,.7)', borderColor: '#22c55e', borderWidth: 2 }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          animation: { duration: 800, easing: 'easeInOutQuart' },
+          plugins: { legend: { labels: { color: '#ccc', font: { size: 12 } } } },
+          scales: {
+            x: { ticks: { color: '#aaa', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,.05)' } },
+            y: { ticks: { color: '#aaa', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,.08)' }, beginAtZero: true }
+          }
+        }
+      });
+    }
+  } else {
+    barChart.data.labels = barData.map(d => d.name.length > 15 ? d.name.substring(0, 15) + '...' : d.name);
+    barChart.data.datasets[0].data = barData.map(d => d.processed);
+    barChart.data.datasets[1].data = barData.map(d => d.detected);
+    barChart.update('active');
+  }
+
+  // Area Chart
+  const areaData = chartData.slice(-20);
+  if (!areaChart) {
+    const ctx4 = document.getElementById('areaChart');
+    if (ctx4) {
+      areaChart = new Chart(ctx4, {
+        type: 'line',
+        data: {
+          labels: areaData.map(d => d.time),
+          datasets: [
+            { label: 'Trains Detected', data: areaData.map(d => d.detected), backgroundColor: 'rgba(34,197,94,.3)', borderColor: '#22c55e', borderWidth: 3, fill: true, tension: .4 },
+            { label: 'Frames Discarded', data: areaData.map(d => d.discarded), backgroundColor: 'rgba(239,68,68,.3)', borderColor: '#ef4444', borderWidth: 3, fill: true, tension: .4 }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          animation: { duration: 750, easing: 'easeInOutQuart' },
+          plugins: { 
+            legend: { labels: { color: '#ccc', font: { size: 12 } } },
+            filler: { propagate: false }
+          },
+          scales: {
+            x: { ticks: { color: '#aaa', maxTicksLimit: 8, font: { size: 11 } }, grid: { color: 'rgba(255,255,255,.05)' } },
+            y: { ticks: { color: '#aaa', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,.08)' }, stacked: true }
+          }
+        }
+      });
+    }
+  } else {
+    areaChart.data.labels = areaData.map(d => d.time);
+    areaChart.data.datasets[0].data = areaData.map(d => d.detected);
+    areaChart.data.datasets[1].data = areaData.map(d => d.discarded);
+    areaChart.update('active');
+  }
+
+  // Speed Gauge
+  const fps = simSessions.length > 0 ? simSessions.reduce((a, s) => a + (s.frames_processed || 0), 0) / Math.max(1, chartData.length) : 0;
+  const speedValue = Math.min(100, fps);
+  const displayFps = fps.toFixed(1);
+  
+  // Update display value
+  const speedValueEl = document.getElementById('speedValue');
+  if (speedValueEl) {
+    speedValueEl.textContent = displayFps;
+    speedValueEl.style.color = speedValue > 80 ? '#22c55e' : speedValue > 50 ? '#FFB000' : '#ef4444';
+  }
+  
+  if (!speedGauge) {
+    const ctx5 = document.getElementById('speedGauge');
+    if (ctx5) {
+      speedGauge = new Chart(ctx5, {
+        type: 'doughnut',
+        data: {
+          labels: ['Active', 'Remaining'],
+          datasets: [{
+            data: [speedValue, 100 - speedValue],
+            backgroundColor: ['#22c55e', 'rgba(255,255,255,.1)'],
+            borderWidth: 0,
+            circumference: 180,
+            rotation: 270
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          animation: { animateRotate: true, animateScale: true, duration: 1000, easing: 'easeInOutQuart' },
+          plugins: {
+            legend: { display: false },
+            tooltip: { enabled: false }
+          },
+          cutout: '75%'
+        }
+      });
+    }
+  } else {
+    speedGauge.data.datasets[0].data = [speedValue, 100 - speedValue];
+    speedGauge.data.datasets[0].backgroundColor = [
+      speedValue > 80 ? '#22c55e' : speedValue > 50 ? '#FFB000' : '#ef4444',
+      'rgba(255,255,255,.1)'
+    ];
+    speedGauge.update('active');
+  }
+}
+
+/* ═══════════════ NEW WIDGETS ═══════════════ */
+function renderTopStreams() {
+  const el = document.getElementById('topStreamsWidget');
+  if (!el) return;
+  const sorted = [...simSessions].sort((a, b) => b.trains_detected - a.trains_detected).slice(0, 5);
+  if (!sorted.length) {
+    el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:250px;color:#777;font-style:italic">No active streams</div>';
+    return;
+  }
+  el.innerHTML = sorted.map((s, i) => {
+    const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+    const icon = i === 0 ? '🏆' : i === 1 ? '🥈' : i === 2 ? '🥉' : '';
+    // Duración aleatoria entre 2 y 4 segundos para cada item
+    const randomDuration = (Math.random() * 2 + 2).toFixed(2);
+    // Delay aleatorio entre 0 y 2 segundos
+    const randomDelay = (Math.random() * 2).toFixed(2);
+    return '<div class="top-stream-item" style="animation:randomPulse ' + randomDuration + 's ease-in-out infinite;animation-delay:' + randomDelay + 's"><div class="top-stream-rank ' + rankClass + '">' + (icon || (i + 1)) + '</div><div class="top-stream-info"><div class="top-stream-name">' + s.stream_name + '</div><div class="top-stream-count">' + s.trains_detected + ' detections</div></div></div>';
+  }).join('');
+}
+
+function renderSystemHealth() {
+  const el = document.getElementById('systemHealthWidget');
+  if (!el) return;
+  const totalSessions = simSessions.length;
+  const maxSessions = 10;
+  const activePercent = (totalSessions / maxSessions) * 100;
+  const avgRate = simSessions.length > 0 ? simSessions.reduce((a, s) => a + s.detection_rate, 0) / simSessions.length : 0;
+  const uptime = Math.max(...simSessions.map(s => s.runtime_seconds || 0), 0);
+  const uptimeStr = Math.floor(uptime / 3600) + 'h ' + Math.floor((uptime % 3600) / 60) + 'm';
+  
+  el.innerHTML = '<div class="health-metric"><div class="health-label"><span class="material-icons" style="font-size:1rem;color:#22c55e">check_circle</span>System Status</div><div class="health-value">ONLINE</div></div><div class="health-metric"><div class="health-label"><span class="material-icons" style="font-size:1rem;color:#FFB000">stream</span>Active Streams</div><div class="health-value">' + totalSessions + ' / ' + maxSessions + '</div></div><div style="padding:4px 0"><div class="health-bar"><div class="health-bar-fill" style="width:' + activePercent + '%"></div></div></div><div class="health-metric"><div class="health-label"><span class="material-icons" style="font-size:1rem;color:#2196F3">speed</span>Avg Detection</div><div class="health-value">' + avgRate.toFixed(1) + '%</div></div><div class="health-metric"><div class="health-label"><span class="material-icons" style="font-size:1rem;color:#9c27b0">access_time</span>Max Uptime</div><div class="health-value" style="font-size:.85rem">' + uptimeStr + '</div></div>';
+}
+
+function renderHeatmap() {
+  const el = document.getElementById('heatmapWidget');
+  if (!el) return;
+  
+  // Update hourly activity with new detections (incremental)
+  const currentHour = new Date().getHours();
+  simSessions.forEach(s => {
+    // Add small incremental updates to current hour
+    if (s.trains_detected > 0 && Math.random() > 0.8) {
+      hourlyActivity[currentHour] += Math.floor(Math.random() * 2);
+    }
+  });
+  
+  const maxActivity = Math.max(...hourlyActivity, 1);
+  const totalDetections = hourlyActivity.reduce((a, b) => a + b, 0);
+  const avgDetections = (totalDetections / 24).toFixed(1);
+  
+  const labels = '<div class="heatmap-labels">' + Array.from({ length: 24 }, (_, i) => '<span>' + i + 'h</span>').join('') + '</div>';
+  const cells = '<div class="heatmap-grid">' + hourlyActivity.map((count, i) => {
+    const intensity = count / maxActivity;
+    const bgColor = intensity > 0.7 ? '#22c55e' : intensity > 0.4 ? '#FFB000' : intensity > 0.1 ? '#ff9800' : 'rgba(255,255,255,.05)';
+    const textColor = intensity > 0.1 ? '#000' : '#777';
+    const isCurrent = i === currentHour;
+    return '<div class="heatmap-cell" style="background:' + bgColor + ';color:' + textColor + ';' + (isCurrent ? 'box-shadow:0 0 12px rgba(255,193,7,.6);border-color:#FFC107;' : '') + '" title="Hour ' + i + ':00 - ' + count + ' detections' + (isCurrent ? ' (Current)' : '') + '">' + (count > 0 ? count : '') + '</div>';
+  }).join('') + '</div>';
+  
+  const stats = '<div style="display:flex;justify-content:space-around;margin-top:12px;padding:12px;background:rgba(255,255,255,.03);border-radius:8px"><div style="text-align:center"><div style="font-size:1.2rem;font-weight:700;color:#FFB000">' + totalDetections + '</div><div style="font-size:.75rem;color:#aaa">Total Today</div></div><div style="text-align:center"><div style="font-size:1.2rem;font-weight:700;color:#22c55e">' + avgDetections + '</div><div style="font-size:.75rem;color:#aaa">Avg/Hour</div></div><div style="text-align:center"><div style="font-size:1.2rem;font-weight:700;color:#2196F3">' + maxActivity + '</div><div style="font-size:.75rem;color:#aaa">Peak Hour</div></div></div>';
+  
+  el.innerHTML = labels + cells + stats;
+}
+
+function renderLiveAlerts() {
+  const el = document.getElementById('liveAlertsWidget');
+  if (!el) return;
+  
+  // Generate live alerts
+  const types = ['warning', 'success', 'info'];
+  const messages = [
+    { type: 'success', title: '🚂 New Train Detected', desc: 'BNSF locomotive identified' },
+    { type: 'warning', title: '⚡ High Activity', desc: 'Multiple detections in last minute' },
+    { type: 'info', title: '🔧 System Update', desc: 'Detection algorithms optimized' },
+    { type: 'success', title: '📸 Frame Captured', desc: 'High-quality image saved' },
+    { type: 'warning', title: '📡 Stream Quality', desc: 'Network latency detected' },
+    { type: 'info', title: '🎯 Detection Rate', desc: 'Accuracy improved to 95%' },
+    { type: 'success', title: '🏷️ Serial Number', desc: 'New reporting mark logged' },
+    { type: 'info', title: '📊 Analytics', desc: 'Peak hour detected at 14:00' }
+  ];
+  
+  // Keep last 4 alerts and add new ones randomly
+  if (Math.random() > 0.6 && liveAlerts.length < 8) {
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    liveAlerts.unshift({ ...msg, time: new Date(), id: Date.now() });
+  }
+  liveAlerts = liveAlerts.slice(0, 4);
+  
+  if (!liveAlerts.length) {
+    el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:120px;color:#777;font-style:italic">No recent alerts</div>';
+    return;
+  }
+  
+  el.innerHTML = '<div class="alerts-scroll">' + liveAlerts.map((alert, i) => {
+    const icon = alert.type === 'success' ? 'check_circle' : alert.type === 'warning' ? 'warning' : 'info';
+    return '<div class="alert-item ' + alert.type + '" style="animation-delay:' + (i * 0.1) + 's"><div class="alert-icon ' + alert.type + '"><span class="material-icons" style="font-size:1.2rem;color:' + (alert.type === 'success' ? '#22c55e' : alert.type === 'warning' ? '#ff9800' : '#2196F3') + '">' + icon + '</span></div><div class="alert-content"><div class="alert-title">' + alert.title + '</div><div class="alert-time">' + alert.desc + ' • ' + Math.floor((Date.now() - alert.time.getTime()) / 1000) + 's ago</div></div></div>';
+  }).join('') + '</div>';
+}
+
+function renderTimeline() {
+  const el = document.getElementById('timelineWidget');
+  if (!el) return;
+  
+  const recentEvents = simRailwayEvents.slice(0, 6);
+  if (!recentEvents.length) {
+    el.innerHTML = '<div style="text-align:center;padding:40px;color:#777;font-style:italic">No recent events</div>';
+    return;
+  }
+  
+  el.innerHTML = '<div class="timeline-container"><div class="timeline-line"></div>' + recentEvents.map((e, i) => {
+    const dt = new Date(e.start_time);
+    const timeStr = dt.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    const marks = (e.reporting_marks || []).slice(0, 2).join(', ');
+    return '<div class="timeline-item" style="animation-delay:' + (i * 0.1) + 's"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">' + timeStr + '</div><div class="timeline-title">🚂 Train Detection: ' + marks + '</div><div class="timeline-desc">📍 ' + (e.stream_name || 'Unknown') + ' • ' + (e.units_count || 0) + ' units • ' + (e.frames_count || 0) + ' frames</div></div></div>';
+  }).join('') + '</div>';
 }
 
 /* ─── POLLING ─────────────────────────────── */
@@ -773,8 +1227,13 @@ function startPolling() {
       renderSessionDetailCards();
       renderRecentDetections();
       updateCharts();
+      renderTopStreams();
+      renderSystemHealth();
+      renderHeatmap();
+      renderLiveAlerts();
+      renderTimeline();
     }
-  }, 2000);
+  }, 1000); // Actualización más rápida: cada 1 segundo
 }
 function stopPolling() { if (pollingInterval) { clearInterval(pollingInterval); pollingInterval = null; } }
 
