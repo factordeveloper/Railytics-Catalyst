@@ -1,0 +1,720 @@
+[debug] [2026-05-25T14:23:51.941Z] : 
+[debug] [2026-05-25T14:23:51.942Z] : ----------------------------------------------------------------------
+[debug] [2026-05-25T14:23:51.942Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js --version
+[debug] [2026-05-25T14:23:51.943Z] : CLI Version:  1.25.3
+[debug] [2026-05-25T14:23:51.943Z] : Platform:     win32
+[debug] [2026-05-25T14:23:51.943Z] : Node Version: v24.11.0
+[debug] [2026-05-25T14:23:51.943Z] : Time:         Mon May 25 2026 09:23:51 GMT-0500 (hora estándar de Colombia)
+[debug] [2026-05-25T14:23:51.943Z] : ----------------------------------------------------------------------
+[debug] [2026-05-25T14:23:51.943Z] : 
+[debug] [2026-05-25T14:25:24.355Z] : 
+[debug] [2026-05-25T14:25:24.356Z] : ----------------------------------------------------------------------
+[debug] [2026-05-25T14:25:24.356Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js serve
+[debug] [2026-05-25T14:25:24.356Z] : CLI Version:  1.25.3
+[debug] [2026-05-25T14:25:24.357Z] : Platform:     win32
+[debug] [2026-05-25T14:25:24.357Z] : Node Version: v24.11.0
+[debug] [2026-05-25T14:25:24.357Z] : Time:         Mon May 25 2026 09:25:24 GMT-0500 (hora estándar de Colombia)
+[debug] [2026-05-25T14:25:24.357Z] : ----------------------------------------------------------------------
+[debug] [2026-05-25T14:25:24.357Z] : 
+[debug] [2026-05-25T14:25:24.910Z] : > authorizing via signed-in user option
+[debug] [2026-05-25T14:25:24.910Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.apigateway.apis.READ","ZohoCatalyst.apigateway.READ","ZohoCatalyst.segments.ALL","ZohoCatalyst.cache.READ","ZohoCatalyst.cache.CREATE","ZohoCatalyst.cache.DELETE","ZohoCatalyst.projects.ALL","ZohoCatalyst.cron.ALL","ZohoCatalyst.zcql.CREATE","ZohoCatalyst.projects.users.READ","ZohoCatalyst.projects.users.CREATE","ZohoCatalyst.projects.users.DELETE","ZohoCatalyst.projects.users.UPDATE","ZohoCatalyst.authentication.CREATE","ZohoCatalyst.email.CREATE","ZohoCatalyst.tables.ALL","ZohoCatalyst.tables.rows.ALL","ZohoCatalyst.tables.columns.ALL","ZohoCatalyst.tables.bulk.CREATE","ZohoCatalyst.tables.bulk.READ","ZohoCatalyst.folders.ALL","ZohoCatalyst.files.CREATE","ZohoCatalyst.files.READ","ZohoCatalyst.files.DELETE","ZohoCatalyst.functions.ALL","ZohoCatalyst.functions.EXECUTE","ZohoCatalyst.eventlistners.ALL","ZohoCatalyst.eventlisteners.produce","ZohoCatalyst.security.rules.Read","ZohoCatalyst.security.rules.Update","ZohoCatalyst.notifications.mobile","ZohoCatalyst.notifications.web","ZohoCatalyst.search.READ","ZohoCatalyst.mlkit.READ","QuickML.deployment.READ","ZohoCatalyst.pdfshot.execute","ZohoCatalyst.dataverse.execute","ZohoCatalyst.grid.READ","ZohoCatalyst.grid.terminate","ZohoCatalyst.circuits.execution.DELETE","ZohoCatalyst.circuits.execution.READ","ZohoCatalyst.circuits.execute","ZohoCatalyst.appsail.Read","ZohoCatalyst.jobpool.READ","ZohoCatalyst.job.ALL","ZohoCatalyst.nosql.READ","ZohoCatalyst.nosql.rows.ALL"]
+[debug] [2026-05-25T14:25:24.927Z] : > refreshing access token <
+[debug] [2026-05-25T14:25:24.928Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.com/oauth/v2/token 
+<request body omitted>
+
+[debug] [2026-05-25T14:25:25.389Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:25:25 GMT","content-type":"application/json;charset=UTF-8","content-length":"2555","connection":"keep-alive","cache-control":"no-store","x-content-type-options":"nosniff","pragma":"no-cache","x-frame-options":"SAMEORIGIN","vary":"accept-encoding","content-language":"en-US","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:25:25.398Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.com/baas/v1/project/35994000000012082 
+
+[debug] [2026-05-25T14:25:25.861Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:25:26 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:25:25.863Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.com/baas/v1/project/35994000000012082/environment 
+
+[debug] [2026-05-25T14:25:26.020Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:25:26 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:25:26.167Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.com/baas/get-details 
+Query params: {"feature_name":"runtime"}
+
+[debug] [2026-05-25T14:25:26.312Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:25:26 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:25:26.317Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.com/baas/v1/project/35994000000012082/function 
+Query params: {"type":"basicio,event,cron,applogic,integration,browser_logic,job"}
+
+[debug] [2026-05-25T14:25:26.472Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:25:26 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:25:26.474Z] : unknown eol undefined hence skipping check
+[info] [2026-05-25T14:25:28.619Z] : 
+[info] [2026-05-25T14:25:28.619Z] : Skipping API Gateway rules as API Gateway is disabled in local
+[info] [2026-05-25T14:25:28.619Z] : 
+[info] [2026-05-25T14:25:28.622Z] : 
+[info] [2026-05-25T14:25:28.623Z] :  >>>>>>>>>>>>> Advanced I/O <<<<<<<<<<< 
+[info] [2026-05-25T14:25:28.623Z] : i railytics_realtime_tracker_function: http://localhost:3000/server/railytics_realtime_tracker_function/
+[info] [2026-05-25T14:25:28.623Z] : 
+[info] [2026-05-25T14:25:28.623Z] : 
+[info] [2026-05-25T14:25:28.623Z] :  >>>>>>>>>>>>> Web Client <<<<<<<<<<<<
+[info] [2026-05-25T14:25:28.623Z] : i client[railytics_realtime_tracker]: http://localhost:3000/app/
+[info] [2026-05-25T14:25:28.624Z] : 
+[info] [2026-05-25T14:25:29.768Z] : [1779719129767]  "GET"  "/"
+[info] [2026-05-25T14:25:29.906Z] : [1779719129905]  "GET"  "/app/.catalyst%5Creload-script.js"
+[info] [2026-05-25T14:25:29.958Z] : [1779719129957]  "GET"  "/app/assets/back_optimizado.jpg"
+[error] [2026-05-25T14:25:29.968Z] : × [404 - Resource not found]: /assets/back_optimizado.jpg
+[info] [2026-05-25T14:25:29.969Z] : 
+[debug] [2026-05-25T14:25:29.970Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\assets\back_optimizado.jpg'
+[info] [2026-05-25T14:25:30.040Z] : [1779719130034]  "GET"  "/app/assets/innovacion.png"
+[error] [2026-05-25T14:25:30.059Z] : × [404 - Resource not found]: /assets/innovacion.png
+[info] [2026-05-25T14:25:30.062Z] : 
+[debug] [2026-05-25T14:25:30.065Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\assets\innovacion.png'
+[info] [2026-05-25T14:25:30.272Z] : [1779719130272]  "GET"  "/app/assets/conocimiento.png"
+[info] [2026-05-25T14:25:30.291Z] : [1779719130291]  "GET"  "/app/assets/experiencia.png"
+[info] [2026-05-25T14:25:30.311Z] : [1779719130311]  "GET"  "/app/assets/contacto_img.jpg"
+[info] [2026-05-25T14:25:30.320Z] : [1779719130318]  "GET"  "/app/assets/clientes_img.jpg"
+[error] [2026-05-25T14:25:30.342Z] : × [404 - Resource not found]: /assets/conocimiento.png
+[info] [2026-05-25T14:25:30.346Z] : 
+[debug] [2026-05-25T14:25:30.347Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\assets\conocimiento.png'
+[error] [2026-05-25T14:25:30.350Z] : × [404 - Resource not found]: /assets/experiencia.png
+[info] [2026-05-25T14:25:30.350Z] : 
+[debug] [2026-05-25T14:25:30.350Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\assets\experiencia.png'
+[error] [2026-05-25T14:25:30.366Z] : × [404 - Resource not found]: /assets/contacto_img.jpg
+[info] [2026-05-25T14:25:30.367Z] : 
+[debug] [2026-05-25T14:25:30.367Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\assets\contacto_img.jpg'
+[error] [2026-05-25T14:25:30.421Z] : × [404 - Resource not found]: /assets/clientes_img.jpg
+[info] [2026-05-25T14:25:30.422Z] : 
+[debug] [2026-05-25T14:25:30.422Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\assets\clientes_img.jpg'
+[info] [2026-05-25T14:25:30.444Z] : [1779719130444]  "GET"  "/app/assets/manifiesto.mp4"
+[error] [2026-05-25T14:25:30.488Z] : × [404 - Resource not found]: /assets/manifiesto.mp4
+[info] [2026-05-25T14:25:30.491Z] : 
+[debug] [2026-05-25T14:25:30.492Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\assets\manifiesto.mp4'
+[info] [2026-05-25T14:25:32.480Z] : [1779719132480]  "GET"  "/app/sw.js"
+[error] [2026-05-25T14:25:32.482Z] : × [404 - Resource not found]: /sw.js
+[info] [2026-05-25T14:25:32.483Z] : 
+[debug] [2026-05-25T14:25:32.483Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\sw.js'
+[info] [2026-05-25T14:25:49.946Z] : [1779719149946]  "GET"  "/app/"
+[info] [2026-05-25T14:25:50.259Z] : [1779719150259]  "GET"  "/app/.catalyst%5Creload-script.js"
+[info] [2026-05-25T14:25:50.319Z] : [1779719150318]  "GET"  "/app/logo_aikon.avif"
+[info] [2026-05-25T14:25:50.327Z] : [1779719150326]  "GET"  "/app/hellenic_train_logo.png"
+[info] [2026-05-25T14:25:50.589Z] : [1779719150589]  "GET"  "/app/flag_grece.jfif"
+[info] [2026-05-25T14:25:50.778Z] : [1779719150778]  "GET"  "/app/videos/1.mp4"
+[info] [2026-05-25T14:25:50.782Z] : [1779719150782]  "GET"  "/app/videos/2.mp4"
+[info] [2026-05-25T14:25:50.786Z] : [1779719150785]  "GET"  "/app/videos/3.mp4"
+[info] [2026-05-25T14:25:50.788Z] : [1779719150787]  "GET"  "/app/videos/4.mp4"
+[info] [2026-05-25T14:25:50.791Z] : [1779719150791]  "GET"  "/app/videos/5.mp4"
+[info] [2026-05-25T14:25:50.905Z] : [1779719150905]  "GET"  "/app/videos/6.mp4"
+[info] [2026-05-25T14:25:51.246Z] : [1779719151246]  "GET"  "/app/videos/7.mp4"
+[info] [2026-05-25T14:25:51.249Z] : [1779719151249]  "GET"  "/app/videos/Drone.mp4"
+[info] [2026-05-25T14:25:51.252Z] : [1779719151252]  "GET"  "/app/videos/FPV_1.mp4"
+[info] [2026-05-25T14:25:51.258Z] : [1779719151257]  "GET"  "/app/videos/FPV_2.mp4"
+[info] [2026-05-25T14:25:51.260Z] : [1779719151259]  "GET"  "/app/videos/3.mp4"
+[info] [2026-05-25T14:25:51.262Z] : [1779719151262]  "GET"  "/app/videos/1.mp4"
+[info] [2026-05-25T14:25:51.600Z] : [1779719151599]  "GET"  "/app/videos/2.mp4"
+[info] [2026-05-25T14:25:51.607Z] : [1779719151607]  "GET"  "/app/videos/5.mp4"
+[info] [2026-05-25T14:25:51.619Z] : [1779719151619]  "GET"  "/app/videos/4.mp4"
+[info] [2026-05-25T14:25:51.929Z] : [1779719151929]  "GET"  "/app/videos/6.mp4"
+[info] [2026-05-25T14:25:52.446Z] : [1779719152446]  "GET"  "/app/videos/FPV_1.mp4"
+[info] [2026-05-25T14:25:52.543Z] : [1779719152542]  "GET"  "/app/videos/Drone.mp4"
+[info] [2026-05-25T14:25:52.560Z] : [1779719152559]  "GET"  "/app/videos/7.mp4"
+[info] [2026-05-25T14:25:52.572Z] : [1779719152571]  "GET"  "/app/videos/FPV_2.mp4"
+[info] [2026-05-25T14:25:52.593Z] : [1779719152593]  "GET"  "/app/videos/6.mp4"
+[info] [2026-05-25T14:25:52.629Z] : [1779719152629]  "GET"  "/app/videos/5.mp4"
+[info] [2026-05-25T14:25:52.762Z] : [1779719152761]  "GET"  "/app/videos/4.mp4"
+[info] [2026-05-25T14:25:52.880Z] : [1779719152880]  "GET"  "/app/videos/1.mp4"
+[info] [2026-05-25T14:25:52.920Z] : [1779719152916]  "GET"  "/app/videos/3.mp4"
+[info] [2026-05-25T14:25:52.936Z] : [1779719152936]  "GET"  "/app/videos/2.mp4"
+[info] [2026-05-25T14:25:53.489Z] : [1779719153483]  "GET"  "/app/videos/FPV_1.mp4"
+[info] [2026-05-25T14:25:53.975Z] : [1779719153974]  "GET"  "/app/videos/Drone.mp4"
+[info] [2026-05-25T14:26:00.837Z] : [1779719160836]  "GET"  "/app/favicon.png"
+[info] [2026-05-25T14:26:01.162Z] : [1779719161162]  "GET"  "/app/videos/FPV_2.mp4"
+[info] [2026-05-25T14:26:12.656Z] : [1779719172656]  "GET"  "/app/videos/7.mp4"
+[info] [2026-05-25T14:26:29.758Z] : [1779719189757]  "GET"  "/app/videos/FPV_1.mp4"
+[info] [2026-05-25T14:26:29.773Z] : [1779719189773]  "GET"  "/app/videos/FPV_2.mp4"
+[info] [2026-05-25T14:26:30.046Z] : [1779719190046]  "GET"  "/app/videos/3.mp4"
+[info] [2026-05-25T14:26:30.067Z] : [1779719190067]  "GET"  "/app/videos/2.mp4"
+[info] [2026-05-25T14:26:30.073Z] : [1779719190073]  "GET"  "/app/sw.js"
+[error] [2026-05-25T14:26:30.082Z] : × [404 - Resource not found]: /sw.js
+[info] [2026-05-25T14:26:30.082Z] : 
+[debug] [2026-05-25T14:26:30.082Z] : Error: ENOENT: no such file or directory, stat 'C:\Users\Felip\OneDrive\Escritorio\Railytics-Catalyst\client\sw.js'
+[info] [2026-05-25T14:26:32.447Z] : [1779719192446]  "GET"  "/app/videos/FPV_2.mp4"
+[info] [2026-05-25T14:26:32.462Z] : [1779719192461]  "GET"  "/app/videos/Drone.mp4"
+[info] [2026-05-25T14:26:32.468Z] : [1779719192467]  "GET"  "/app/videos/FPV_1.mp4"
+[info] [2026-05-25T14:26:32.473Z] : [1779719192472]  "GET"  "/app/videos/7.mp4"
+[info] [2026-05-25T14:26:32.486Z] : [1779719192486]  "GET"  "/app/videos/1.mp4"
+[info] [2026-05-25T14:26:32.504Z] : [1779719192503]  "GET"  "/app/videos/3.mp4"
+[info] [2026-05-25T14:26:32.827Z] : [1779719192826]  "GET"  "/app/videos/FPV_1.mp4"
+[info] [2026-05-25T14:26:32.845Z] : [1779719192844]  "GET"  "/app/videos/FPV_2.mp4"
+[info] [2026-05-25T14:26:32.911Z] : [1779719192910]  "GET"  "/app/videos/3.mp4"
+[info] [2026-05-25T14:26:33.072Z] : [1779719193072]  "GET"  "/app/videos/Drone.mp4"
+[info] [2026-05-25T14:26:33.181Z] : [1779719193180]  "GET"  "/app/videos/7.mp4"
+[info] [2026-05-25T14:26:33.475Z] : [1779719193474]  "GET"  "/app/videos/Drone.mp4"
+[info] [2026-05-25T14:26:33.599Z] : [1779719193598]  "GET"  "/app/videos/1.mp4"
+[info] [2026-05-25T14:27:18.723Z] : [1779719238723]  "GET"  "/app/videos/6.mp4"
+[info] [2026-05-25T14:27:19.724Z] : [1779719239724]  "GET"  "/app/videos/4.mp4"
+[info] [2026-05-25T14:27:36.003Z] : [1779719256002]  "GET"  "/app/videos/5.mp4"
+[info] [2026-05-25T14:27:36.240Z] : [1779719256239]  "GET"  "/app/videos/2.mp4"
+[info] [2026-05-25T14:27:37.440Z] : Shutting down server
+[debug] [2026-05-25T14:27:37.470Z] : client server closed
+[error] [2026-05-25T14:27:37.515Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.516Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.525Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.530Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.530Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.537Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.537Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.538Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.540Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.541Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.543Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.545Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.546Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.548Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.549Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.549Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.550Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.550Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.550Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.552Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.552Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.552Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.552Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.552Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.553Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.553Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.555Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.556Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.557Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.557Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.557Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.557Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.557Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.559Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.562Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.564Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.564Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.565Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.567Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.568Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.572Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.573Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.577Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.579Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.579Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.579Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.579Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.580Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.580Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.581Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.582Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.584Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.585Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.585Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.585Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.585Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.585Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.586Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.587Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.588Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.589Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.590Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.590Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.591Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.592Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.592Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.594Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.596Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.596Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.598Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.599Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.600Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.601Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.601Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.604Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.606Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.606Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.606Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.606Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.607Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.607Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.607Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.608Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.610Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.610Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.610Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.610Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.611Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.611Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.611Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.612Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.614Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.614Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.614Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.614Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.614Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.615Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.616Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.617Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.619Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.620Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.620Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.621Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.621Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.622Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.626Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.628Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.630Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.630Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.630Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:37.630Z] : Error Status: 500
+[info] [2026-05-25T14:27:37.630Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
+[error] [2026-05-25T14:27:37.631Z] : × Error fetching the resource: Error: Request aborted
+[debug] [2026-05-25T14:27:37.632Z] : Error: Request aborted
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1062:15)
+    at Immediate._onImmediate (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.633Z] : uncaughtException: Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21)
+[error] [2026-05-25T14:27:37.634Z] : × An unexpected error has occurred.
+[debug] [2026-05-25T14:27:37.634Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:20:17)
+    at process.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:115:28)
+    at process.emit (node:events:520:35)
+    at process.processEmit [as emit] (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at process._fatalException (node:internal/process/execution:159:25)
+[debug] [2026-05-25T14:27:37.634Z] : Original Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at ServerResponse.header (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:174:12)
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\serve\server\lib\web_client\server.js:175:21
+    at C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:450:22
+    at onaborted (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1064:5)
+    at Immediate.<anonymous> (C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\express\lib\response.js:1104:9)
+    at process.processImmediate (node:internal/timers:505:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[debug] [2026-05-25T14:27:46.613Z] : 
+[debug] [2026-05-25T14:27:46.614Z] : ----------------------------------------------------------------------
+[debug] [2026-05-25T14:27:46.614Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\Felip\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2026-05-25T14:27:46.614Z] : CLI Version:  1.25.3
+[debug] [2026-05-25T14:27:46.614Z] : Platform:     win32
+[debug] [2026-05-25T14:27:46.614Z] : Node Version: v24.11.0
+[debug] [2026-05-25T14:27:46.615Z] : Time:         Mon May 25 2026 09:27:46 GMT-0500 (hora estándar de Colombia)
+[debug] [2026-05-25T14:27:46.615Z] : ----------------------------------------------------------------------
+[debug] [2026-05-25T14:27:46.615Z] : 
+[debug] [2026-05-25T14:27:48.244Z] : > authorizing via signed-in user option
+[debug] [2026-05-25T14:27:48.244Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2026-05-25T14:27:48.279Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.com/baas/v1/project/35994000000012082 
+
+[debug] [2026-05-25T14:27:48.756Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:27:48 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:27:48.765Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.com/baas/v1/project/35994000000012082/environment 
+
+[debug] [2026-05-25T14:27:48.918Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:27:49 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:27:49.262Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.com/baas/get-details 
+Query params: {"feature_name":"runtime"}
+
+[debug] [2026-05-25T14:27:49.409Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:27:49 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:27:49.511Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.com/baas/v1/project/35994000000012082/function 
+Query params: {"type":"basicio,event,cron,applogic,integration,browser_logic,job"}
+
+[debug] [2026-05-25T14:27:49.663Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:27:49 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-05-25T14:27:49.666Z] : unknown eol undefined hence skipping check
+[debug] [2026-05-25T14:27:51.410Z] : >>>> HTTP REQUEST : PUT https://api.catalyst.zoho.com/baas/v1/project/35994000000012082/server/upsert 
+
+[debug] [2026-05-25T14:27:55.450Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 25 May 2026 14:27:55 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+

@@ -24,12 +24,15 @@ function generateTrainFrameSVG(filename, width = 1280, height = 720) {
 
   // Determine stream location from filename
   let location = 'Unknown Location';
-  if (filename.includes('folkston')) location = 'Folkston, GA';
-  else if (filename.includes('laplata')) location = 'La Plata, MO';
-  else if (filename.includes('cajon')) location = 'Cajon Pass, CA';
-  else if (filename.includes('rochelle')) location = 'Rochelle, IL';
-  else if (filename.includes('tehachapi')) location = 'Tehachapi, CA';
-  else if (filename.includes('dalton')) location = 'Dalton, GA';
+  if (filename.includes('athens')) location = 'Athens Station';
+  else if (filename.includes('thessaloniki')) location = 'Thessaloniki Yard';
+  else if (filename.includes('larissa')) location = 'Larissa Junction';
+  else if (filename.includes('volos')) location = 'Volos Harbor';
+  else if (filename.includes('patras')) location = 'Patras Terminal';
+  else if (filename.includes('tempi')) location = 'Tempi Viaduct';
+  else if (filename.includes('katerini')) location = 'Katerini Level Crossing';
+  else if (filename.includes('drone')) location = 'Aerial Drone Feed';
+  else if (filename.includes('fpv')) location = 'Train Driver Cabin FPV';
 
   const detBoxX = 80 + (Math.abs(hashCode(filename + 'x')) % 200);
   const detBoxY = 100 + (Math.abs(hashCode(filename + 'y')) % 100);

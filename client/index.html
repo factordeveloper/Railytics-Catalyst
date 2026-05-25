@@ -220,6 +220,114 @@
       gap: 24px
     }
 
+    /* ═══════════════ STREAM CATEGORY SECTION ═══════════════ */
+    .stream-category-section {
+      margin-bottom: 40px;
+    }
+    
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      color: #0D5EAF;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(13, 94, 175, 0.2);
+      font-weight: 700;
+    }
+
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    /* ═══════════════ LIVE VIDEO WALL (MULTI-STREAM) ═══════════════ */
+    .video-wall-container {
+      margin-bottom: 30px;
+    }
+
+    .video-wall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .video-wall-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+      background: #000;
+    }
+
+    .video-wall-card.detecting {
+      border-color: #f59e0b;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    }
+
+    .video-wall-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.7) 100%);
+    }
+
+    .video-wall-badge {
+      align-self: flex-start;
+      background: rgba(34, 197, 94, 0.85);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .video-wall-card.detecting .video-wall-badge {
+      background: rgba(245, 158, 11, 0.85);
+    }
+
+    .video-wall-title {
+      align-self: flex-end;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    }
+
+    .video-wall-ai-bbox {
+      position: absolute;
+      border: 2px dashed #00ff00;
+      background: rgba(0, 255, 0, 0.1);
+      pointer-events: none;
+      transition: all 0.3s ease;
+      display: none;
+    }
+
+    .video-wall-ai-label {
+      position: absolute;
+      top: -20px;
+      left: -2px;
+      background: #00ff00;
+      color: #000;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0 4px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
     .stream-card {
       display: flex;
       flex-direction: column;
@@ -1882,14 +1990,15 @@
       <div class="modal-header">
         <h3 id="viewerTitle">Stream</h3>
         <div style="display:flex;gap:8px">
-          <button class="modal-close" onclick="openStreamExternal()" title="Open in YouTube"><span
+          <button class="modal-close" onclick="openStreamExternal()" title="Open Video in New Tab"><span
               class="material-icons">open_in_new</span></button>
           <button class="modal-close" onclick="closeViewer()"><span class="material-icons">close</span></button>
         </div>
       </div>
-      <div class="modal-body"><iframe id="viewerIframe"
-          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-          allowfullscreen></iframe></div>
+      <div class="modal-body">
+        <iframe id="viewerIframe" style="display:none;" allowfullscreen></iframe>
+        <video id="viewerVideo" controls autoplay loop playsinline style="width:100%; aspect-ratio:16/9; border-radius:8px; display:none; background:#000;"></video>
+      </div>
     </div>
   </div>
 
@@ -1918,31 +2027,16 @@
 
     /* ─── SIMULATED DATA ─────────────────────── */
     const SIM_STREAMS = [
-      { id: '33c27c5a-e0f5-4809-8f88-3c7192af14eb', name: 'Kearney, Nebraska, USA', url: 'https://www.youtube.com/watch?v=23tmCNeFh7A', active: true, description: '', youtube_metadata: { title: 'Kearney, Nebraska, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 3684996 } },
-      { id: '816f32b2-6525-4242-b59f-0903aa411cb2', name: 'Fairport, New York, USA', url: 'https://www.youtube.com/watch?v=XWxyuL9dctA', active: false, description: '', youtube_metadata: { title: 'Fairport, New York, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 535862 } },
-      { id: '6727bf7b-11b2-40a8-9545-a18e1c8b1805', name: 'Ashland (North), Virginia, USA', url: 'https://www.youtube.com/watch?v=D5kKdEBmrYU', active: false, description: '', youtube_metadata: { title: 'Ashland (North), Virginia, USA | LIVE RAILCAM - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 406617 } },
-      { id: '1a4a6980-9581-4b01-9297-d765d47368ea', name: 'Folkston (North), Georgia, USA', url: 'https://www.youtube.com/watch?v=wDBVKqCwtC8', active: true, description: '', youtube_metadata: { title: 'Folkston (North), Georgia, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 156864 } },
-      { id: 'f374783f-0521-4e4a-8a60-c56973f07c47', name: 'Fort Madison Bridge (West), Iowa, USA', url: 'https://www.youtube.com/watch?v=DuXSP6y9W7U', active: true, description: '', youtube_metadata: { title: 'Fort Madison Bridge (West), Fort Madison, Iowa, USA | LIVE RAILCAM - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 531059 } },
-      { id: '2e1d29ce-256d-406a-82c4-f33de003192f', name: 'Lincoln, Nebraska, USA', url: 'https://www.youtube.com/watch?v=DhoVf4-0Zt4', active: true, description: '', youtube_metadata: { title: 'Lincoln, Nebraska, USA | LIVE Train Camera | Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 448387 } },
-      { id: '6cf842ee-c699-4e7c-ba91-8db8ad05638d', name: 'Chehalis (Static), Washington, USA', url: 'https://www.youtube.com/watch?v=wSZCdFJNkR4', active: true, description: '', youtube_metadata: { title: 'Chehalis (Static), Washington, USA | LIVE RAILCAM - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 199725 } },
-      { id: '99536804-f3ba-4709-b3c4-f35e274157fb', name: 'Rochelle, Illinois, USA', url: 'https://www.youtube.com/watch?v=LhNpn9L5ndM', active: false, description: '', youtube_metadata: { title: 'Rochelle, Illinois, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 157898 } },
-      { id: 'c6a06973-8c73-41bc-b0d9-05230d5920a7', name: 'Muncie (East), Indiana, USA', url: 'https://www.youtube.com/watch?v=FthjafjSKxo', active: false, description: '', youtube_metadata: { title: 'Muncie (East), Indiana, USA | LIVE RAILCAM - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 62011 } },
-      { id: 'ed079964-1e18-49a5-a52a-2af4f010936e', name: 'Greeley, Colorado, USA', url: 'https://www.youtube.com/watch?v=DDHWS4i4eTo', active: false, description: '', youtube_metadata: { title: 'Greeley, Colorado, USA | LIVE Train Camera (Fixed View)', uploader: 'Virtual Railfan', is_live: true, view_count: 92444 } },
-      { id: 'adfc39aa-9f4f-4e85-bd12-d29cf5b3bcc3', name: 'Fort Worth/Tower 55, Texas, USA', url: 'https://www.youtube.com/watch?v=blcDjPvPbss', active: false, description: '', youtube_metadata: { title: 'Fort Worth/Tower 55, Texas | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 252999 } },
-      { id: '96c5b1fc-73cb-494b-ae6e-e53ba7cb3e2a', name: 'Paradise, Pennsylvania, USA', url: 'https://www.youtube.com/watch?v=qnO188z7z5w', active: false, description: '', youtube_metadata: { title: 'Paradise, Pennsylvania, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 680731 } },
-      { id: '18f86645-cb8b-46cd-a084-30ef61875743', name: 'Ashland, Virginia, USA', url: 'https://www.youtube.com/watch?v=wgkdREYOfw0', active: false, description: '', youtube_metadata: { title: 'Ashland, Virginia, USA | LIVE RAILCAM - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 3190811 } },
-      { id: '79f5e7d2-f3f4-4098-b640-8916180d3aff', name: 'Saint Paul (Static), Minnesota, USA', url: 'https://www.youtube.com/watch?v=u5dt2mHDuxQ', active: false, description: '', youtube_metadata: { title: 'Saint Paul (Static), Minnesota, USA | LIVE RAILCAM - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 391109 } },
-      { id: '509d93ee-f78b-4780-8035-4b22a5734f36', name: 'Chattanooga/TVRM, Tennessee, USA', url: 'https://www.youtube.com/watch?v=HSZDWRE5m2o', active: false, description: '', youtube_metadata: { title: 'Chattanooga/TVRM, Tennessee, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 546277 } },
-      { id: '0c8970f8-9ae3-41d0-94af-44e247fdeeae', name: 'Lafayette, Indiana, USA', url: 'https://www.youtube.com/watch?v=IAC4KczQuQY', active: false, description: '', youtube_metadata: { title: 'Lafayette, Indiana, USA | Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 447064 } },
-      { id: 'df8c2629-3982-44ce-a107-667aad6d3ea7', name: 'Glendale (Static), Ohio, USA', url: 'https://www.youtube.com/watch?v=vF4ZdG-_6FE', active: true, description: '', youtube_metadata: { title: 'Glendale (Static), Ohio, USA | LIVE Train Camera - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 1367249 } },
-      { id: 'ef356873-2079-47eb-86a9-29d22ee2d81b', name: 'Plant City, Florida, USA', url: 'https://www.youtube.com/watch?v=hMDC4FWvqdA', active: false, description: '', youtube_metadata: { title: 'Plant City, Florida, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 694693 } },
-      { id: 'bbe3b2f4-9850-453d-bc6d-8d6d13fa0bcd', name: 'Porter Junction, Chesterton, Indiana, USA', url: 'https://www.youtube.com/watch?v=BDb_sSL-K5k', active: false, description: '', youtube_metadata: { title: 'Porter Junction | Chesterton, Indiana, USA | LIVE Train Camera - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 1440511 } },
-      { id: '1a3d70ae-9168-47ac-864d-d3bec838eed0', name: 'Parkville, Missouri, USA', url: 'https://www.youtube.com/watch?v=nO81bQFql7M', active: false, description: '', youtube_metadata: { title: 'Parkville, Missouri, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 831741 } },
-      { id: 'cb29e9a7-6dac-4404-bc1e-54000fff9e53', name: 'Johnstown (Static), Pennsylvania, USA', url: 'https://www.youtube.com/watch?v=lUMGsNe-R9Q', active: false, description: '', youtube_metadata: { title: 'Johnstown (Static), Pennsylvania, USA | LIVE RAILCAM - Virtual Railfan', uploader: 'Virtual Railfan', is_live: true, view_count: 1089941 } },
-      { id: '177e8bd7-eb96-4d37-8ccb-164f67e4f806', name: 'Big Sandy, Texas, USA', url: 'https://www.youtube.com/watch?v=WNSkLhEWbuY', active: false, description: '', youtube_metadata: { title: 'Big Sandy, Texas, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 1320188 } },
-      { id: 'b221e21d-4de9-4fc7-99ba-5ca8eaafed9c', name: 'Galesburg, Illinois, USA', url: 'https://www.youtube.com/watch?v=On1MRt0NqFs', active: false, description: '', youtube_metadata: { title: 'Galesburg, Illinois, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 3088299 } },
-      { id: 'b3117100-757f-4a85-ab52-711da3a12b81', name: 'Kansas City (Doc\'s Caboose), Missouri, USA', url: 'https://www.youtube.com/watch?v=xR3kxBG_v7Y', active: false, description: '', youtube_metadata: { title: 'Kansas City (Doc\'s Caboose), Missouri, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 1295229 } },
-      { id: 'b4687b4c-8636-40d0-8b90-8271ea8404b7', name: 'Norwalk (SoNo Tower), Connecticut, USA', url: 'https://www.youtube.com/watch?v=Dv2XxhsWqWY', active: false, description: '', youtube_metadata: { title: 'Norwalk (SoNo Tower), Connecticut, USA | Virtual Railfan LIVE !', uploader: 'Virtual Railfan', is_live: true, view_count: 1063071 } }
+      { id: 'stream-001-athens', name: 'Athens Station - Platform 1', video_file: '1.mp4', type: 'standard', active: true, description: 'Live feed monitoring Platform 1 and passenger boarding at Athens Central Railway Station.', youtube_metadata: { title: 'Athens Central Station Platform 1 | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 145020 } },
+      { id: 'stream-002-thessaloniki', name: 'Thessaloniki Yard - Cargo Area', video_file: '2.mp4', type: 'standard', active: true, description: 'Monitoring freight assembly and cargo logistics in the Thessaloniki northern rail depot.', youtube_metadata: { title: 'Thessaloniki Freight Assembly Yard | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 85400 } },
+      { id: 'stream-003-larissa', name: 'Larissa Junction - East Crossing', video_file: '3.mp4', type: 'standard', active: true, description: 'Larissa railway junction crossing point and signaling status check.', youtube_metadata: { title: 'Larissa East Rail Crossing | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 92430 } },
+      { id: 'stream-004-volos', name: 'Volos Harbor Line', video_file: '4.mp4', type: 'standard', active: false, description: 'Monitoring coastal railway lines and tourist services near Volos Port.', youtube_metadata: { title: 'Volos Scenic Harbor Line | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 53120 } },
+      { id: 'stream-005-patras', name: 'Patras Station - Main Entrance', video_file: '5.mp4', type: 'standard', active: false, description: 'Live feed from Patras railway terminal monitoring commuter line arrivals.', youtube_metadata: { title: 'Patras Terminal Main Entrance | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 67100 } },
+      { id: 'stream-006-tempi', name: 'Tempi Valley Overpass', video_file: '6.mp4', type: 'standard', active: false, description: 'High-speed passenger line monitoring at the Tempi valley railway bridge.', youtube_metadata: { title: 'Tempi Valley Railway Viaduct | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 110900 } },
+      { id: 'stream-007-katerini', name: 'Katerini Bypass Line', video_file: '7.mp4', type: 'standard', active: false, description: 'Safety monitoring camera at Katerini level crossing bypass.', youtube_metadata: { title: 'Katerini Level Crossing Bypass | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 45890 } },
+      { id: 'stream-008-drone', name: 'Aerial Drone - Mountain Section', video_file: 'Drone.mp4', type: 'drone', active: true, description: 'Aerial drone patrol monitoring structural integrity of railway lines in mountainous Central Greece.', youtube_metadata: { title: 'Central Greece Mountain Drone Patrol | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 231400 } },
+      { id: 'stream-009-fpv1', name: 'Intercity Cabin 1 - FPV View', video_file: 'FPV_1.mp4', type: 'fpv', active: true, description: "Forward-facing camera in driver's cab of Intercity Hellenic Train (Athens - Thessaloniki line).", youtube_metadata: { title: 'IC-50 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 384000 } },
+      { id: 'stream-010-fpv2', name: 'Regional Express Cabin 2 - FPV View', video_file: 'FPV_2.mp4', type: 'fpv', active: false, description: "Forward-facing camera in driver's cab of regional express Hellenic Train (Larissa - Volos line).", youtube_metadata: { title: 'REG-12 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 120500 } }
     ];
 
     let simSessions = [];
@@ -1976,7 +2070,7 @@
 
       // Generate railway events
       const locations = SIM_STREAMS.map(s => s.name);
-      const marks = ['UP', 'BNSF', 'CSX', 'NS', 'CN', 'CP', 'KCS', 'FEC', 'GATX', 'UTLX', 'TILX', 'DTTX', 'TTGX', 'FBOX', 'TBOX'];
+      const marks = ['OSE', 'HT', 'TRAINOSE', 'IC', 'ECE', 'H-S', 'DES', 'AEG'];
       for (let i = 0; i < 120; i++) {
         const dayOffset = Math.floor(i / 4);
         const baseDate = new Date();
@@ -2010,6 +2104,7 @@
         const d = new Date();
         d.setMinutes(d.getMinutes() - i * 3);
         const hasTrain = Math.random() > 0.3;
+        const randomStream = SIM_STREAMS[Math.floor(Math.random() * SIM_STREAMS.length)];
         simFrames.push({
           filename: 'frame_' + String(i + 1).padStart(4, '0') + '.jpg',
           timestamp: d.toISOString(),
@@ -2018,8 +2113,8 @@
           detection_count: hasTrain ? Math.floor(Math.random() * 4) + 1 : 0,
           total_serials: hasTrain ? Math.floor(Math.random() * 3) : 0,
           detections: hasTrain ? [{ confidence: Math.random() * 0.3 + 0.7 }] : [],
-          stream_id: SIM_STREAMS[Math.floor(Math.random() * SIM_STREAMS.length)].id,
-          stream_name: SIM_STREAMS[Math.floor(Math.random() * SIM_STREAMS.length)].name
+          stream_id: randomStream.id,
+          stream_name: randomStream.name
         });
       }
     }
@@ -2039,7 +2134,7 @@
 
           // Generate new event if detection occurs
           if (newDet > 0 && Math.random() > 0.7) {
-            const marks = ['UP', 'BNSF', 'CSX', 'NS', 'CN', 'CP', 'KCS'];
+            const marks = ['OSE', 'HT', 'TRAINOSE', 'IC', 'ECE', 'H-S', 'DES', 'AEG'];
             const mark = marks[Math.floor(Math.random() * marks.length)] + ' ' + Math.floor(Math.random() * 900000 + 100000);
             const now = new Date();
             simRailwayEvents.unshift({
@@ -2151,10 +2246,38 @@
       renderSessionsAlert();
       const sessionMap = {};
       simSessions.forEach(s => sessionMap[s.stream_id] = s);
-      g.innerHTML = SIM_STREAMS.map(s => {
-        const analyzing = !!sessionMap[s.id];
-        const meta = s.youtube_metadata || {};
-        return '<div class="card stream-card"><div class="yt-embed">' + (meta.is_live ? '<span class="live-badge"><span class="material-icons" style="font-size:.7rem">live_tv</span> LIVE</span>' : '') + '<iframe src="' + embedUrl(s.url) + '" loading="lazy" allow="autoplay;encrypted-media" allowfullscreen></iframe></div><div class="card-content" style="flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"><h3>' + s.name + '</h3><div style="display:flex;gap:4px;flex-wrap:wrap"><span class="chip success">Active</span>' + (meta.is_live ? '<span class="chip live">LIVE</span>' : '') + (analyzing ? '<span class="chip warning"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Analyzing</span>' : '') + '</div></div>' + (meta.title ? '<p style="font-size:.85rem;font-weight:500;margin-bottom:4px">' + meta.title + '</p>' : '') + (meta.uploader ? '<p class="meta">Channel: ' + meta.uploader + (meta.view_count > 0 ? ' &bull; ' + meta.view_count.toLocaleString() + ' views' : '') + '</p>' : '') + '<p class="meta">' + (s.description || 'No description') + '</p></div><div style="padding:0 16px 16px;display:flex;justify-content:space-between;align-items:center"><button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.url + '\',\'' + s.name.replace(/'/g, "\\'") + '\')"><span class="material-icons" style="font-size:1rem">visibility</span> Watch Stream</button>' + (analyzing ? '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">stop</span> Stop Analysis</button>' : '<button class="btn btn-primary btn-sm" onclick="startStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">play_arrow</span> Start Analysis</button>') + '</div></div>';
+
+      const categories = [
+        { key: 'standard', name: 'Fixed Station Feeds', icon: 'videocam' },
+        { key: 'drone', name: 'Aerial Drone Patrol Feed', icon: 'flight_takeoff' },
+        { key: 'fpv', name: 'Driver Cabin FPV Streams', icon: 'subway' }
+      ];
+
+      g.innerHTML = categories.map(cat => {
+        const streams = SIM_STREAMS.filter(s => s.type === cat.key);
+        if (!streams.length) return '';
+
+        const cardsHtml = streams.map(s => {
+          const analyzing = !!sessionMap[s.id];
+          const meta = s.youtube_metadata || {};
+          return '<div class="card stream-card"><div style="position:relative; width:100%; aspect-ratio:16/9; background:#000;">' + 
+            (meta.is_live ? '<span class="live-badge"><span class="material-icons" style="font-size:.7rem">live_tv</span> LIVE</span>' : '') + 
+            '<video src="./videos/' + s.video_file + '" autoplay loop muted playsinline class="video-embed" style="width:100%; height:100%; object-fit:cover;"></video></div>' +
+            '<div class="card-content" style="flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"><h3>' + s.name + '</h3>' + 
+            '<div style="display:flex;gap:4px;flex-wrap:wrap"><span class="chip success">Active</span>' + 
+            (analyzing ? '<span class="chip warning"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Analyzing</span>' : '') + '</div></div>' + 
+            (meta.title ? '<p style="font-size:.85rem;font-weight:500;margin-bottom:4px">' + meta.title + '</p>' : '') + 
+            (meta.uploader ? '<p class="meta">Operations: ' + meta.uploader + (meta.view_count > 0 ? ' &bull; ' + meta.view_count.toLocaleString() + ' views' : '') + '</p>' : '') + 
+            '<p class="meta">' + (s.description || 'No description') + '</p></div>' +
+            '<div style="padding:0 16px 16px;display:flex;justify-content:space-between;align-items:center">' +
+            '<button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.video_file + '\',\'' + s.name.replace(/'/g, "\\'") + '\')"><span class="material-icons" style="font-size:1rem">visibility</span> Watch Stream</button>' + 
+            (analyzing ? '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">stop</span> Stop Analysis</button>' : 
+                        '<button class="btn btn-primary btn-sm" onclick="startStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">play_arrow</span> Start Analysis</button>') + 
+            '</div></div>';
+        }).join('');
+
+        return '<div class="stream-category-section"><h2 class="category-header"><span class="material-icons">' + cat.icon + '</span> ' + cat.name + '</h2>' +
+          '<div class="stream-grid">' + cardsHtml + '</div></div>';
       }).join('');
     }
 
@@ -2182,14 +2305,22 @@
     }
 
     /* ═══════════════ VIEWER MODAL ═══════════════ */
-    function openViewer(url, name) {
-      currentViewUrl = url;
+    function openViewer(videoFile, name) {
+      currentViewUrl = './videos/' + videoFile;
       document.getElementById('viewerTitle').textContent = name;
-      document.getElementById('viewerIframe').src = embedUrlFull(url);
+      const iframe = document.getElementById('viewerIframe');
+      const video = document.getElementById('viewerVideo');
+      iframe.style.display = 'none';
+      video.style.display = 'block';
+      video.src = currentViewUrl;
+      video.load();
+      video.play();
       document.getElementById('viewerModal').classList.add('open');
     }
     function closeViewer() {
-      document.getElementById('viewerIframe').src = '';
+      const video = document.getElementById('viewerVideo');
+      video.pause();
+      video.src = '';
       document.getElementById('viewerModal').classList.remove('open');
     }
     function openStreamExternal() { if (currentViewUrl) window.open(currentViewUrl, '_blank'); }
@@ -2201,8 +2332,67 @@
         el.innerHTML = '<div class="card"><div class="card-content" style="text-align:center;padding:48px"><span class="material-icons" style="font-size:80px;color:#555">analytics</span><h3 style="color:#aaa;margin-top:12px">No Active Analysis</h3><p style="color:#777;margin-top:8px">Start an analysis from the Stream Selection tab to view real-time data.</p></div></div>';
         return;
       }
+
+      // 1. Live Video Wall
+      const activeStreamsWithDetails = simSessions.map(s => {
+        const fullStream = SIM_STREAMS.find(st => st.id === s.stream_id);
+        return {
+          ...s,
+          video_file: fullStream ? fullStream.video_file : '',
+          type: fullStream ? fullStream.type : 'standard'
+        };
+      });
+
+      const categories = [
+        { key: 'standard', name: 'Fixed Station Feeds', icon: 'videocam' },
+        { key: 'drone', name: 'Aerial Drone Patrol', icon: 'flight_takeoff' },
+        { key: 'fpv', name: 'Cabin FPV Feeds', icon: 'subway' }
+      ];
+
+      let videoWallHtml = '<div class="video-wall-container"><h4 style="font-weight:700; color:#0D5EAF; margin-bottom:12px; font-size:1.1rem; display:flex; align-items:center; gap:6px;"><span class="material-icons">grid_view</span> Real-Time AI Inference Wall</h4><div class="video-wall-grid">';
+      
+      activeStreamsWithDetails.forEach(s => {
+        // Randomly simulate detections for visual overlay
+        const isDetecting = Math.random() > 0.6;
+        const detLabel = Math.random() > 0.5 ? 'Locomotive (95%)' : 'Railcar (92%)';
+        const bboxStyle = isDetecting ? 'display:block; top:' + (30 + Math.random()*30) + '%; left:' + (20 + Math.random()*35) + '%; width:' + (30 + Math.random()*20) + '%; height:' + (30 + Math.random()*20) + '%;' : 'display:none;';
+        
+        videoWallHtml += '<div class="video-wall-card ' + (isDetecting ? 'detecting' : '') + '">' +
+          '<video src="./videos/' + s.video_file + '" autoplay loop muted playsinline style="width:100%; aspect-ratio:16/9; object-fit:cover; display:block;"></video>' +
+          '<div class="video-wall-ai-bbox" style="' + bboxStyle + '"><div class="video-wall-ai-label">' + detLabel + '</div></div>' +
+          '<div class="video-wall-overlay">' +
+          '<span class="video-wall-badge"><span class="material-icons" style="font-size:.8rem; animation:pulse 1s infinite;">' + (isDetecting ? 'center_focus_strong' : 'radio_button_checked') + '</span> ' + (isDetecting ? 'DETECTION IN PROGRESS' : 'ANALYZING FEED') + '</span>' +
+          '<span class="video-wall-title">' + s.stream_name + '</span>' +
+          '</div></div>';
+      });
+      videoWallHtml += '</div></div>';
+
+      // 2. Grouped Status Table
       const fmtDur = s => { const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60; return h > 0 ? h + 'h ' + m + 'm ' + sec + 's' : m > 0 ? m + 'm ' + sec + 's' : sec + 's'; };
-      el.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h3 style="font-weight:600">📊 Active Stream Analysis (' + simSessions.length + ')</h3><button class="btn btn-outline btn-sm" onclick="renderMultiStream()">Refresh</button></div><table><tr><th>Stream</th><th>Status</th><th>Runtime</th><th>Metrics</th><th>Detection Rate</th><th>Actions</th></tr>' + simSessions.map(s => '<tr><td><strong>' + s.stream_name + '</strong><br/><span style="color:#777;font-size:.75rem">ID: ' + s.stream_id + '</span></td><td><span class="chip ' + (s.active ? 'success' : 'error') + '"><span class="material-icons" style="font-size:.7rem">' + (s.active ? 'play_arrow' : 'stop') + '</span> ' + (s.active ? 'Running' : 'Stopped') + '</span></td><td><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem;color:#aaa">schedule</span>' + fmtDur(s.runtime_seconds || 0) + '</span></td><td><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#0D5EAF;vertical-align:middle">analytics</span> Frames: <strong>' + (s.frames_processed || 0).toLocaleString() + '</strong></span><span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#4CAF50;vertical-align:middle">train</span> Trains: <strong>' + (s.trains_detected || 0).toLocaleString() + '</strong></span></div></td><td><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="material-icons" style="font-size:1rem;color:#aaa">speed</span><strong>' + (s.detection_rate || 0) + '%</strong></div><div style="background:rgba(255,255,255,.1);height:6px;border-radius:3px;width:80px"><div style="background:' + (s.detection_rate > 20 ? '#4CAF50' : s.detection_rate > 10 ? '#f59e0b' : '#f44336') + ';height:100%;border-radius:3px;width:' + Math.min(s.detection_rate || 0, 100) + '%;transition:.5s"></div></div></td><td><div style="display:flex;gap:4px"><button class="btn btn-outline btn-sm" onclick="openViewer(\'' + (SIM_STREAMS.find(st => st.id === s.stream_id)?.url || '') + '\',\'' + s.stream_name.replace(/'/g, "\\'") + '\')" title="View Stream"><span class="material-icons" style="font-size:1rem">visibility</span></button><button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.stream_id + '\');renderMultiStream()"><span class="material-icons" style="font-size:1rem">stop</span></button></div></td></tr>').join('') + '</table>';
+      
+      let tableRowsHtml = '';
+      categories.forEach(cat => {
+        const catSessions = activeStreamsWithDetails.filter(s => s.type === cat.key);
+        if (catSessions.length > 0) {
+          // Add Category Subheader Row
+          tableRowsHtml += '<tr><td colspan="6" style="background:rgba(13,94,175,0.06); font-weight:700; color:#0D5EAF; padding:8px 12px; font-size:0.85rem;"><span class="material-icons" style="font-size:1rem; vertical-align:middle; margin-right:4px;">' + cat.icon + '</span> ' + cat.name + ' (' + catSessions.length + ')</td></tr>';
+          
+          catSessions.forEach(s => {
+            tableRowsHtml += '<tr><td><strong>' + s.stream_name + '</strong><br/><span style="color:#777;font-size:.75rem">ID: ' + s.stream_id + '</span></td>' +
+              '<td><span class="chip success"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Running</span></td>' +
+              '<td><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem;color:#aaa">schedule</span>' + fmtDur(s.runtime_seconds || 0) + '</span></td>' +
+              '<td><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#0D5EAF;vertical-align:middle">analytics</span> Frames: <strong>' + (s.frames_processed || 0).toLocaleString() + '</strong></span><span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#4CAF50;vertical-align:middle">train</span> Trains: <strong>' + (s.trains_detected || 0).toLocaleString() + '</strong></span></div></td>' +
+              '<td><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="material-icons" style="font-size:1rem;color:#aaa">speed</span><strong>' + (s.detection_rate || 0) + '%</strong></div><div style="background:rgba(255,255,255,.1);height:6px;border-radius:3px;width:80px"><div style="background:' + (s.detection_rate > 20 ? '#4CAF50' : s.detection_rate > 10 ? '#f59e0b' : '#f44336') + ';height:100%;border-radius:3px;width:' + Math.min(s.detection_rate || 0, 100) + '%;transition:.5s"></div></div></td>' +
+              '<td><div style="display:flex;gap:4px"><button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.video_file + '\',\'' + s.stream_name.replace(/'/g, "\\'") + '\')" title="View Stream"><span class="material-icons" style="font-size:1rem">visibility</span></button>' +
+              '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.stream_id + '\');renderMultiStream()"><span class="material-icons" style="font-size:1rem">stop</span></button></div></td></tr>';
+          });
+        }
+      });
+
+      const tableHtml = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px; margin-top:20px;"><h3 style="font-weight:600">📊 Active Stream Analysis Status</h3><button class="btn btn-outline btn-sm" onclick="renderMultiStream()">Refresh</button></div>' +
+        '<table><tr><th>Stream</th><th>Status</th><th>Runtime</th><th>Metrics</th><th>Detection Rate</th><th>Actions</th></tr>' + tableRowsHtml + '</table>';
+
+      el.innerHTML = videoWallHtml + tableHtml;
     }
 
     /* ═══════════════ ANALYTICS ═══════════════ */
@@ -2561,7 +2751,7 @@
       // Generate live alerts
       const types = ['warning', 'success', 'info'];
       const messages = [
-        { type: 'success', title: '🚂 New Train Detected', desc: 'BNSF locomotive identified' },
+        { type: 'success', title: '🚂 New Train Detected', desc: 'Hellenic Train locomotive identified' },
         { type: 'warning', title: '⚡ High Activity', desc: 'Multiple detections in last minute' },
         { type: 'info', title: '🔧 System Update', desc: 'Detection algorithms optimized' },
         { type: 'success', title: '📸 Frame Captured', desc: 'High-quality image saved' },
@@ -2724,7 +2914,11 @@
       }
       const fmt = ts => { try { return new Date(ts).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }); } catch (_) { return '—'; } };
       const fmtDur = s => { if (s == null) return '—'; const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = Math.floor(s % 60); return h > 0 ? h + 'h ' + m + 'm ' + sec + 's' : m > 0 ? m + 'm ' + sec + 's' : sec + 's'; };
-      el.innerHTML = '<table><tr><th><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem">schedule</span> Start</span></th><th><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem">schedule</span> End</span></th><th style="text-align:center"><span style="display:flex;align-items:center;gap:4px;justify-content:center"><span class="material-icons" style="font-size:1rem">access_time</span> Duration</span></th><th style="text-align:center"><span style="display:flex;align-items:center;gap:4px;justify-content:center"><span class="material-icons" style="font-size:1rem">train</span> Frames</span></th><th style="text-align:center">Units</th><th><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem">badge</span> Reporting Marks</span></th><th style="text-align:center"><span style="display:flex;align-items:center;gap:4px;justify-content:center"><span class="material-icons" style="font-size:1rem">image</span> Last Detection</span></th><th style="text-align:center">Video</th><th style="text-align:center">Action</th></tr>' + events.slice(0, 50).map(e => '<tr style="cursor:pointer;transition:.2s"><td>' + fmt(e.start_time) + '</td><td>' + (e.end_time ? fmt(e.end_time) : '— (active)') + '</td><td style="text-align:center;font-weight:700">' + fmtDur(e.duration_seconds) + '</td><td style="text-align:center">' + (e.frames_count || 0) + '</td><td style="text-align:center">' + (e.units_count || 0) + '</td><td>' + (e.reporting_marks || []).slice(0, 6).map(r => '<span class="chip primary" style="margin:1px">' + r + '</span>').join('') + ((e.reporting_marks || []).length > 6 ? '<span class="chip primary">+' + (e.reporting_marks.length - 6) + '</span>' : '') + '</td><td style="text-align:center"><div style="width:80px;height:50px;background:#1a1a1a;border-radius:4px;border:1px solid rgba(13, 94, 175,.2);display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="material-icons" style="font-size:1.2rem;color:#555">image</span></div></td><td style="text-align:center"><button class="btn btn-outline btn-sm" title="View event video"><span class="material-icons" style="font-size:1rem">play_arrow</span></button></td><td style="text-align:center"><button class="btn btn-primary btn-sm"><span class="material-icons" style="font-size:.9rem">search</span> View Details</button></td></tr>').join('') + '</table>';
+      el.innerHTML = '<table><tr><th><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem">schedule</span> Start</span></th><th><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem">schedule</span> End</span></th><th style="text-align:center"><span style="display:flex;align-items:center;gap:4px;justify-content:center"><span class="material-icons" style="font-size:1rem">access_time</span> Duration</span></th><th style="text-align:center"><span style="display:flex;align-items:center;gap:4px;justify-content:center"><span class="material-icons" style="font-size:1rem">train</span> Frames</span></th><th style="text-align:center">Units</th><th><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem">badge</span> Reporting Marks</span></th><th style="text-align:center"><span style="display:flex;align-items:center;gap:4px;justify-content:center"><span class="material-icons" style="font-size:1rem">image</span> Last Detection</span></th><th style="text-align:center">Video</th><th style="text-align:center">Action</th></tr>' + events.slice(0, 50).map(e => {
+        const stream = SIM_STREAMS.find(st => st.name === e.stream_name);
+        const videoFile = stream ? stream.video_file : '1.mp4';
+        return '<tr style="cursor:pointer;transition:.2s"><td>' + fmt(e.start_time) + '</td><td>' + (e.end_time ? fmt(e.end_time) : '— (active)') + '</td><td style="text-align:center;font-weight:700">' + fmtDur(e.duration_seconds) + '</td><td style="text-align:center">' + (e.frames_count || 0) + '</td><td style="text-align:center">' + (e.units_count || 0) + '</td><td>' + (e.reporting_marks || []).slice(0, 6).map(r => '<span class="chip primary" style="margin:1px">' + r + '</span>').join('') + ((e.reporting_marks || []).length > 6 ? '<span class="chip primary">+' + (e.reporting_marks.length - 6) + '</span>' : '') + '</td><td style="text-align:center"><div style="width:80px;height:50px;background:#1a1a1a;border-radius:4px;border:1px solid rgba(13, 94, 175,.2);display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="material-icons" style="font-size:1.2rem;color:#555">image</span></div></td><td style="text-align:center"><button class="btn btn-outline btn-sm" onclick="openViewer(\'' + videoFile + '\',\'' + e.stream_name.replace(/'/g, "\\'") + '\')" title="View event video"><span class="material-icons" style="font-size:1rem">play_arrow</span></button></td><td style="text-align:center"><button class="btn btn-primary btn-sm"><span class="material-icons" style="font-size:.9rem">search</span> View Details</button></td></tr>';
+      }).join('') + '</table>';
     }
 
     /* ═══════════════ FRAME GALLERY ═══════════════ */
