@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Railytics Catalyst</title>
-  <link rel="icon" type="image/jpeg" href="./favicon.jpg" />
+  <title>Railytics Hellenic Train</title>
+  <link rel="icon" type="image/jpeg" href="./favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link rel="preconnect" href="https://www.youtube.com" crossorigin />
   <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin />
-  <link rel="dns-prefetch" href="https://www.youtube.com" />
   <link rel="dns-prefetch" href="https://www.youtube-nocookie.com" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <style>
     /* ═══════════════ RESET & BASE ═══════════════ */
@@ -341,10 +342,10 @@
     }
 
     .chip.secondary {
-      background: rgba(224, 242, 254, .15);
-      color: #E0F2FE;
-      border: 1px solid rgba(224, 242, 254, .3)
-    }
+    background: rgb(0 164 249);
+    color: #ffffff;
+    border: 1px solid rgb(0 0 0 / 0%);
+}
 
     /* ═══════════════ BUTTONS ═══════════════ */
     .btn {
@@ -459,7 +460,7 @@
     .tab-btn {
       padding: 10px 20px;
       font-size: .9rem;
-      color: #aaa;
+      color: #000000;
       background: none;
       border: none;
       border-bottom: 2px solid transparent;
@@ -1488,6 +1489,124 @@
         grid-template-columns: repeat(6, 1fr)
       }
     }
+
+    /* ═══════════════ LEAFLET MAP & SIMULATION ═══════════════ */
+    #tab4-container {
+      display: flex;
+      height: calc(100vh - 120px);
+      gap: 16px;
+    }
+    #map-sidepanel {
+      width: 300px;
+      background: #1a1a1a;
+      border: 1px solid rgba(13, 94, 175, .3);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      color: #fff;
+    }
+    #map-sidepanel .panel-header {
+      padding: 16px;
+      background: linear-gradient(135deg, #005b9f, #4A90E2);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #train-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+    }
+    .train-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid #22c55e;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    .train-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .train-item-id {
+      font-weight: 600;
+      color: #4A90E2;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .train-item-detail {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+    #map {
+      flex: 1;
+      border-radius: 12px;
+      border: 1px solid rgba(13, 94, 175, .3);
+      background: #000;
+      z-index: 1;
+    }
+    /* Dark Theme filter for OSM */
+    .leaflet-layer,
+    .leaflet-control-zoom-in,
+    .leaflet-control-zoom-out,
+    .leaflet-control-attribution {
+      filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+    }
+    /* Train Icon styles */
+    .train-icon-container {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.2);
+      border: 2px solid #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+      transition: transform 0.1s linear;
+    }
+    .train-icon-container .material-icons {
+      font-size: 14px;
+      color: #fff;
+    }
+    .station-icon {
+      width: 14px;
+      height: 14px;
+      background: #4A90E2;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #4A90E2;
+    }
+    .station-tooltip {
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #0D5EAF;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: none;
+    }
+    .leaflet-popup-content-wrapper {
+      background: rgba(26, 26, 26, 0.95);
+      color: #fff;
+      border: 1px solid #0D5EAF;
+      border-radius: 8px;
+    }
+    .leaflet-popup-tip {
+      background: rgba(26, 26, 26, 0.95);
+      border: 1px solid #0D5EAF;
+    }
+    .leaflet-popup-content {
+      margin: 10px;
+    }
+    .train-popup h4 {
+      margin: 0 0 6px 0;
+      color: #4A90E2;
+    }
+    .train-popup p {
+      margin: 2px 0;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 
@@ -1499,6 +1618,7 @@
         style="font-size:2.5rem">menu</span></button>
     <img src="./logo_aikon.avif" alt="UP" class="logo" />
     <div style="flex:1"></div>
+    <img src="./hellenic_train_logo.png" alt="Hellenic Train" class="logo" />
   </header>
   <div class="header-spacer"></div>
 
@@ -1514,6 +1634,7 @@
       EVENTS</button>
     <button class="menu-item" onclick="switchTab(3)"><span class="material-icons">photo_library</span>FRAME
       GALLERY</button>
+    <button class="menu-item" onclick="switchTab(4)"><span class="material-icons">train</span>GREEK RAILWAY MAP</button>
   </nav>
 
   <!-- ═══════════════ CONTENT ═══════════════ -->
@@ -1537,19 +1658,19 @@
     <!-- ════ TAB 1: REAL-TIME ANALYSIS ════ -->
     <div class="tab-panel" id="tab1">
       <div class="tabs-bar">
-        <button class="tab-btn active" onclick="switchInnerTab(0,this)"><span class="material-icons"
-            style="font-size:1.1rem">table_view</span> Multi-Stream View</button>
-        <button class="tab-btn" onclick="switchInnerTab(1,this)"><span class="material-icons"
+        <button class="tab-btn active" onclick="switchInnerTab(1,this)"><span class="material-icons"
             style="font-size:1.1rem">bar_chart</span> Analytics</button>
+        <button class="tab-btn" onclick="switchInnerTab(0,this)"><span class="material-icons"
+            style="font-size:1.1rem">table_view</span> Multi-Stream View</button>
         <button class="tab-btn" onclick="switchInnerTab(2,this)"><span class="material-icons"
             style="font-size:1.1rem">show_chart</span> Historical</button>
       </div>
       <!-- Inner Tab 0: Multi-Stream -->
-      <div class="inner-tab active" id="innerTab0">
+      <div class="inner-tab" id="innerTab0">
         <div id="multiStreamContent"></div>
       </div>
       <!-- Inner Tab 1: Analytics -->
-      <div class="inner-tab" id="innerTab1">
+      <div class="inner-tab active" id="innerTab1">
         <div id="analyticsContent">
           <h2 style="font-weight:700;color:#0D5EAF;margin-bottom:24px;padding:0 8px">📊 Real-Time Stream Analytics
             Dashboard</h2>
@@ -1737,6 +1858,19 @@
           style="display:flex;gap:20px;margin-bottom:16px;font-size:.85rem;color:#aaa;flex-wrap:wrap"></div>
         <div class="frame-grid" id="frameGrid"></div>
         <div class="pagination" id="framesPagination"></div>
+      </div>
+    </div>
+
+    <!-- ════ TAB 4: GREEK RAILWAY MAP ════ -->
+    <div class="tab-panel" id="tab4">
+      <div id="tab4-container">
+        <div id="map-sidepanel">
+          <div class="panel-header">
+            <span class="material-icons">directions_railway</span> Active Trains
+          </div>
+          <div id="train-list"></div>
+        </div>
+        <div id="map"></div>
       </div>
     </div>
 
@@ -1963,9 +2097,23 @@
       document.querySelectorAll('.drawer .menu-item').forEach((m, i) => m.classList.toggle('active', i === idx));
       toggleDrawer();
       if (idx === 0) renderStreams();
-      if (idx === 1) { renderMultiStream(); startPolling(); }
+      if (idx === 1) {
+        const analyticsBtn = document.querySelector('#tab1 .tabs-bar .tab-btn[onclick*="switchInnerTab(1"]');
+        if (analyticsBtn) {
+          switchInnerTab(1, analyticsBtn);
+        } else {
+          renderMultiStream();
+        }
+        startPolling();
+      }
       if (idx === 2) loadDashboard();
       if (idx === 3) loadFrames();
+      if (idx === 4) {
+        setTimeout(() => {
+          initMap();
+          if (greceMap) greceMap.invalidateSize();
+        }, 100);
+      }
       if (idx !== 1) stopPolling();
     }
     function switchInnerTab(idx, btn) {
@@ -2620,6 +2768,182 @@
     function loadFrameFilters() {
       const sel = document.getElementById('frameFilter');
       SIM_STREAMS.forEach(s => { const o = document.createElement('option'); o.value = s.id; o.textContent = s.name; sel.appendChild(o); });
+    }
+
+    /* ═══════════════ LEAFLET SIMULATION ═══════════════ */
+    let mapInitialized = false;
+    let greceMap = null;
+    let trainMarkers = {};
+    let simulationTrains = [];
+    let simulationLoopId = null;
+
+    const STATIONS = {
+      'Athens': { lat: 37.9922, lng: 23.7212 },
+      'Thessaloniki': { lat: 40.6436, lng: 22.9309 },
+      'Larissa': { lat: 39.6369, lng: 22.4176 },
+      'Volos': { lat: 39.3621, lng: 22.9421 },
+      'Patras': { lat: 38.2462, lng: 21.7351 }
+    };
+
+    const CONNECTIONS = [
+      ['Athens', 'Patras'],
+      ['Athens', 'Larissa'],
+      ['Larissa', 'Volos'],
+      ['Larissa', 'Thessaloniki']
+    ];
+
+    function initMap() {
+      if (mapInitialized) return;
+      greceMap = L.map('map').setView([39.0742, 21.8243], 6);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(greceMap);
+
+      CONNECTIONS.forEach(pair => {
+        const p1 = STATIONS[pair[0]];
+        const p2 = STATIONS[pair[1]];
+        L.polyline([[p1.lat, p1.lng], [p2.lat, p2.lng]], {
+          color: '#0D5EAF', weight: 4, opacity: 0.7, dashArray: '5, 10'
+        }).addTo(greceMap);
+      });
+
+      const stationIcon = L.divIcon({
+        className: 'station-icon',
+        iconSize: [14, 14]
+      });
+
+      Object.entries(STATIONS).forEach(([name, coords]) => {
+        L.marker([coords.lat, coords.lng], { icon: stationIcon })
+          .addTo(greceMap)
+          .bindTooltip(name, { permanent: true, direction: 'right', className: 'station-tooltip' });
+      });
+
+      createMockTrains();
+      simulationLoopId = setInterval(updateSimulation, 100);
+      mapInitialized = true;
+    }
+
+    function createMockTrains() {
+      const routes = [
+        ['Athens', 'Larissa', 'Thessaloniki'],
+        ['Thessaloniki', 'Larissa', 'Athens'],
+        ['Athens', 'Patras'],
+        ['Patras', 'Athens'],
+        ['Volos', 'Larissa', 'Thessaloniki'],
+        ['Thessaloniki', 'Larissa', 'Volos']
+      ];
+
+      for (let i = 0; i < 8; i++) {
+        const route = routes[Math.floor(Math.random() * routes.length)];
+        const trainId = 'HT-' + (Math.floor(Math.random() * 9000) + 1000);
+        simulationTrains.push({
+          id: trainId,
+          route: route,
+          currentSegment: 0,
+          progress: Math.random(),
+          speed: (Math.random() * 0.005) + 0.002,
+          state: 'Moving',
+          lat: 0,
+          lng: 0,
+          angle: 0
+        });
+      }
+    }
+
+    function updateSimulation() {
+      simulationTrains.forEach(t => {
+        const start = STATIONS[t.route[t.currentSegment]];
+        const end = STATIONS[t.route[t.currentSegment + 1]];
+        
+        if (!end) {
+          t.route.reverse();
+          t.currentSegment = 0;
+          t.progress = 0;
+          return;
+        }
+
+        t.progress += t.speed;
+
+        if (t.progress >= 1) {
+          t.progress = 0;
+          t.currentSegment++;
+          if (t.currentSegment >= t.route.length - 1) {
+             t.route.reverse();
+             t.currentSegment = 0;
+          }
+        }
+
+        const nextStart = STATIONS[t.route[t.currentSegment]];
+        const nextEnd = STATIONS[t.route[t.currentSegment + 1]];
+
+        t.lat = nextStart.lat + (nextEnd.lat - nextStart.lat) * t.progress;
+        t.lng = nextStart.lng + (nextEnd.lng - nextStart.lng) * t.progress;
+
+        const dy = nextEnd.lat - nextStart.lat;
+        const dx = nextEnd.lng - nextStart.lng;
+        t.angle = Math.atan2(dx, dy) * (180 / Math.PI); 
+      });
+
+      renderTrains();
+      renderTrainList();
+    }
+
+    function renderTrains() {
+      simulationTrains.forEach(t => {
+        if (!trainMarkers[t.id]) {
+          const icon = L.divIcon({
+            html: `<div class="train-icon-container" id="icon-${t.id}"><span class="material-icons">train</span></div>`,
+            className: '',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+            popupAnchor: [0, -12]
+          });
+          const marker = L.marker([t.lat, t.lng], { icon: icon }).addTo(greceMap);
+          const popupContent = `
+            <div class="train-popup">
+              <h4>🚄 ${t.id}</h4>
+              <p><strong>Speed:</strong> ${Math.floor(t.speed * 20000)} km/h</p>
+              <p><strong>Next Stop:</strong> ${t.route[t.currentSegment + 1]}</p>
+              <p><strong>Status:</strong> ${t.state}</p>
+            </div>
+          `;
+          marker.bindPopup(popupContent);
+          trainMarkers[t.id] = marker;
+        } else {
+          trainMarkers[t.id].setLatLng([t.lat, t.lng]);
+          const popup = trainMarkers[t.id].getPopup();
+          if (popup && popup.isOpen()) {
+            popup.setContent(`
+              <div class="train-popup">
+                <h4>🚄 ${t.id}</h4>
+                <p><strong>Speed:</strong> ${Math.floor(t.speed * 20000)} km/h</p>
+                <p><strong>Next Stop:</strong> ${t.route[t.currentSegment + 1]}</p>
+                <p><strong>Status:</strong> ${t.state}</p>
+              </div>
+            `);
+          }
+        }
+
+        const iconContainer = document.getElementById(`icon-${t.id}`);
+        if (iconContainer) {
+          iconContainer.style.transform = `rotate(${t.angle}deg)`;
+        }
+      });
+    }
+
+    function renderTrainList() {
+      const listEl = document.getElementById('train-list');
+      if (!listEl) return;
+      listEl.innerHTML = simulationTrains.map(t => `
+        <div class="train-item">
+          <div class="train-item-id">🚄 ${t.id}</div>
+          <div class="train-item-detail">
+            To: ${t.route[t.currentSegment + 1] || 'Arriving'}<br/>
+            Speed: ${Math.floor(t.speed * 20000)} km/h
+          </div>
+        </div>
+      `).join('');
     }
 
     /* ═══════════════ INIT ═══════════════ */
