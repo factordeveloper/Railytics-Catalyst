@@ -31,6 +31,7 @@ function generateTrainFrameSVG(filename, width = 1280, height = 720) {
   else if (filename.includes('patras')) location = 'Patras Terminal';
   else if (filename.includes('tempi')) location = 'Tempi Viaduct';
   else if (filename.includes('katerini')) location = 'Katerini Level Crossing';
+  else if (filename.includes('lamia') || filename.includes('8.mp4')) location = 'Lamia Crossing';
   else if (filename.includes('drone')) location = 'Aerial Drone Feed';
   else if (filename.includes('fpv')) location = 'Train Driver Cabin FPV';
 

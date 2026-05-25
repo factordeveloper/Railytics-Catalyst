@@ -246,64 +246,220 @@
     }
 
     /* ═══════════════ LIVE VIDEO WALL (MULTI-STREAM) ═══════════════ */
-    .video-wall-container {
+    .multi-stream-layout {
+      display: grid;
+      grid-template-columns: 1.8fr 1.2fr;
+      gap: 20px;
       margin-bottom: 30px;
     }
-
-    .video-wall-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+    
+    @media(max-width: 1200px) {
+      .multi-stream-layout {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .video-wall-card {
+    .featured-view-card {
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      border: 2px solid #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+      border: 3px solid #0D5EAF;
+      box-shadow: 0 0 20px rgba(13, 94, 175, 0.4);
       background: #000;
     }
 
-    .video-wall-card.detecting {
-      border-color: #f59e0b;
-      box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    .featured-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
     }
 
-    .video-wall-overlay {
+    .featured-overlay {
       position: absolute;
       inset: 0;
       pointer-events: none;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 10px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.7) 100%);
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.8) 100%);
     }
 
-    .video-wall-badge {
+    .featured-badge {
       align-self: flex-start;
-      background: rgba(34, 197, 94, 0.85);
+      background: rgba(13, 94, 175, 0.85);
       color: #fff;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
+      padding: 4px 10px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      box-shadow: 0 0 10px rgba(13, 94, 175, 0.6);
     }
 
-    .video-wall-card.detecting .video-wall-badge {
-      background: rgba(245, 158, 11, 0.85);
-    }
-
-    .video-wall-title {
+    .featured-meta {
       align-self: flex-end;
       color: #fff;
-      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .featured-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .featured-stats {
       font-size: 0.85rem;
+      color: #4CAF50;
+      font-weight: 600;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    .featured-controls-overlay {
+      position: absolute;
+      bottom: 72px;
+      left: 16px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+      pointer-events: all;
+    }
+
+    .featured-control-btn {
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      padding: 8px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .featured-control-btn:hover {
+      background: #0D5EAF;
+      border-color: #0D5EAF;
+      transform: scale(1.1);
+      box-shadow: 0 0 8px rgba(13, 94, 175, 0.6);
+    }
+
+    .featured-control-btn.active {
+      background: #22c55e;
+      border-color: #22c55e;
+    }
+
+    .ai-scanning-laser {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #22c55e, transparent);
+      animation: laser-scan 3s linear infinite;
+      pointer-events: none;
+      z-index: 5;
+      display: block;
+    }
+
+    @keyframes laser-scan {
+      0% { top: 0%; opacity: 0; }
+      5% { opacity: 0.8; }
+      95% { opacity: 0.8; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .side-feeds-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 4px;
+      align-content: start;
+    }
+
+    @media(max-width: 1200px) {
+      .side-feeds-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media(max-width: 768px) {
+      .side-feeds-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media(max-width: 480px) {
+      .side-feeds-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .side-feed-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.1);
+      background: #000;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .side-feed-card:hover {
+      border-color: #0D5EAF;
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(13, 94, 175, 0.3);
+    }
+
+    .side-feed-card.active-featured {
+      border-color: #0D5EAF !important;
+      box-shadow: 0 0 14px rgba(13, 94, 175, 0.6) !important;
+    }
+
+    .side-feed-card.analyzing-active {
+      border-color: rgba(34, 197, 94, 0.5);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+    }
+
+    .side-feed-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .side-feed-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 8px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 50%, rgba(0,0,0,0.6) 100%);
+    }
+
+    .side-feed-title {
+      font-size: 0.75rem;
+      color: #fff;
+      font-weight: 600;
       text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .video-wall-ai-bbox {
@@ -450,10 +606,28 @@
     }
 
     .chip.secondary {
-    background: rgb(0 164 249);
-    color: #ffffff;
-    border: 1px solid rgb(0 0 0 / 0%);
-}
+      background: rgb(0 164 249);
+      color: #ffffff;
+      border: 1px solid rgb(0 0 0 / 0%);
+    }
+
+    .chip.chip-drone {
+      background: rgba(217, 119, 6, 0.1);
+      color: #b45309;
+      border: 1px solid rgba(217, 119, 6, 0.25);
+    }
+
+    .chip.chip-fpv {
+      background: rgba(124, 58, 237, 0.1);
+      color: #6d28d9;
+      border: 1px solid rgba(124, 58, 237, 0.25);
+    }
+
+    .chip.chip-standard {
+      background: rgba(13, 94, 175, 0.1);
+      color: #0b4f93;
+      border: 1px solid rgba(13, 94, 175, 0.25);
+    }
 
     /* ═══════════════ BUTTONS ═══════════════ */
     .btn {
@@ -1751,7 +1925,7 @@
     <!-- ════ TAB 0: STREAM SELECTION ════ -->
     <div class="tab-panel active" id="tab0">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-        <h2 style="font-weight:600"></h2>
+        <h2 style="font-weight:600">Stream Selection</h2>
         <div style="display:flex;gap:8px">
           <button class="btn btn-primary btn-sm" onclick="startAllAnalysis()"><span class="material-icons"
               style="font-size:1rem">play_arrow</span> Start All</button>
@@ -2008,6 +2182,7 @@
     const API = '/server/railytics_realtime_tracker_function';
     let currentTab = 0;
     let currentViewUrl = '';
+    let featuredStreamId = null;
     let framesPage = 1;
     let selectedCalDate = new Date();
     let calMonth = new Date().getMonth();
@@ -2034,9 +2209,10 @@
       { id: 'stream-005-patras', name: 'Patras Station - Main Entrance', video_file: '5.mp4', type: 'standard', active: false, description: 'Live feed from Patras railway terminal monitoring commuter line arrivals.', youtube_metadata: { title: 'Patras Terminal Main Entrance | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 67100 } },
       { id: 'stream-006-tempi', name: 'Tempi Valley Overpass', video_file: '6.mp4', type: 'standard', active: false, description: 'High-speed passenger line monitoring at the Tempi valley railway bridge.', youtube_metadata: { title: 'Tempi Valley Railway Viaduct | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 110900 } },
       { id: 'stream-007-katerini', name: 'Katerini Bypass Line', video_file: '7.mp4', type: 'standard', active: false, description: 'Safety monitoring camera at Katerini level crossing bypass.', youtube_metadata: { title: 'Katerini Level Crossing Bypass | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 45890 } },
-      { id: 'stream-008-drone', name: 'Aerial Drone - Mountain Section', video_file: 'Drone.mp4', type: 'drone', active: true, description: 'Aerial drone patrol monitoring structural integrity of railway lines in mountainous Central Greece.', youtube_metadata: { title: 'Central Greece Mountain Drone Patrol | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 231400 } },
-      { id: 'stream-009-fpv1', name: 'Intercity Cabin 1 - FPV View', video_file: 'FPV_1.mp4', type: 'fpv', active: true, description: "Forward-facing camera in driver's cab of Intercity Hellenic Train (Athens - Thessaloniki line).", youtube_metadata: { title: 'IC-50 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 384000 } },
-      { id: 'stream-010-fpv2', name: 'Regional Express Cabin 2 - FPV View', video_file: 'FPV_2.mp4', type: 'fpv', active: false, description: "Forward-facing camera in driver's cab of regional express Hellenic Train (Larissa - Volos line).", youtube_metadata: { title: 'REG-12 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 120500 } }
+      { id: 'stream-008-lamia', name: 'Lamia Crossing - West Gates', video_file: '8.mp4', type: 'standard', active: false, description: 'Live feed monitoring the active level crossing and signaling gates at Lamia Western Junction.', youtube_metadata: { title: 'Lamia Level Crossing Junction | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 32400 } },
+      { id: 'stream-009-drone', name: 'Aerial Drone - Mountain Section', video_file: 'Drone.mp4', type: 'drone', active: true, description: 'Aerial drone patrol monitoring structural integrity of railway lines in mountainous Central Greece.', youtube_metadata: { title: 'Central Greece Mountain Drone Patrol | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 231400 } },
+      { id: 'stream-010-fpv1', name: 'Intercity Cabin 1 - FPV View', video_file: 'FPV_1.mp4', type: 'fpv', active: true, description: "Forward-facing camera in driver's cab of Intercity Hellenic Train (Athens - Thessaloniki line).", youtube_metadata: { title: 'IC-50 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 384000 } },
+      { id: 'stream-011-fpv2', name: 'Regional Express Cabin 2 - FPV View', video_file: 'FPV_2.mp4', type: 'fpv', active: false, description: "Forward-facing camera in driver's cab of regional express Hellenic Train (Larissa - Volos line).", youtube_metadata: { title: 'REG-12 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 120500 } }
     ];
 
     let simSessions = [];
@@ -2247,41 +2423,55 @@
       const sessionMap = {};
       simSessions.forEach(s => sessionMap[s.stream_id] = s);
 
-      const categories = [
-        { key: 'standard', name: 'Fixed Station Feeds', icon: 'videocam' },
-        { key: 'drone', name: 'Aerial Drone Patrol Feed', icon: 'flight_takeoff' },
-        { key: 'fpv', name: 'Driver Cabin FPV Streams', icon: 'subway' }
-      ];
+      // Define sorting order: drone first (1), fpv second (2), standard third (3)
+      const typeOrder = { 'drone': 1, 'fpv': 2, 'standard': 3 };
+      const sortedStreams = [...SIM_STREAMS].sort((a, b) => {
+        const orderA = typeOrder[a.type] || 99;
+        const orderB = typeOrder[b.type] || 99;
+        return orderA - orderB;
+      });
 
-      g.innerHTML = categories.map(cat => {
-        const streams = SIM_STREAMS.filter(s => s.type === cat.key);
-        if (!streams.length) return '';
+      const cardsHtml = sortedStreams.map(s => {
+        const analyzing = !!sessionMap[s.id];
+        const meta = s.youtube_metadata || {};
 
-        const cardsHtml = streams.map(s => {
-          const analyzing = !!sessionMap[s.id];
-          const meta = s.youtube_metadata || {};
-          return '<div class="card stream-card"><div style="position:relative; width:100%; aspect-ratio:16/9; background:#000;">' + 
-            (meta.is_live ? '<span class="live-badge"><span class="material-icons" style="font-size:.7rem">live_tv</span> LIVE</span>' : '') + 
-            '<video src="./videos/' + s.video_file + '" autoplay loop muted playsinline class="video-embed" style="width:100%; height:100%; object-fit:cover;"></video></div>' +
-            '<div class="card-content" style="flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"><h3>' + s.name + '</h3>' + 
-            '<div style="display:flex;gap:4px;flex-wrap:wrap"><span class="chip success">Active</span>' + 
-            (analyzing ? '<span class="chip warning"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Analyzing</span>' : '') + '</div></div>' + 
-            (meta.title ? '<p style="font-size:.85rem;font-weight:500;margin-bottom:4px">' + meta.title + '</p>' : '') + 
-            (meta.uploader ? '<p class="meta">Operations: ' + meta.uploader + (meta.view_count > 0 ? ' &bull; ' + meta.view_count.toLocaleString() + ' views' : '') + '</p>' : '') + 
-            '<p class="meta">' + (s.description || 'No description') + '</p></div>' +
-            '<div style="padding:0 16px 16px;display:flex;justify-content:space-between;align-items:center">' +
-            '<button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.video_file + '\',\'' + s.name.replace(/'/g, "\\'") + '\')"><span class="material-icons" style="font-size:1rem">visibility</span> Watch Stream</button>' + 
-            (analyzing ? '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">stop</span> Stop Analysis</button>' : 
-                        '<button class="btn btn-primary btn-sm" onclick="startStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">play_arrow</span> Start Analysis</button>') + 
-            '</div></div>';
-        }).join('');
+        // Determine type label, icon, and CSS class
+        let typeLabel = 'Estandar Camera';
+        let typeIcon = 'videocam';
+        let typeClass = 'chip-standard';
 
-        return '<div class="stream-category-section"><h2 class="category-header"><span class="material-icons">' + cat.icon + '</span> ' + cat.name + '</h2>' +
-          '<div class="stream-grid">' + cardsHtml + '</div></div>';
+        if (s.type === 'drone') {
+          typeLabel = 'Drone camera';
+          typeIcon = 'flight_takeoff';
+          typeClass = 'chip-drone';
+        } else if (s.type === 'fpv') {
+          typeLabel = 'FPV Camera';
+          typeIcon = 'subway';
+          typeClass = 'chip-fpv';
+        }
+
+        return '<div class="card stream-card"><div style="position:relative; width:100%; aspect-ratio:16/9; background:#000;">' + 
+          (meta.is_live ? '<span class="live-badge"><span class="material-icons" style="font-size:.7rem">live_tv</span> LIVE</span>' : '') + 
+          '<video src="./videos/' + s.video_file + '" autoplay loop muted playsinline class="video-embed" style="width:100%; height:100%; object-fit:cover;"></video></div>' +
+          '<div class="card-content" style="flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"><h3>' + s.name + '</h3>' + 
+          '<div style="display:flex;gap:4px;flex-wrap:wrap">' +
+          '<span class="chip ' + typeClass + '"><span class="material-icons" style="font-size:.7rem">' + typeIcon + '</span> ' + typeLabel + '</span>' +
+          '<span class="chip success">Active</span>' + 
+          (analyzing ? '<span class="chip warning"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Analyzing</span>' : '') + '</div></div>' + 
+          (meta.title ? '<p style="font-size:.85rem;font-weight:500;margin-bottom:4px">' + meta.title + '</p>' : '') + 
+          (meta.uploader ? '<p class="meta">Operations: ' + meta.uploader + (meta.view_count > 0 ? ' &bull; ' + meta.view_count.toLocaleString() + ' views' : '') + '</p>' : '') + 
+          '<p class="meta">' + (s.description || 'No description') + '</p></div>' +
+          '<div style="padding:0 16px 16px;display:flex;justify-content:space-between;align-items:center">' +
+          '<button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.video_file + '\',\'' + s.name.replace(/'/g, "\\'") + '\')"><span class="material-icons" style="font-size:1rem">visibility</span> Watch Stream</button>' + 
+          (analyzing ? '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">stop</span> Stop Analysis</button>' : 
+                      '<button class="btn btn-primary btn-sm" onclick="startStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">play_arrow</span> Start Analysis</button>') + 
+          '</div></div>';
       }).join('');
+
+      g.innerHTML = cardsHtml;
     }
 
-    function startStream(id) {
+    function startStream(id, skipRender = false) {
       const stream = SIM_STREAMS.find(s => s.id === id);
       if (!stream || simSessions.find(s => s.stream_id === id)) return;
       simSessions.push({
@@ -2290,18 +2480,27 @@
         detection_rate: 0, runtime_seconds: 0, start_time: new Date().toISOString()
       });
       simFramesProcessed[id] = 0; simTrainsDetected[id] = 0; simFramesDiscarded[id] = 0;
-      renderStreams();
+      if (!skipRender) {
+        renderStreams();
+        renderMultiStream(true);
+      }
     }
-    function stopStream(id) {
+    function stopStream(id, skipRender = false) {
       simSessions = simSessions.filter(s => s.stream_id !== id);
-      renderStreams();
+      if (!skipRender) {
+        renderStreams();
+        renderMultiStream(true);
+      }
     }
     function startAllAnalysis() {
-      SIM_STREAMS.forEach(s => startStream(s.id));
+      SIM_STREAMS.forEach(s => startStream(s.id, true));
+      renderStreams();
+      renderMultiStream(true);
     }
     function stopAllAnalysis() {
       simSessions = [];
       renderStreams();
+      renderMultiStream(true);
     }
 
     /* ═══════════════ VIEWER MODAL ═══════════════ */
@@ -2326,73 +2525,327 @@
     function openStreamExternal() { if (currentViewUrl) window.open(currentViewUrl, '_blank'); }
 
     /* ═══════════════ MULTI-STREAM TABLE ═══════════════ */
-    function renderMultiStream() {
-      const el = document.getElementById('multiStreamContent');
-      if (!simSessions.length) {
-        el.innerHTML = '<div class="card"><div class="card-content" style="text-align:center;padding:48px"><span class="material-icons" style="font-size:80px;color:#555">analytics</span><h3 style="color:#aaa;margin-top:12px">No Active Analysis</h3><p style="color:#777;margin-top:8px">Start an analysis from the Stream Selection tab to view real-time data.</p></div></div>';
-        return;
-      }
+    let lastActiveStreamIds = "";
+    let lastFeaturedId = "";
+    let showAIBbox = true;
 
-      // 1. Live Video Wall
-      const activeStreamsWithDetails = simSessions.map(s => {
-        const fullStream = SIM_STREAMS.find(st => st.id === s.stream_id);
+    function toggleFeaturedPlay() {
+      const v = document.getElementById('featuredVideoElement');
+      const icon = document.getElementById('icon-toggle-play');
+      if (v && icon) {
+        if (v.paused) {
+          v.play();
+          icon.textContent = 'pause';
+        } else {
+          v.pause();
+          icon.textContent = 'play_arrow';
+        }
+      }
+    }
+
+    function toggleFeaturedMute() {
+      const v = document.getElementById('featuredVideoElement');
+      const icon = document.getElementById('icon-toggle-mute');
+      const btn = document.getElementById('btn-toggle-mute');
+      if (v && icon && btn) {
+        v.muted = !v.muted;
+        if (v.muted) {
+          icon.textContent = 'volume_off';
+          btn.classList.remove('active');
+        } else {
+          icon.textContent = 'volume_up';
+          btn.classList.add('active');
+        }
+      }
+    }
+
+    function toggleFeaturedBbox() {
+      const btn = document.getElementById('btn-toggle-bbox');
+      showAIBbox = !showAIBbox;
+      const bbox = document.getElementById('featuredBbox');
+      if (btn) {
+        if (showAIBbox) {
+          btn.classList.add('active');
+          btn.querySelector('.material-icons').textContent = 'visibility';
+        } else {
+          btn.classList.remove('active');
+          btn.querySelector('.material-icons').textContent = 'visibility_off';
+          if (bbox) bbox.style.display = 'none';
+        }
+      }
+    }
+
+    function selectFeaturedStream(id) {
+      featuredStreamId = id;
+      renderMultiStream(true); // force rerender of videos
+    }
+
+    function renderMultiStream(forceRerender = false) {
+      const el = document.getElementById('multiStreamContent');
+      
+      // Map all 11 streams from SIM_STREAMS and check if they are active in simSessions
+      const allStreamsWithDetails = SIM_STREAMS.map(st => {
+        const session = simSessions.find(s => s.stream_id === st.id);
         return {
-          ...s,
-          video_file: fullStream ? fullStream.video_file : '',
-          type: fullStream ? fullStream.type : 'standard'
+          stream_id: st.id,
+          stream_name: st.name,
+          video_file: st.video_file,
+          type: st.type,
+          active: !!session,
+          frames_processed: session ? session.frames_processed : 0,
+          trains_detected: session ? session.trains_detected : 0,
+          frames_discarded: session ? session.frames_discarded : 0,
+          detection_rate: session ? session.detection_rate : 0,
+          runtime_seconds: session ? session.runtime_seconds : 0,
+          start_time: session ? session.start_time : null
         };
       });
 
-      const categories = [
-        { key: 'standard', name: 'Fixed Station Feeds', icon: 'videocam' },
-        { key: 'drone', name: 'Aerial Drone Patrol', icon: 'flight_takeoff' },
-        { key: 'fpv', name: 'Cabin FPV Feeds', icon: 'subway' }
-      ];
+      // Determine default featured stream
+      if (!featuredStreamId && allStreamsWithDetails.length > 0) {
+        featuredStreamId = allStreamsWithDetails[0].stream_id;
+      }
+      let featuredStream = allStreamsWithDetails.find(s => s.stream_id === featuredStreamId);
+      if (!featuredStream && allStreamsWithDetails.length > 0) {
+        featuredStream = allStreamsWithDetails[0];
+        featuredStreamId = featuredStream.stream_id;
+      }
 
-      let videoWallHtml = '<div class="video-wall-container"><h4 style="font-weight:700; color:#0D5EAF; margin-bottom:12px; font-size:1.1rem; display:flex; align-items:center; gap:6px;"><span class="material-icons">grid_view</span> Real-Time AI Inference Wall</h4><div class="video-wall-grid">';
-      
-      activeStreamsWithDetails.forEach(s => {
-        // Randomly simulate detections for visual overlay
-        const isDetecting = Math.random() > 0.6;
-        const detLabel = Math.random() > 0.5 ? 'Locomotive (95%)' : 'Railcar (92%)';
-        const bboxStyle = isDetecting ? 'display:block; top:' + (30 + Math.random()*30) + '%; left:' + (20 + Math.random()*35) + '%; width:' + (30 + Math.random()*20) + '%; height:' + (30 + Math.random()*20) + '%;' : 'display:none;';
-        
-        videoWallHtml += '<div class="video-wall-card ' + (isDetecting ? 'detecting' : '') + '">' +
-          '<video src="./videos/' + s.video_file + '" autoplay loop muted playsinline style="width:100%; aspect-ratio:16/9; object-fit:cover; display:block;"></video>' +
-          '<div class="video-wall-ai-bbox" style="' + bboxStyle + '"><div class="video-wall-ai-label">' + detLabel + '</div></div>' +
-          '<div class="video-wall-overlay">' +
-          '<span class="video-wall-badge"><span class="material-icons" style="font-size:.8rem; animation:pulse 1s infinite;">' + (isDetecting ? 'center_focus_strong' : 'radio_button_checked') + '</span> ' + (isDetecting ? 'DETECTION IN PROGRESS' : 'ANALYZING FEED') + '</span>' +
-          '<span class="video-wall-title">' + s.stream_name + '</span>' +
-          '</div></div>';
-      });
-      videoWallHtml += '</div></div>';
-
-      // 2. Grouped Status Table
+      const currentIds = simSessions.map(s => s.stream_id).sort().join(',');
+      const needsFullRerender = forceRerender || (currentIds !== lastActiveStreamIds) || (featuredStreamId !== lastFeaturedId);
       const fmtDur = s => { const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60; return h > 0 ? h + 'h ' + m + 'm ' + sec + 's' : m > 0 ? m + 'm ' + sec + 's' : sec + 's'; };
-      
-      let tableRowsHtml = '';
-      categories.forEach(cat => {
-        const catSessions = activeStreamsWithDetails.filter(s => s.type === cat.key);
-        if (catSessions.length > 0) {
-          // Add Category Subheader Row
-          tableRowsHtml += '<tr><td colspan="6" style="background:rgba(13,94,175,0.06); font-weight:700; color:#0D5EAF; padding:8px 12px; font-size:0.85rem;"><span class="material-icons" style="font-size:1rem; vertical-align:middle; margin-right:4px;">' + cat.icon + '</span> ' + cat.name + ' (' + catSessions.length + ')</td></tr>';
+
+      if (needsFullRerender) {
+        lastActiveStreamIds = currentIds;
+        lastFeaturedId = featuredStreamId;
+
+        // Build HTML skeleton
+        let html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h3 style="font-weight:600;display:flex;align-items:center;gap:8px;"><span class="material-icons" style="color:#0D5EAF;">grid_view</span> Multi-Stream Monitor</h3><button class="btn btn-outline btn-sm" onclick="renderMultiStream(true)">Reset Views</button></div>';
+
+        // 1. Split Layout: Left Featured, Right side feeds
+        html += '<div class="multi-stream-layout">';
+
+        // Left side: Featured Card
+        if (featuredStream) {
+          const isDetecting = featuredStream.active && (Math.random() > 0.5);
+          const detLabel = Math.random() > 0.5 ? 'Locomotive (97%)' : 'Railcar (94%)';
+          const bboxStyle = (isDetecting && showAIBbox) ? 'display:block; top:35%; left:25%; width:40%; height:45%;' : 'display:none;';
           
-          catSessions.forEach(s => {
-            tableRowsHtml += '<tr><td><strong>' + s.stream_name + '</strong><br/><span style="color:#777;font-size:.75rem">ID: ' + s.stream_id + '</span></td>' +
-              '<td><span class="chip success"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Running</span></td>' +
-              '<td><span style="display:flex;align-items:center;gap:4px"><span class="material-icons" style="font-size:1rem;color:#aaa">schedule</span>' + fmtDur(s.runtime_seconds || 0) + '</span></td>' +
-              '<td><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#0D5EAF;vertical-align:middle">analytics</span> Frames: <strong>' + (s.frames_processed || 0).toLocaleString() + '</strong></span><span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#4CAF50;vertical-align:middle">train</span> Trains: <strong>' + (s.trains_detected || 0).toLocaleString() + '</strong></span></div></td>' +
-              '<td><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="material-icons" style="font-size:1rem;color:#aaa">speed</span><strong>' + (s.detection_rate || 0) + '%</strong></div><div style="background:rgba(255,255,255,.1);height:6px;border-radius:3px;width:80px"><div style="background:' + (s.detection_rate > 20 ? '#4CAF50' : s.detection_rate > 10 ? '#f59e0b' : '#f44336') + ';height:100%;border-radius:3px;width:' + Math.min(s.detection_rate || 0, 100) + '%;transition:.5s"></div></div></td>' +
-              '<td><div style="display:flex;gap:4px"><button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.video_file + '\',\'' + s.stream_name.replace(/'/g, "\\'") + '\')" title="View Stream"><span class="material-icons" style="font-size:1rem">visibility</span></button>' +
-              '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.stream_id + '\');renderMultiStream()"><span class="material-icons" style="font-size:1rem">stop</span></button></div></td></tr>';
-          });
+          let featTypeLabel = 'Fixed Camera';
+          let featTypeIcon = 'videocam';
+          let featTypeColor = '#0D5EAF';
+          if (featuredStream.type === 'drone') {
+            featTypeLabel = 'Aerial Drone';
+            featTypeIcon = 'flight_takeoff';
+            featTypeColor = '#f59e0b';
+          } else if (featuredStream.type === 'fpv') {
+            featTypeLabel = 'Cabin FPV';
+            featTypeIcon = 'subway';
+            featTypeColor = '#8b5cf6';
+          }
+
+          html += '<div class="featured-view-container">' +
+            '<div class="featured-view-card">' +
+            '<video id="featuredVideoElement" src="./videos/' + featuredStream.video_file + '" autoplay loop muted playsinline class="featured-video"></video>' +
+            '<div id="featuredLaser" class="ai-scanning-laser" style="' + (featuredStream.active ? 'display:block' : 'display:none') + '"></div>' +
+            '<div id="featuredBbox" class="video-wall-ai-bbox" style="' + bboxStyle + '"><div class="video-wall-ai-label" id="featuredBboxLabel">' + detLabel + '</div></div>' +
+            '<div class="featured-overlay">' +
+            '<span class="featured-badge" id="featuredBadgeText" style="background:' + (featuredStream.active ? (isDetecting ? 'rgba(245, 158, 11, 0.85)' : 'rgba(34, 197, 94, 0.85)') : 'rgba(120, 120, 120, 0.85)') + '">' + 
+              (featuredStream.active ? 
+                (isDetecting ? '<span class="material-icons" style="font-size:1rem; color:#ffc107; animation:pulse 1s infinite;">center_focus_strong</span> DETECTION IN PROGRESS' : '<span class="material-icons" style="font-size:1rem; animation:pulse 1.5s infinite;">radio_button_checked</span> ANALYZING FEED') : 
+                '<span class="material-icons" style="font-size:1rem;">pause</span> FEED STANDBY') + 
+            '</span>' +
+            
+            '<div class="featured-controls-overlay">' +
+              '<button class="featured-control-btn" id="btn-toggle-play" onclick="toggleFeaturedPlay()" title="Play/Pause">' +
+                '<span class="material-icons" id="icon-toggle-play">pause</span>' +
+              '</button>' +
+              '<button class="featured-control-btn" id="btn-toggle-mute" onclick="toggleFeaturedMute()" title="Mute/Unmute">' +
+                '<span class="material-icons" id="icon-toggle-mute">volume_off</span>' +
+              '</button>' +
+              '<button class="featured-control-btn ' + (showAIBbox ? 'active' : '') + '" id="btn-toggle-bbox" onclick="toggleFeaturedBbox()" title="AI Overlay On/Off">' +
+                '<span class="material-icons">' + (showAIBbox ? 'visibility' : 'visibility_off') + '</span>' +
+              '</button>' +
+            '</div>' +
+
+            '<div class="featured-meta">' +
+            '<div>' +
+              '<div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">' +
+                '<span style="background:' + featTypeColor + '; color:#fff; font-size:0.65rem; font-weight:700; padding:2px 6px; border-radius:4px; display:inline-flex; align-items:center; gap:3px;">' +
+                  '<span class="material-icons" style="font-size:0.8rem;">' + featTypeIcon + '</span>' + featTypeLabel + 
+                '</span>' +
+              '</div>' +
+              '<div class="featured-title" id="featuredTitleText">' + featuredStream.stream_name + '</div>' +
+              '<div style="font-size:0.75rem; color:#ccc; margin-top:2px;">Hellenic Train Live Feed • Active AI Stream</div>' +
+            '</div>' +
+            '<div class="featured-stats" id="featuredStatsPanel">';
+            
+          if (featuredStream.active) {
+            html += '<div>Frames: <span id="feat-val-frames">' + featuredStream.frames_processed.toLocaleString() + '</span></div>' +
+              '<div>Detections: <span id="feat-val-trains">' + featuredStream.trains_detected.toLocaleString() + '</span> (<span id="feat-val-rate">' + featuredStream.detection_rate + '</span>%)</div>' +
+              '<div>Runtime: <span id="feat-val-runtime">' + fmtDur(featuredStream.runtime_seconds) + '</span></div>' +
+              '<button class="btn btn-error btn-sm" style="margin-top: 6px; width: 100%; justify-content:center;" onclick="stopStream(\'' + featuredStream.stream_id + '\');renderMultiStream(true);">' +
+                '<span class="material-icons" style="font-size:0.9rem">stop</span> Stop Analysis' +
+              '</button>';
+          } else {
+            html += '<div style="color:#aaa; font-style:italic; margin-bottom:6px">Analysis Standby</div>' +
+              '<button class="btn btn-primary btn-sm" style="width: 100%; justify-content:center; background:#22c55e;" onclick="startStream(\'' + featuredStream.stream_id + '\');renderMultiStream(true);">' +
+                '<span class="material-icons" style="font-size:0.9rem">play_arrow</span> Start AI Analysis' +
+              '</button>';
+          }
+          
+          html += '</div>' + // close featured-stats
+            '</div>' + // close featured-meta
+            '</div>' + // close featured-overlay
+            '</div>' + // close featured-view-card
+            '</div>'; // close featured-view-container
         }
-      });
 
-      const tableHtml = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px; margin-top:20px;"><h3 style="font-weight:600">📊 Active Stream Analysis Status</h3><button class="btn btn-outline btn-sm" onclick="renderMultiStream()">Refresh</button></div>' +
-        '<table><tr><th>Stream</th><th>Status</th><th>Runtime</th><th>Metrics</th><th>Detection Rate</th><th>Actions</th></tr>' + tableRowsHtml + '</table>';
+        // Right side: Scrollable Side Feeds
+        html += '<div class="side-feeds-container">';
+        allStreamsWithDetails.forEach(s => {
+          const isCurrentFeatured = s.stream_id === featuredStreamId;
+          const cardClass = 'side-feed-card' + 
+            (isCurrentFeatured ? ' active-featured' : '') + 
+            (s.active ? ' analyzing-active' : '');
+          const badgeClass = s.active ? 'chip success' : 'chip secondary';
+          const badgeText = s.active ? 'ANALYZING' : 'STANDBY';
+          
+          let typeLabel = 'Station';
+          let typeIcon = 'videocam';
+          let typeColor = '#0D5EAF';
+          if (s.type === 'drone') {
+            typeLabel = 'Drone';
+            typeIcon = 'flight_takeoff';
+            typeColor = '#f59e0b';
+          } else if (s.type === 'fpv') {
+            typeLabel = 'FPV';
+            typeIcon = 'subway';
+            typeColor = '#8b5cf6';
+          }
 
-      el.innerHTML = videoWallHtml + tableHtml;
+          html += '<div class="' + cardClass + '" id="side-card-' + s.stream_id + '" onclick="selectFeaturedStream(\'' + s.stream_id + '\')">' +
+            '<video src="./videos/' + s.video_file + '" autoplay loop muted playsinline class="side-feed-video"></video>' +
+            '<div class="side-feed-overlay">' +
+            '<div style="display:flex; justify-content:space-between; align-items:center; width:100%">' +
+              '<span class="' + badgeClass + '" id="side-badge-' + s.stream_id + '" style="font-size:0.55rem; padding:1px 5px;">' + badgeText + '</span>' +
+              '<span style="background:' + typeColor + '; color:#fff; font-size:0.55rem; font-weight:700; padding:1px 5px; border-radius:4px; display:inline-flex; align-items:center; gap:2px;">' +
+                '<span class="material-icons" style="font-size:0.7rem;">' + typeIcon + '</span>' + typeLabel + 
+              '</span>' +
+            '</div>' +
+            '<div class="side-feed-title" title="' + s.stream_name + '">' + s.stream_name + '</div>' +
+            '</div>' +
+            '</div>';
+        });
+        html += '</div>'; // close side-feeds-container
+        html += '</div>'; // close multi-stream-layout
+
+        // 2. Grouped Status Table
+        const categories = [
+          { key: 'standard', name: 'Fixed Station Feeds', icon: 'videocam' },
+          { key: 'drone', name: 'Aerial Drone Patrol Feed', icon: 'flight_takeoff' },
+          { key: 'fpv', name: 'Driver Cabin FPV Streams', icon: 'subway' }
+        ];
+
+        let tableRowsHtml = '';
+        categories.forEach(cat => {
+          const catStreams = allStreamsWithDetails.filter(s => s.type === cat.key);
+          if (catStreams.length > 0) {
+            tableRowsHtml += '<tr><td colspan="6" style="background:rgba(13,94,175,0.06); font-weight:700; color:#0D5EAF; padding:8px 12px; font-size:0.85rem;"><span class="material-icons" style="font-size:1rem; vertical-align:middle; margin-right:4px;">' + cat.icon + '</span> ' + cat.name + ' (' + catStreams.length + ')</td></tr>';
+            
+            catStreams.forEach(s => {
+              const statusBadge = s.active ? 
+                '<span class="chip success"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Running</span>' : 
+                '<span class="chip secondary" style="background:rgba(120,120,120,0.15); color:#777; border:1px solid rgba(120,120,120,0.3)"><span class="material-icons" style="font-size:.7rem">pause</span> Standby</span>';
+              
+              const metricsHtml = s.active ? 
+                '<span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#0D5EAF;vertical-align:middle">analytics</span> Frames: <strong id="tab-frm-' + s.stream_id + '">' + (s.frames_processed || 0).toLocaleString() + '</strong></span><br/>' +
+                '<span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#4CAF50;vertical-align:middle">train</span> Trains: <strong id="tab-trn-' + s.stream_id + '">' + (s.trains_detected || 0).toLocaleString() + '</strong></span>' :
+                '<span style="font-size:.8rem;color:#777;font-style:italic">Analysis Inactive</span>';
+                
+              const rateHtml = s.active ? 
+                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="material-icons" style="font-size:1rem;color:#aaa">speed</span><strong id="tab-rate-' + s.stream_id + '">' + (s.detection_rate || 0) + '%</strong></div>' +
+                '<div style="background:rgba(255,255,255,.1);height:6px;border-radius:3px;width:80px">' +
+                '<div id="tab-bar-' + s.stream_id + '" style="background:' + (s.detection_rate > 20 ? '#4CAF50' : s.detection_rate > 10 ? '#f59e0b' : '#f44336') + ';height:100%;border-radius:3px;width:' + Math.min(s.detection_rate || 0, 100) + '%;transition:.5s"></div></div>' :
+                '<span style="font-size:.8rem;color:#777">—</span>';
+
+              const actionButton = s.active ?
+                '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.stream_id + '\');renderMultiStream(true)" title="Stop Analysis"><span class="material-icons" style="font-size:1rem">stop</span></button>' :
+                '<button class="btn btn-primary btn-sm" onclick="startStream(\'' + s.stream_id + '\');renderMultiStream(true)" title="Start Analysis" style="background:#0D5EAF"><span class="material-icons" style="font-size:1rem">play_arrow</span></button>';
+
+              tableRowsHtml += '<tr><td><strong>' + s.stream_name + '</strong><br/><span style="color:#777;font-size:.75rem">ID: ' + s.stream_id + '</span></td>' +
+                '<td>' + statusBadge + '</td>' +
+                '<td><span id="tab-dur-' + s.stream_id + '" style="display:flex;align-items:center;gap:4px">' + (s.active ? '<span class="material-icons" style="font-size:1rem;color:#aaa">schedule</span>' + fmtDur(s.runtime_seconds || 0) : '<span style="color:#777">—</span>') + '</span></td>' +
+                '<td><div style="display:flex;flex-direction:column;gap:4px">' + metricsHtml + '</div></td>' +
+                '<td>' + rateHtml + '</td>' +
+                '<td><div style="display:flex;gap:4px"><button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.video_file + '\',\'' + s.stream_name.replace(/'/g, "\\'") + '\')" title="View Stream"><span class="material-icons" style="font-size:1rem">visibility</span></button>' +
+                actionButton + '</div></td></tr>';
+            });
+          }
+        });
+
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px; margin-top:20px;"><h3 style="font-weight:600">📊 Stream Analysis Channel Status</h3></div>' +
+          '<table><tr><th>Stream</th><th>Status</th><th>Runtime</th><th>Metrics</th><th>Detection Rate</th><th>Actions</th></tr>' + tableRowsHtml + '</table>';
+
+        el.innerHTML = html;
+      } else {
+        // Update stats only (avoids video reload glitches!)
+        if (featuredStream) {
+          const elFeatFrm = document.getElementById('feat-val-frames');
+          const elFeatTrn = document.getElementById('feat-val-trains');
+          const elFeatRate = document.getElementById('feat-val-rate');
+          const elFeatDur = document.getElementById('feat-val-runtime');
+          
+          if (featuredStream.active) {
+            if (elFeatFrm) elFeatFrm.textContent = featuredStream.frames_processed.toLocaleString();
+            if (elFeatTrn) elFeatTrn.textContent = featuredStream.trains_detected.toLocaleString();
+            if (elFeatRate) elFeatRate.textContent = featuredStream.detection_rate;
+            if (elFeatDur) elFeatDur.textContent = fmtDur(featuredStream.runtime_seconds);
+
+            // Simulate active AI bounding box changing occasionally
+            const bbox = document.getElementById('featuredBbox');
+            const badge = document.getElementById('featuredBadgeText');
+            if (bbox && badge && showAIBbox) {
+              const isDetecting = Math.random() > 0.6;
+              if (isDetecting) {
+                const detLabel = Math.random() > 0.5 ? 'Locomotive (96%)' : 'Railcar (93%)';
+                const labelEl = document.getElementById('featuredBboxLabel');
+                if (labelEl) labelEl.textContent = detLabel;
+                bbox.style.top = (30 + Math.random()*20) + '%';
+                bbox.style.left = (20 + Math.random()*30) + '%';
+                bbox.style.width = (30 + Math.random()*20) + '%';
+                bbox.style.height = (25 + Math.random()*20) + '%';
+                bbox.style.display = 'block';
+                badge.innerHTML = '<span class="material-icons" style="font-size:1rem; color:#ffc107; animation:pulse 1s infinite;">center_focus_strong</span> DETECTION IN PROGRESS';
+                badge.style.background = 'rgba(245, 158, 11, 0.85)';
+              } else {
+                bbox.style.display = 'none';
+                badge.innerHTML = '<span class="material-icons" style="font-size:1rem; animation:pulse 1.5s infinite;">radio_button_checked</span> ANALYZING FEED';
+                badge.style.background = 'rgba(34, 197, 94, 0.85)';
+              }
+            }
+          }
+        }
+
+        allStreamsWithDetails.forEach(s => {
+          if (s.active) {
+            const elDur = document.getElementById('tab-dur-' + s.stream_id);
+            const elFrm = document.getElementById('tab-frm-' + s.stream_id);
+            const elTrn = document.getElementById('tab-trn-' + s.stream_id);
+            const elRate = document.getElementById('tab-rate-' + s.stream_id);
+            const elBar = document.getElementById('tab-bar-' + s.stream_id);
+
+            if (elDur) elDur.innerHTML = '<span class="material-icons" style="font-size:1rem;color:#aaa">schedule</span>' + fmtDur(s.runtime_seconds || 0);
+            if (elFrm) elFrm.textContent = (s.frames_processed || 0).toLocaleString();
+            if (elTrn) elTrn.textContent = (s.trains_detected || 0).toLocaleString();
+            if (elRate) elRate.textContent = (s.detection_rate || 0) + '%';
+            if (elBar) {
+              elBar.style.width = Math.min(s.detection_rate || 0, 100) + '%';
+              elBar.style.background = s.detection_rate > 20 ? '#4CAF50' : s.detection_rate > 10 ? '#f59e0b' : '#f44336';
+            }
+          }
+        });
+      }
     }
 
     /* ═══════════════ ANALYTICS ═══════════════ */

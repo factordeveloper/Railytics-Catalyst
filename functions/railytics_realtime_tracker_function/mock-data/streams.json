@@ -120,7 +120,24 @@
     "updated_at": "2026-02-07T08:12:30Z"
   },
   {
-    "id": "stream-008-drone",
+    "id": "stream-008-lamia",
+    "name": "Lamia Crossing - West Gates",
+    "video_file": "8.mp4",
+    "type": "standard",
+    "description": "Live feed monitoring the active level crossing and signaling gates at Lamia Western Junction.",
+    "active": false,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "Lamia Level Crossing Junction | Hellenic Train Operations",
+      "uploader": "Hellenic Train Ops",
+      "view_count": 32400,
+      "is_live": true
+    },
+    "created_at": "2026-02-07T08:12:30Z",
+    "updated_at": "2026-02-07T08:12:30Z"
+  },
+  {
+    "id": "stream-009-drone",
     "name": "Aerial Drone - Mountain Section",
     "video_file": "Drone.mp4",
     "type": "drone",
@@ -137,7 +154,7 @@
     "updated_at": "2026-02-07T08:12:30Z"
   },
   {
-    "id": "stream-009-fpv1",
+    "id": "stream-010-fpv1",
     "name": "Intercity Cabin 1 - FPV View",
     "video_file": "FPV_1.mp4",
     "type": "fpv",
@@ -154,7 +171,7 @@
     "updated_at": "2026-02-07T08:12:30Z"
   },
   {
-    "id": "stream-010-fpv2",
+    "id": "stream-011-fpv2",
     "name": "Regional Express Cabin 2 - FPV View",
     "video_file": "FPV_2.mp4",
     "type": "fpv",
