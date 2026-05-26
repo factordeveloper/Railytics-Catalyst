@@ -17,23 +17,6 @@
     "updated_at": "2026-02-07T08:12:30Z"
   },
   {
-    "id": "stream-002-thessaloniki",
-    "name": "Thessaloniki Yard - Cargo Area",
-    "video_file": "2.mp4",
-    "type": "standard",
-    "description": "Monitoring freight assembly and cargo logistics in the Thessaloniki northern rail depot.",
-    "active": true,
-    "thumbnail": null,
-    "youtube_metadata": {
-      "title": "Thessaloniki Freight Assembly Yard | Hellenic Train Operations",
-      "uploader": "Hellenic Train Ops",
-      "view_count": 85400,
-      "is_live": true
-    },
-    "created_at": "2026-02-07T08:12:30Z",
-    "updated_at": "2026-02-07T08:12:30Z"
-  },
-  {
     "id": "stream-003-larissa",
     "name": "Larissa Junction - East Crossing",
     "video_file": "3.mp4",
@@ -122,7 +105,7 @@
   {
     "id": "stream-008-lamia",
     "name": "Lamia Crossing - West Gates",
-    "video_file": "8.mp4",
+    "video_file": "2.mp4",
     "type": "standard",
     "description": "Live feed monitoring the active level crossing and signaling gates at Lamia Western Junction.",
     "active": false,
@@ -137,9 +120,9 @@
     "updated_at": "2026-02-07T08:12:30Z"
   },
   {
-    "id": "stream-009-drone",
-    "name": "Aerial Drone - Mountain Section",
-    "video_file": "Drone.mp4",
+    "id": "stream-009-drone1",
+    "name": "Aerial Drone 1 - Mountain Section",
+    "video_file": "Drone_1.mp4",
     "type": "drone",
     "description": "Aerial drone patrol monitoring structural integrity of railway lines in mountainous Central Greece.",
     "active": true,
@@ -148,6 +131,23 @@
       "title": "Central Greece Mountain Drone Patrol | Hellenic Train Operations",
       "uploader": "Hellenic Train Ops",
       "view_count": 231400,
+      "is_live": true
+    },
+    "created_at": "2026-02-07T08:12:30Z",
+    "updated_at": "2026-02-07T08:12:30Z"
+  },
+  {
+    "id": "stream-012-drone2",
+    "name": "Aerial Drone 2 - Valley Section",
+    "video_file": "Drone_2.mp4",
+    "type": "drone",
+    "description": "Aerial drone patrol monitoring railway crossings in the valley areas.",
+    "active": false,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "Central Greece Valley Drone Patrol | Hellenic Train Operations",
+      "uploader": "Hellenic Train Ops",
+      "view_count": 154000,
       "is_live": true
     },
     "created_at": "2026-02-07T08:12:30Z",
@@ -182,6 +182,23 @@
       "title": "REG-12 Cabin Forward-Facing Feed | Hellenic Train Operations",
       "uploader": "Hellenic Train Ops",
       "view_count": 120500,
+      "is_live": true
+    },
+    "created_at": "2026-02-07T08:12:30Z",
+    "updated_at": "2026-02-07T08:12:30Z"
+  },
+  {
+    "id": "stream-013-fpv3",
+    "name": "Freight Express Cabin 3 - FPV View",
+    "video_file": "FPV_3.mp4",
+    "type": "fpv",
+    "description": "Forward-facing camera in driver's cab of freight express Hellenic Train.",
+    "active": false,
+    "thumbnail": null,
+    "youtube_metadata": {
+      "title": "FRG-08 Cabin Forward-Facing Feed | Hellenic Train Operations",
+      "uploader": "Hellenic Train Ops",
+      "view_count": 98400,
       "is_live": true
     },
     "created_at": "2026-02-07T08:12:30Z",

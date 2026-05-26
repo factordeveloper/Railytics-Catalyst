@@ -37,8 +37,8 @@
   },
   {
     "id": "evt-003",
-    "stream_id": "stream-002-thessaloniki",
-    "stream_name": "Thessaloniki Yard - Cargo Area",
+    "stream_id": "stream-003-larissa",
+    "stream_name": "Larissa Junction - East Crossing",
     "start_time": "2026-02-07T07:45:00Z",
     "end_time": "2026-02-07T07:49:30Z",
     "duration_seconds": 270,
@@ -145,8 +145,8 @@
   },
   {
     "id": "evt-009",
-    "stream_id": "stream-002-thessaloniki",
-    "stream_name": "Thessaloniki Yard - Cargo Area",
+    "stream_id": "stream-003-larissa",
+    "stream_name": "Larissa Junction - East Crossing",
     "start_time": "2026-02-07T14:20:00Z",
     "end_time": "2026-02-07T14:25:15Z",
     "duration_seconds": 315,
@@ -253,8 +253,8 @@
   },
   {
     "id": "evt-015",
-    "stream_id": "stream-002-thessaloniki",
-    "stream_name": "Thessaloniki Yard - Cargo Area",
+    "stream_id": "stream-003-larissa",
+    "stream_name": "Larissa Junction - East Crossing",
     "start_time": "2026-02-04T08:30:00Z",
     "end_time": "2026-02-04T08:35:45Z",
     "duration_seconds": 345,

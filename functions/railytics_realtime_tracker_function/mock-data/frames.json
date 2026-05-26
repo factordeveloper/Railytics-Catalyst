@@ -55,7 +55,7 @@
       "has_trains": true,
       "detection_count": 5,
       "total_serials": 3,
-      "stream_id": "stream-002-thessaloniki",
+      "stream_id": "stream-003-larissa",
       "detections": [
         {"class": 1, "confidence": 0.96, "bbox": [50, 60, 350, 450], "class_name": "Locomotive", "serials": [{"text": "OSE 7834", "cleaned_text": "OSE 7834", "confidence": 0.94, "bbox_relative": [0.08, 0.2, 0.3, 0.35]}], "serial_count": 1},
         {"class": 1, "confidence": 0.94, "bbox": [370, 70, 650, 440], "class_name": "Locomotive", "serials": [{"text": "HT 4521", "cleaned_text": "HT 4521", "confidence": 0.91, "bbox_relative": [0.32, 0.22, 0.55, 0.37]}], "serial_count": 1},
@@ -72,7 +72,7 @@
       "has_trains": true,
       "detection_count": 3,
       "total_serials": 2,
-      "stream_id": "stream-002-thessaloniki",
+      "stream_id": "stream-003-larissa",
       "detections": [
         {"class": 0, "confidence": 0.90, "bbox": [150, 85, 600, 425], "class_name": "Railcar", "serials": [{"text": "OSE 512345", "cleaned_text": "OSE 512345", "confidence": 0.72, "bbox_relative": [0.18, 0.3, 0.52, 0.42]}], "serial_count": 1},
         {"class": 0, "confidence": 0.87, "bbox": [620, 95, 1000, 410], "class_name": "Railcar", "serials": [{"text": "TRAINOSE 234561", "cleaned_text": "TRAINOSE 234561", "confidence": 0.68, "bbox_relative": [0.55, 0.32, 0.88, 0.44]}], "serial_count": 1},

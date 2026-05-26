@@ -224,7 +224,7 @@
     .stream-category-section {
       margin-bottom: 40px;
     }
-    
+
     .category-header {
       display: flex;
       align-items: center;
@@ -252,7 +252,7 @@
       gap: 20px;
       margin-bottom: 30px;
     }
-    
+
     @media(max-width: 1200px) {
       .multi-stream-layout {
         grid-template-columns: 1fr;
@@ -283,7 +283,7 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 16px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.8) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.8) 100%);
     }
 
     .featured-badge {
@@ -303,7 +303,7 @@
     .featured-meta {
       align-self: flex-end;
       color: #fff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -376,15 +376,28 @@
     }
 
     @keyframes laser-scan {
-      0% { top: 0%; opacity: 0; }
-      5% { opacity: 0.8; }
-      95% { opacity: 0.8; }
-      100% { top: 100%; opacity: 0; }
+      0% {
+        top: 0%;
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 0.8;
+      }
+
+      95% {
+        opacity: 0.8;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
     }
 
     .side-feeds-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       max-height: 600px;
       overflow-y: auto;
@@ -394,14 +407,16 @@
 
     @media(max-width: 1200px) {
       .side-feeds-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
     }
+
     @media(max-width: 768px) {
       .side-feeds-container {
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
     @media(max-width: 480px) {
       .side-feeds-container {
         grid-template-columns: 1fr;
@@ -412,7 +427,7 @@
       position: relative;
       border-radius: 8px;
       overflow: hidden;
-      border: 2px solid rgba(255,255,255,0.1);
+      border: 2px solid rgba(255, 255, 255, 0.1);
       background: #000;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -436,8 +451,8 @@
 
     .side-feed-video {
       width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       display: block;
     }
 
@@ -449,14 +464,14 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 8px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 50%, rgba(0,0,0,0.6) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
     }
 
     .side-feed-title {
       font-size: 0.75rem;
       color: #fff;
       font-weight: 600;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -1291,7 +1306,7 @@
       border-radius: 8px;
       border: 1px solid #0D5EAF;
       background: #ffffff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .events-paper::before {
@@ -1778,6 +1793,7 @@
       height: calc(100vh - 120px);
       gap: 16px;
     }
+
     #map-sidepanel {
       width: 300px;
       background: #1a1a1a;
@@ -1788,6 +1804,7 @@
       overflow: hidden;
       color: #fff;
     }
+
     #map-sidepanel .panel-header {
       padding: 16px;
       background: linear-gradient(135deg, #005b9f, #4A90E2);
@@ -1796,11 +1813,13 @@
       align-items: center;
       gap: 8px;
     }
+
     #train-list {
       flex: 1;
       overflow-y: auto;
       padding: 12px;
     }
+
     .train-item {
       background: rgba(255, 255, 255, 0.05);
       border-left: 3px solid #22c55e;
@@ -1809,19 +1828,23 @@
       border-radius: 6px;
       transition: 0.2s;
     }
+
     .train-item:hover {
       background: rgba(255, 255, 255, 0.1);
     }
+
     .train-item-id {
       font-weight: 600;
       color: #4A90E2;
       font-size: 0.9rem;
       margin-bottom: 4px;
     }
+
     .train-item-detail {
       font-size: 0.8rem;
       color: #ccc;
     }
+
     #map {
       flex: 1;
       border-radius: 12px;
@@ -1829,13 +1852,15 @@
       background: #000;
       z-index: 1;
     }
+
     /* Dark Theme filter for OSM */
-    .leaflet-layer,
+    .dark-tiles,
     .leaflet-control-zoom-in,
     .leaflet-control-zoom-out,
     .leaflet-control-attribution {
       filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
     }
+
     /* Train Icon styles */
     .train-icon-container {
       width: 24px;
@@ -1849,10 +1874,12 @@
       box-shadow: 0 0 10px #22c55e;
       transition: transform 0.1s linear;
     }
+
     .train-icon-container .material-icons {
       font-size: 14px;
       color: #fff;
     }
+
     .station-icon {
       width: 14px;
       height: 14px;
@@ -1861,6 +1888,7 @@
       border-radius: 50%;
       box-shadow: 0 0 8px #4A90E2;
     }
+
     .station-tooltip {
       background: rgba(0, 0, 0, 0.7);
       border: 1px solid #0D5EAF;
@@ -1868,23 +1896,28 @@
       font-weight: 600;
       box-shadow: none;
     }
+
     .leaflet-popup-content-wrapper {
       background: rgba(26, 26, 26, 0.95);
       color: #fff;
       border: 1px solid #0D5EAF;
       border-radius: 8px;
     }
+
     .leaflet-popup-tip {
       background: rgba(26, 26, 26, 0.95);
       border: 1px solid #0D5EAF;
     }
+
     .leaflet-popup-content {
       margin: 10px;
     }
+
     .train-popup h4 {
       margin: 0 0 6px 0;
       color: #4A90E2;
     }
+
     .train-popup p {
       margin: 2px 0;
       font-size: 0.85rem;
@@ -2171,7 +2204,10 @@
       </div>
       <div class="modal-body">
         <iframe id="viewerIframe" style="display:none;" allowfullscreen></iframe>
-        <video id="viewerVideo" controls autoplay loop playsinline style="width:100%; aspect-ratio:16/9; border-radius:8px; display:none; background:#000;"></video>
+        <video id="viewerVideo" controls autoplay loop playsinline
+          style="width:100%; aspect-ratio:16/9; border-radius:8px; display:none; background:#000;"></video>
+        <img id="viewerImage"
+          style="width:100%; border-radius:8px; display:none; background:#000; object-fit:contain; max-height:80vh;" />
       </div>
     </div>
   </div>
@@ -2203,16 +2239,17 @@
     /* ─── SIMULATED DATA ─────────────────────── */
     const SIM_STREAMS = [
       { id: 'stream-001-athens', name: 'Athens Station - Platform 1', video_file: '1.mp4', type: 'standard', active: true, description: 'Live feed monitoring Platform 1 and passenger boarding at Athens Central Railway Station.', youtube_metadata: { title: 'Athens Central Station Platform 1 | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 145020 } },
-      { id: 'stream-002-thessaloniki', name: 'Thessaloniki Yard - Cargo Area', video_file: '2.mp4', type: 'standard', active: true, description: 'Monitoring freight assembly and cargo logistics in the Thessaloniki northern rail depot.', youtube_metadata: { title: 'Thessaloniki Freight Assembly Yard | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 85400 } },
       { id: 'stream-003-larissa', name: 'Larissa Junction - East Crossing', video_file: '3.mp4', type: 'standard', active: true, description: 'Larissa railway junction crossing point and signaling status check.', youtube_metadata: { title: 'Larissa East Rail Crossing | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 92430 } },
       { id: 'stream-004-volos', name: 'Volos Harbor Line', video_file: '4.mp4', type: 'standard', active: false, description: 'Monitoring coastal railway lines and tourist services near Volos Port.', youtube_metadata: { title: 'Volos Scenic Harbor Line | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 53120 } },
       { id: 'stream-005-patras', name: 'Patras Station - Main Entrance', video_file: '5.mp4', type: 'standard', active: false, description: 'Live feed from Patras railway terminal monitoring commuter line arrivals.', youtube_metadata: { title: 'Patras Terminal Main Entrance | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 67100 } },
       { id: 'stream-006-tempi', name: 'Tempi Valley Overpass', video_file: '6.mp4', type: 'standard', active: false, description: 'High-speed passenger line monitoring at the Tempi valley railway bridge.', youtube_metadata: { title: 'Tempi Valley Railway Viaduct | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 110900 } },
       { id: 'stream-007-katerini', name: 'Katerini Bypass Line', video_file: '7.mp4', type: 'standard', active: false, description: 'Safety monitoring camera at Katerini level crossing bypass.', youtube_metadata: { title: 'Katerini Level Crossing Bypass | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 45890 } },
-      { id: 'stream-008-lamia', name: 'Lamia Crossing - West Gates', video_file: '8.mp4', type: 'standard', active: false, description: 'Live feed monitoring the active level crossing and signaling gates at Lamia Western Junction.', youtube_metadata: { title: 'Lamia Level Crossing Junction | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 32400 } },
-      { id: 'stream-009-drone', name: 'Aerial Drone - Mountain Section', video_file: 'Drone.mp4', type: 'drone', active: true, description: 'Aerial drone patrol monitoring structural integrity of railway lines in mountainous Central Greece.', youtube_metadata: { title: 'Central Greece Mountain Drone Patrol | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 231400 } },
+      { id: 'stream-008-lamia', name: 'Lamia Crossing - West Gates', video_file: '2.mp4', type: 'standard', active: false, description: 'Live feed monitoring the active level crossing and signaling gates at Lamia Western Junction.', youtube_metadata: { title: 'Lamia Level Crossing Junction | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 32400 } },
+      { id: 'stream-009-drone1', name: 'Aerial Drone 1 - Mountain Section', video_file: 'Drone_1.mp4', type: 'drone', active: true, description: 'Aerial drone patrol monitoring structural integrity of railway lines in mountainous Central Greece.', youtube_metadata: { title: 'Central Greece Mountain Drone Patrol | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 231400 } },
+      { id: 'stream-012-drone2', name: 'Aerial Drone 2 - Valley Section', video_file: 'Drone_2.mp4', type: 'drone', active: false, description: 'Aerial drone patrol monitoring railway crossings in the valley areas.', youtube_metadata: { title: 'Central Greece Valley Drone Patrol | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 154000 } },
       { id: 'stream-010-fpv1', name: 'Intercity Cabin 1 - FPV View', video_file: 'FPV_1.mp4', type: 'fpv', active: true, description: "Forward-facing camera in driver's cab of Intercity Hellenic Train (Athens - Thessaloniki line).", youtube_metadata: { title: 'IC-50 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 384000 } },
-      { id: 'stream-011-fpv2', name: 'Regional Express Cabin 2 - FPV View', video_file: 'FPV_2.mp4', type: 'fpv', active: false, description: "Forward-facing camera in driver's cab of regional express Hellenic Train (Larissa - Volos line).", youtube_metadata: { title: 'REG-12 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 120500 } }
+      { id: 'stream-011-fpv2', name: 'Regional Express Cabin 2 - FPV View', video_file: 'FPV_2.mp4', type: 'fpv', active: false, description: "Forward-facing camera in driver's cab of regional express Hellenic Train (Larissa - Volos line).", youtube_metadata: { title: 'REG-12 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 120500 } },
+      { id: 'stream-013-fpv3', name: 'Freight Express Cabin 3 - FPV View', video_file: 'FPV_3.mp4', type: 'fpv', active: false, description: "Forward-facing camera in driver's cab of freight express Hellenic Train.", youtube_metadata: { title: 'FRG-08 Cabin Forward-Facing Feed | Hellenic Train Operations', uploader: 'Hellenic Train Ops', is_live: true, view_count: 98400 } }
     ];
 
     let simSessions = [];
@@ -2279,8 +2316,25 @@
       for (let i = 0; i < 48; i++) {
         const d = new Date();
         d.setMinutes(d.getMinutes() - i * 3);
-        const hasTrain = Math.random() > 0.3;
+        const hasTrain = true; // All captured frames contain detected trains
         const randomStream = SIM_STREAMS[Math.floor(Math.random() * SIM_STREAMS.length)];
+
+        // Map images intelligently to match the stream context
+        let imageUrl = './hellenic_train_one.png';
+        if (randomStream.id.includes('athens') || randomStream.id.includes('patras')) {
+          imageUrl = './hellenic_train_two.png';
+        } else if (randomStream.id.includes('thessaloniki') || randomStream.id.includes('lamia')) {
+          imageUrl = './hellenic_train_five.png';
+        } else if (randomStream.id.includes('larissa') || randomStream.id.includes('volos') || randomStream.id.includes('katerini')) {
+          imageUrl = './hellenic_train_six.png';
+        } else if (randomStream.id.includes('tempi')) {
+          imageUrl = './hellenic_train_one.png';
+        } else if (randomStream.type === 'drone') {
+          imageUrl = './hellenic_train_three.png';
+        } else if (randomStream.type === 'fpv') {
+          imageUrl = './hellenic_train_four.png';
+        }
+
         simFrames.push({
           filename: 'frame_' + String(i + 1).padStart(4, '0') + '.jpg',
           timestamp: d.toISOString(),
@@ -2290,7 +2344,8 @@
           total_serials: hasTrain ? Math.floor(Math.random() * 3) : 0,
           detections: hasTrain ? [{ confidence: Math.random() * 0.3 + 0.7 }] : [],
           stream_id: randomStream.id,
-          stream_name: randomStream.name
+          stream_name: randomStream.name,
+          image_url: imageUrl
         });
       }
     }
@@ -2450,21 +2505,21 @@
           typeClass = 'chip-fpv';
         }
 
-        return '<div class="card stream-card"><div style="position:relative; width:100%; aspect-ratio:16/9; background:#000;">' + 
-          (meta.is_live ? '<span class="live-badge"><span class="material-icons" style="font-size:.7rem">live_tv</span> LIVE</span>' : '') + 
+        return '<div class="card stream-card"><div style="position:relative; width:100%; aspect-ratio:16/9; background:#000;">' +
+          (meta.is_live ? '<span class="live-badge"><span class="material-icons" style="font-size:.7rem">live_tv</span> LIVE</span>' : '') +
           '<video src="./videos/' + s.video_file + '" autoplay loop muted playsinline class="video-embed" style="width:100%; height:100%; object-fit:cover;"></video></div>' +
-          '<div class="card-content" style="flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"><h3>' + s.name + '</h3>' + 
+          '<div class="card-content" style="flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px"><h3>' + s.name + '</h3>' +
           '<div style="display:flex;gap:4px;flex-wrap:wrap">' +
           '<span class="chip ' + typeClass + '"><span class="material-icons" style="font-size:.7rem">' + typeIcon + '</span> ' + typeLabel + '</span>' +
-          '<span class="chip success">Active</span>' + 
-          (analyzing ? '<span class="chip warning"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Analyzing</span>' : '') + '</div></div>' + 
-          (meta.title ? '<p style="font-size:.85rem;font-weight:500;margin-bottom:4px">' + meta.title + '</p>' : '') + 
-          (meta.uploader ? '<p class="meta">Operations: ' + meta.uploader + (meta.view_count > 0 ? ' &bull; ' + meta.view_count.toLocaleString() + ' views' : '') + '</p>' : '') + 
+          '<span class="chip success">Active</span>' +
+          (analyzing ? '<span class="chip warning"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Analyzing</span>' : '') + '</div></div>' +
+          (meta.title ? '<p style="font-size:.85rem;font-weight:500;margin-bottom:4px">' + meta.title + '</p>' : '') +
+          (meta.uploader ? '<p class="meta">Operations: ' + meta.uploader + (meta.view_count > 0 ? ' &bull; ' + meta.view_count.toLocaleString() + ' views' : '') + '</p>' : '') +
           '<p class="meta">' + (s.description || 'No description') + '</p></div>' +
           '<div style="padding:0 16px 16px;display:flex;justify-content:space-between;align-items:center">' +
-          '<button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.video_file + '\',\'' + s.name.replace(/'/g, "\\'") + '\')"><span class="material-icons" style="font-size:1rem">visibility</span> Watch Stream</button>' + 
-          (analyzing ? '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">stop</span> Stop Analysis</button>' : 
-                      '<button class="btn btn-primary btn-sm" onclick="startStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">play_arrow</span> Start Analysis</button>') + 
+          '<button class="btn btn-outline btn-sm" onclick="openViewer(\'' + s.video_file + '\',\'' + s.name.replace(/'/g, "\\'") + '\')"><span class="material-icons" style="font-size:1rem">visibility</span> Watch Stream</button>' +
+          (analyzing ? '<button class="btn btn-error btn-sm" onclick="stopStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">stop</span> Stop Analysis</button>' :
+            '<button class="btn btn-primary btn-sm" onclick="startStream(\'' + s.id + '\')"><span class="material-icons" style="font-size:1rem">play_arrow</span> Start Analysis</button>') +
           '</div></div>';
       }).join('');
 
@@ -2509,17 +2564,38 @@
       document.getElementById('viewerTitle').textContent = name;
       const iframe = document.getElementById('viewerIframe');
       const video = document.getElementById('viewerVideo');
+      const img = document.getElementById('viewerImage');
       iframe.style.display = 'none';
+      if (img) img.style.display = 'none';
       video.style.display = 'block';
       video.src = currentViewUrl;
       video.load();
       video.play();
       document.getElementById('viewerModal').classList.add('open');
     }
+    function openImageViewer(imgSrc, name) {
+      currentViewUrl = imgSrc;
+      document.getElementById('viewerTitle').textContent = name;
+      const iframe = document.getElementById('viewerIframe');
+      const video = document.getElementById('viewerVideo');
+      const img = document.getElementById('viewerImage');
+      iframe.style.display = 'none';
+      video.style.display = 'none';
+      if (img) {
+        img.style.display = 'block';
+        img.src = imgSrc;
+      }
+      document.getElementById('viewerModal').classList.add('open');
+    }
     function closeViewer() {
       const video = document.getElementById('viewerVideo');
       video.pause();
       video.src = '';
+      const img = document.getElementById('viewerImage');
+      if (img) {
+        img.src = '';
+        img.style.display = 'none';
+      }
       document.getElementById('viewerModal').classList.remove('open');
     }
     function openStreamExternal() { if (currentViewUrl) window.open(currentViewUrl, '_blank'); }
@@ -2582,7 +2658,7 @@
 
     function renderMultiStream(forceRerender = false) {
       const el = document.getElementById('multiStreamContent');
-      
+
       // Map all 11 streams from SIM_STREAMS and check if they are active in simSessions
       const allStreamsWithDetails = SIM_STREAMS.map(st => {
         const session = simSessions.find(s => s.stream_id === st.id);
@@ -2630,7 +2706,7 @@
           const isDetecting = featuredStream.active && (Math.random() > 0.5);
           const detLabel = Math.random() > 0.5 ? 'Locomotive (97%)' : 'Railcar (94%)';
           const bboxStyle = (isDetecting && showAIBbox) ? 'display:block; top:35%; left:25%; width:40%; height:45%;' : 'display:none;';
-          
+
           let featTypeLabel = 'Fixed Camera';
           let featTypeIcon = 'videocam';
           let featTypeColor = '#0D5EAF';
@@ -2650,50 +2726,50 @@
             '<div id="featuredLaser" class="ai-scanning-laser" style="' + (featuredStream.active ? 'display:block' : 'display:none') + '"></div>' +
             '<div id="featuredBbox" class="video-wall-ai-bbox" style="' + bboxStyle + '"><div class="video-wall-ai-label" id="featuredBboxLabel">' + detLabel + '</div></div>' +
             '<div class="featured-overlay">' +
-            '<span class="featured-badge" id="featuredBadgeText" style="background:' + (featuredStream.active ? (isDetecting ? 'rgba(245, 158, 11, 0.85)' : 'rgba(34, 197, 94, 0.85)') : 'rgba(120, 120, 120, 0.85)') + '">' + 
-              (featuredStream.active ? 
-                (isDetecting ? '<span class="material-icons" style="font-size:1rem; color:#ffc107; animation:pulse 1s infinite;">center_focus_strong</span> DETECTION IN PROGRESS' : '<span class="material-icons" style="font-size:1rem; animation:pulse 1.5s infinite;">radio_button_checked</span> ANALYZING FEED') : 
-                '<span class="material-icons" style="font-size:1rem;">pause</span> FEED STANDBY') + 
+            '<span class="featured-badge" id="featuredBadgeText" style="background:' + (featuredStream.active ? (isDetecting ? 'rgba(245, 158, 11, 0.85)' : 'rgba(34, 197, 94, 0.85)') : 'rgba(120, 120, 120, 0.85)') + '">' +
+            (featuredStream.active ?
+              (isDetecting ? '<span class="material-icons" style="font-size:1rem; color:#ffc107; animation:pulse 1s infinite;">center_focus_strong</span> DETECTION IN PROGRESS' : '<span class="material-icons" style="font-size:1rem; animation:pulse 1.5s infinite;">radio_button_checked</span> ANALYZING FEED') :
+              '<span class="material-icons" style="font-size:1rem;">pause</span> FEED STANDBY') +
             '</span>' +
-            
+
             '<div class="featured-controls-overlay">' +
-              '<button class="featured-control-btn" id="btn-toggle-play" onclick="toggleFeaturedPlay()" title="Play/Pause">' +
-                '<span class="material-icons" id="icon-toggle-play">pause</span>' +
-              '</button>' +
-              '<button class="featured-control-btn" id="btn-toggle-mute" onclick="toggleFeaturedMute()" title="Mute/Unmute">' +
-                '<span class="material-icons" id="icon-toggle-mute">volume_off</span>' +
-              '</button>' +
-              '<button class="featured-control-btn ' + (showAIBbox ? 'active' : '') + '" id="btn-toggle-bbox" onclick="toggleFeaturedBbox()" title="AI Overlay On/Off">' +
-                '<span class="material-icons">' + (showAIBbox ? 'visibility' : 'visibility_off') + '</span>' +
-              '</button>' +
+            '<button class="featured-control-btn" id="btn-toggle-play" onclick="toggleFeaturedPlay()" title="Play/Pause">' +
+            '<span class="material-icons" id="icon-toggle-play">pause</span>' +
+            '</button>' +
+            '<button class="featured-control-btn" id="btn-toggle-mute" onclick="toggleFeaturedMute()" title="Mute/Unmute">' +
+            '<span class="material-icons" id="icon-toggle-mute">volume_off</span>' +
+            '</button>' +
+            '<button class="featured-control-btn ' + (showAIBbox ? 'active' : '') + '" id="btn-toggle-bbox" onclick="toggleFeaturedBbox()" title="AI Overlay On/Off">' +
+            '<span class="material-icons">' + (showAIBbox ? 'visibility' : 'visibility_off') + '</span>' +
+            '</button>' +
             '</div>' +
 
             '<div class="featured-meta">' +
             '<div>' +
-              '<div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">' +
-                '<span style="background:' + featTypeColor + '; color:#fff; font-size:0.65rem; font-weight:700; padding:2px 6px; border-radius:4px; display:inline-flex; align-items:center; gap:3px;">' +
-                  '<span class="material-icons" style="font-size:0.8rem;">' + featTypeIcon + '</span>' + featTypeLabel + 
-                '</span>' +
-              '</div>' +
-              '<div class="featured-title" id="featuredTitleText">' + featuredStream.stream_name + '</div>' +
-              '<div style="font-size:0.75rem; color:#ccc; margin-top:2px;">Hellenic Train Live Feed • Active AI Stream</div>' +
+            '<div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">' +
+            '<span style="background:' + featTypeColor + '; color:#fff; font-size:0.65rem; font-weight:700; padding:2px 6px; border-radius:4px; display:inline-flex; align-items:center; gap:3px;">' +
+            '<span class="material-icons" style="font-size:0.8rem;">' + featTypeIcon + '</span>' + featTypeLabel +
+            '</span>' +
+            '</div>' +
+            '<div class="featured-title" id="featuredTitleText">' + featuredStream.stream_name + '</div>' +
+            '<div style="font-size:0.75rem; color:#ccc; margin-top:2px;">Hellenic Train Live Feed • Active AI Stream</div>' +
             '</div>' +
             '<div class="featured-stats" id="featuredStatsPanel">';
-            
+
           if (featuredStream.active) {
             html += '<div>Frames: <span id="feat-val-frames">' + featuredStream.frames_processed.toLocaleString() + '</span></div>' +
               '<div>Detections: <span id="feat-val-trains">' + featuredStream.trains_detected.toLocaleString() + '</span> (<span id="feat-val-rate">' + featuredStream.detection_rate + '</span>%)</div>' +
               '<div>Runtime: <span id="feat-val-runtime">' + fmtDur(featuredStream.runtime_seconds) + '</span></div>' +
               '<button class="btn btn-error btn-sm" style="margin-top: 6px; width: 100%; justify-content:center;" onclick="stopStream(\'' + featuredStream.stream_id + '\');renderMultiStream(true);">' +
-                '<span class="material-icons" style="font-size:0.9rem">stop</span> Stop Analysis' +
+              '<span class="material-icons" style="font-size:0.9rem">stop</span> Stop Analysis' +
               '</button>';
           } else {
             html += '<div style="color:#aaa; font-style:italic; margin-bottom:6px">Analysis Standby</div>' +
               '<button class="btn btn-primary btn-sm" style="width: 100%; justify-content:center; background:#22c55e;" onclick="startStream(\'' + featuredStream.stream_id + '\');renderMultiStream(true);">' +
-                '<span class="material-icons" style="font-size:0.9rem">play_arrow</span> Start AI Analysis' +
+              '<span class="material-icons" style="font-size:0.9rem">play_arrow</span> Start AI Analysis' +
               '</button>';
           }
-          
+
           html += '</div>' + // close featured-stats
             '</div>' + // close featured-meta
             '</div>' + // close featured-overlay
@@ -2705,12 +2781,12 @@
         html += '<div class="side-feeds-container">';
         allStreamsWithDetails.forEach(s => {
           const isCurrentFeatured = s.stream_id === featuredStreamId;
-          const cardClass = 'side-feed-card' + 
-            (isCurrentFeatured ? ' active-featured' : '') + 
+          const cardClass = 'side-feed-card' +
+            (isCurrentFeatured ? ' active-featured' : '') +
             (s.active ? ' analyzing-active' : '');
           const badgeClass = s.active ? 'chip success' : 'chip secondary';
           const badgeText = s.active ? 'ANALYZING' : 'STANDBY';
-          
+
           let typeLabel = 'Station';
           let typeIcon = 'videocam';
           let typeColor = '#0D5EAF';
@@ -2728,10 +2804,10 @@
             '<video src="./videos/' + s.video_file + '" autoplay loop muted playsinline class="side-feed-video"></video>' +
             '<div class="side-feed-overlay">' +
             '<div style="display:flex; justify-content:space-between; align-items:center; width:100%">' +
-              '<span class="' + badgeClass + '" id="side-badge-' + s.stream_id + '" style="font-size:0.55rem; padding:1px 5px;">' + badgeText + '</span>' +
-              '<span style="background:' + typeColor + '; color:#fff; font-size:0.55rem; font-weight:700; padding:1px 5px; border-radius:4px; display:inline-flex; align-items:center; gap:2px;">' +
-                '<span class="material-icons" style="font-size:0.7rem;">' + typeIcon + '</span>' + typeLabel + 
-              '</span>' +
+            '<span class="' + badgeClass + '" id="side-badge-' + s.stream_id + '" style="font-size:0.55rem; padding:1px 5px;">' + badgeText + '</span>' +
+            '<span style="background:' + typeColor + '; color:#fff; font-size:0.55rem; font-weight:700; padding:1px 5px; border-radius:4px; display:inline-flex; align-items:center; gap:2px;">' +
+            '<span class="material-icons" style="font-size:0.7rem;">' + typeIcon + '</span>' + typeLabel +
+            '</span>' +
             '</div>' +
             '<div class="side-feed-title" title="' + s.stream_name + '">' + s.stream_name + '</div>' +
             '</div>' +
@@ -2752,18 +2828,18 @@
           const catStreams = allStreamsWithDetails.filter(s => s.type === cat.key);
           if (catStreams.length > 0) {
             tableRowsHtml += '<tr><td colspan="6" style="background:rgba(13,94,175,0.06); font-weight:700; color:#0D5EAF; padding:8px 12px; font-size:0.85rem;"><span class="material-icons" style="font-size:1rem; vertical-align:middle; margin-right:4px;">' + cat.icon + '</span> ' + cat.name + ' (' + catStreams.length + ')</td></tr>';
-            
+
             catStreams.forEach(s => {
-              const statusBadge = s.active ? 
-                '<span class="chip success"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Running</span>' : 
+              const statusBadge = s.active ?
+                '<span class="chip success"><span class="material-icons" style="font-size:.7rem">play_arrow</span> Running</span>' :
                 '<span class="chip secondary" style="background:rgba(120,120,120,0.15); color:#777; border:1px solid rgba(120,120,120,0.3)"><span class="material-icons" style="font-size:.7rem">pause</span> Standby</span>';
-              
-              const metricsHtml = s.active ? 
+
+              const metricsHtml = s.active ?
                 '<span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#0D5EAF;vertical-align:middle">analytics</span> Frames: <strong id="tab-frm-' + s.stream_id + '">' + (s.frames_processed || 0).toLocaleString() + '</strong></span><br/>' +
                 '<span style="font-size:.8rem;color:#aaa"><span class="material-icons" style="font-size:.8rem;color:#4CAF50;vertical-align:middle">train</span> Trains: <strong id="tab-trn-' + s.stream_id + '">' + (s.trains_detected || 0).toLocaleString() + '</strong></span>' :
                 '<span style="font-size:.8rem;color:#777;font-style:italic">Analysis Inactive</span>';
-                
-              const rateHtml = s.active ? 
+
+              const rateHtml = s.active ?
                 '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="material-icons" style="font-size:1rem;color:#aaa">speed</span><strong id="tab-rate-' + s.stream_id + '">' + (s.detection_rate || 0) + '%</strong></div>' +
                 '<div style="background:rgba(255,255,255,.1);height:6px;border-radius:3px;width:80px">' +
                 '<div id="tab-bar-' + s.stream_id + '" style="background:' + (s.detection_rate > 20 ? '#4CAF50' : s.detection_rate > 10 ? '#f59e0b' : '#f44336') + ';height:100%;border-radius:3px;width:' + Math.min(s.detection_rate || 0, 100) + '%;transition:.5s"></div></div>' :
@@ -2795,7 +2871,7 @@
           const elFeatTrn = document.getElementById('feat-val-trains');
           const elFeatRate = document.getElementById('feat-val-rate');
           const elFeatDur = document.getElementById('feat-val-runtime');
-          
+
           if (featuredStream.active) {
             if (elFeatFrm) elFeatFrm.textContent = featuredStream.frames_processed.toLocaleString();
             if (elFeatTrn) elFeatTrn.textContent = featuredStream.trains_detected.toLocaleString();
@@ -2811,10 +2887,10 @@
                 const detLabel = Math.random() > 0.5 ? 'Locomotive (96%)' : 'Railcar (93%)';
                 const labelEl = document.getElementById('featuredBboxLabel');
                 if (labelEl) labelEl.textContent = detLabel;
-                bbox.style.top = (30 + Math.random()*20) + '%';
-                bbox.style.left = (20 + Math.random()*30) + '%';
-                bbox.style.width = (30 + Math.random()*20) + '%';
-                bbox.style.height = (25 + Math.random()*20) + '%';
+                bbox.style.top = (30 + Math.random() * 20) + '%';
+                bbox.style.left = (20 + Math.random() * 30) + '%';
+                bbox.style.width = (30 + Math.random() * 20) + '%';
+                bbox.style.height = (25 + Math.random() * 20) + '%';
                 bbox.style.display = 'block';
                 badge.innerHTML = '<span class="material-icons" style="font-size:1rem; color:#ffc107; animation:pulse 1s infinite;">center_focus_strong</span> DETECTION IN PROGRESS';
                 badge.style.background = 'rgba(245, 158, 11, 0.85)';
@@ -3157,7 +3233,7 @@
       const el = document.getElementById('systemHealthWidget');
       if (!el) return;
       const totalSessions = simSessions.length;
-      const maxSessions = 10;
+      const maxSessions = SIM_STREAMS.length;
       const activePercent = (totalSessions / maxSessions) * 100;
       const avgRate = simSessions.length > 0 ? simSessions.reduce((a, s) => a + s.detection_rate, 0) / simSessions.length : 0;
       const uptime = Math.max(...simSessions.map(s => s.runtime_seconds || 0), 0);
@@ -3401,8 +3477,11 @@
         const hasTrain = f.has_trains || f.detection_count > 0;
         const dets = f.detections || [];
         const avgConf = dets.length ? (dets.reduce((a, d) => a + d.confidence, 0) / dets.length * 100).toFixed(1) : 0;
-        // Use placeholder image
-        return '<div class="card frame-card"><div style="width:100%;height:200px;background:linear-gradient(135deg,#1a1a1a,#2a2a0a);display:flex;align-items:center;justify-content:center;border-radius:15px 15px 0 0"><span class="material-icons" style="font-size:48px;color:' + (hasTrain ? '#0D5EAF' : '#555') + '">' + (hasTrain ? 'train' : 'photo_camera') + '</span></div><div class="frame-info"><p style="font-size:.75rem;color:#aaa;margin-bottom:4px">' + date + '</p><p style="font-size:.8rem;color:#aaa;margin-bottom:6px">' + kb + ' KB</p><span class="chip ' + (hasTrain ? 'success' : 'error') + '">' + (hasTrain ? (f.detection_count || 1) + ' Railcar' : 'No Railcars') + '</span>' + (hasTrain && f.total_serials ? '<span class="chip primary" style="margin-left:4px">' + f.total_serials + ' Marks</span>' : '') + (hasTrain && avgConf > 0 ? '<p style="font-size:.75rem;color:#aaa;margin-top:6px">Avg confidence: ' + avgConf + '%</p>' : '') + '</div></div>';
+
+        // Show actual captured train frame and make it clickable
+        const displayName = f.stream_name ? f.stream_name.replace(/'/g, "\\'") : 'Captured Frame';
+        const imgSrc = f.image_url || './hellenic_train_one.png';
+        return '<div class="card frame-card" onclick="openImageViewer(\'' + imgSrc + '\', \'' + displayName + '\')" style="cursor: pointer;"><img src="' + imgSrc + '" alt="Captured Hellenic Train Frame" /><div class="frame-info"><p style="font-size:.75rem;color:#aaa;margin-bottom:4px">' + date + '</p><p style="font-size:.8rem;color:#aaa;margin-bottom:6px">' + kb + ' KB</p><span class="chip ' + (hasTrain ? 'success' : 'error') + '">' + (hasTrain ? (f.detection_count || 1) + ' Railcar' : 'No Railcars') + '</span>' + (hasTrain && f.total_serials ? '<span class="chip primary" style="margin-left:4px">' + f.total_serials + ' Marks</span>' : '') + (hasTrain && avgConf > 0 ? '<p style="font-size:.75rem;color:#aaa;margin-top:6px">Avg confidence: ' + avgConf + '%</p>' : '') + '</div></div>';
       }).join('');
 
       // Pagination
@@ -3432,25 +3511,90 @@
       'Patras': { lat: 38.2462, lng: 21.7351 }
     };
 
-    const CONNECTIONS = [
-      ['Athens', 'Patras'],
-      ['Athens', 'Larissa'],
-      ['Larissa', 'Volos'],
-      ['Larissa', 'Thessaloniki']
-    ];
+    const PATHS = {
+      'Athens-Patras': [
+        { lat: 37.9922, lng: 23.7212 },
+        { lat: 38.015, lng: 23.535 },
+        { lat: 37.995, lng: 23.342 },
+        { lat: 37.925, lng: 23.005 },
+        { lat: 37.942, lng: 22.930 },
+        { lat: 38.012, lng: 22.750 },
+        { lat: 38.065, lng: 22.628 },
+        { lat: 38.163, lng: 22.378 },
+        { lat: 38.251, lng: 22.082 },
+        { lat: 38.305, lng: 21.848 },
+        { lat: 38.2462, lng: 21.7351 }
+      ],
+      'Athens-Larissa': [
+        { lat: 37.9922, lng: 23.7212 },
+        { lat: 38.093, lng: 23.785 },
+        { lat: 38.252, lng: 23.635 },
+        { lat: 38.324, lng: 23.322 },
+        { lat: 38.448, lng: 22.865 },
+        { lat: 38.530, lng: 22.650 },
+        { lat: 38.790, lng: 22.460 },
+        { lat: 38.893, lng: 22.360 },
+        { lat: 39.125, lng: 22.302 },
+        { lat: 39.435, lng: 22.285 },
+        { lat: 39.6369, lng: 22.4176 }
+      ],
+      'Larissa-Volos': [
+        { lat: 39.6369, lng: 22.4176 },
+        { lat: 39.482, lng: 22.688 },
+        { lat: 39.385, lng: 22.752 },
+        { lat: 39.3621, lng: 22.9421 }
+      ],
+      'Larissa-Thessaloniki': [
+        { lat: 39.6369, lng: 22.4176 },
+        { lat: 39.875, lng: 22.578 },
+        { lat: 39.995, lng: 22.625 },
+        { lat: 40.015, lng: 22.568 },
+        { lat: 40.165, lng: 22.562 },
+        { lat: 40.272, lng: 22.510 },
+        { lat: 40.535, lng: 22.585 },
+        { lat: 40.640, lng: 22.532 },
+        { lat: 40.655, lng: 22.695 },
+        { lat: 40.6436, lng: 22.9309 }
+      ]
+    };
+
+    function getSegmentPath(from, to) {
+      let key = `${from}-${to}`;
+      if (PATHS[key]) return PATHS[key];
+      key = `${to}-${from}`;
+      if (PATHS[key]) return [...PATHS[key]].reverse();
+      return [STATIONS[from], STATIONS[to]];
+    }
 
     function initMap() {
       if (mapInitialized) return;
-      greceMap = L.map('map').setView([39.0742, 21.8243], 6);
+      greceMap = L.map('map').setView([39.0742, 22.3], 7);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      const osmDark = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        className: 'dark-tiles'
+      });
+
+      const osmStandard = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(greceMap);
+      });
 
-      CONNECTIONS.forEach(pair => {
-        const p1 = STATIONS[pair[0]];
-        const p2 = STATIONS[pair[1]];
-        L.polyline([[p1.lat, p1.lng], [p2.lat, p2.lng]], {
+      const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+      });
+
+      const baseMaps = {
+        "Mapa Oscuro": osmDark,
+        "Mapa Estándar": osmStandard,
+        "Satélite": satellite
+      };
+
+      osmDark.addTo(greceMap);
+      L.control.layers(baseMaps).addTo(greceMap);
+
+      Object.values(PATHS).forEach(pathCoords => {
+        const latlngs = pathCoords.map(c => [c.lat, c.lng]);
+        L.polyline(latlngs, {
           color: '#0D5EAF', weight: 4, opacity: 0.7, dashArray: '5, 10'
         }).addTo(greceMap);
       });
@@ -3502,7 +3646,7 @@
       simulationTrains.forEach(t => {
         const start = STATIONS[t.route[t.currentSegment]];
         const end = STATIONS[t.route[t.currentSegment + 1]];
-        
+
         if (!end) {
           t.route.reverse();
           t.currentSegment = 0;
@@ -3516,20 +3660,26 @@
           t.progress = 0;
           t.currentSegment++;
           if (t.currentSegment >= t.route.length - 1) {
-             t.route.reverse();
-             t.currentSegment = 0;
+            t.route.reverse();
+            t.currentSegment = 0;
           }
         }
 
-        const nextStart = STATIONS[t.route[t.currentSegment]];
-        const nextEnd = STATIONS[t.route[t.currentSegment + 1]];
+        const path = getSegmentPath(t.route[t.currentSegment], t.route[t.currentSegment + 1]);
+        const numSubSegments = path.length - 1;
+        const scaledProgress = t.progress * numSubSegments;
+        const subIndex = Math.floor(scaledProgress);
+        const subProgress = scaledProgress - subIndex;
 
-        t.lat = nextStart.lat + (nextEnd.lat - nextStart.lat) * t.progress;
-        t.lng = nextStart.lng + (nextEnd.lng - nextStart.lng) * t.progress;
+        const pStart = path[subIndex];
+        const pEnd = path[subIndex + 1] || path[subIndex];
 
-        const dy = nextEnd.lat - nextStart.lat;
-        const dx = nextEnd.lng - nextStart.lng;
-        t.angle = Math.atan2(dx, dy) * (180 / Math.PI); 
+        t.lat = pStart.lat + (pEnd.lat - pStart.lat) * subProgress;
+        t.lng = pStart.lng + (pEnd.lng - pStart.lng) * subProgress;
+
+        const dy = pEnd.lat - pStart.lat;
+        const dx = pEnd.lng - pStart.lng;
+        t.angle = Math.atan2(dx, dy) * (180 / Math.PI);
       });
 
       renderTrains();
